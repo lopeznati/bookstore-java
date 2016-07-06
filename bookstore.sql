@@ -7,13 +7,19 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
+DROP DATABASE IF EXISTS `bookstore`;
+
 CREATE DATABASE `bookstore`
     CHARACTER SET 'latin1'
     COLLATE 'latin1_swedish_ci';
 
+USE `bookstore`;
+
 #
 # Structure for the `autores` table : 
 #
+
+DROP TABLE IF EXISTS `autores`;
 
 CREATE TABLE `autores` (
   `id` int(11) NOT NULL auto_increment,
@@ -26,6 +32,8 @@ CREATE TABLE `autores` (
 # Structure for the `categorias` table : 
 #
 
+DROP TABLE IF EXISTS `categorias`;
+
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL auto_increment,
   `descripcion` varchar(20) default NULL,
@@ -35,6 +43,8 @@ CREATE TABLE `categorias` (
 #
 # Structure for the `localidades` table : 
 #
+
+DROP TABLE IF EXISTS `localidades`;
 
 CREATE TABLE `localidades` (
   `id` int(11) NOT NULL auto_increment,
@@ -46,6 +56,8 @@ CREATE TABLE `localidades` (
 #
 # Structure for the `clientes` table : 
 #
+
+DROP TABLE IF EXISTS `clientes`;
 
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL auto_increment,
@@ -67,6 +79,8 @@ CREATE TABLE `clientes` (
 # Structure for the `editoriales` table : 
 #
 
+DROP TABLE IF EXISTS `editoriales`;
+
 CREATE TABLE `editoriales` (
   `id` int(11) NOT NULL auto_increment,
   `nombre` varchar(20) default NULL,
@@ -76,6 +90,8 @@ CREATE TABLE `editoriales` (
 #
 # Structure for the `libros` table : 
 #
+
+DROP TABLE IF EXISTS `libros`;
 
 CREATE TABLE `libros` (
   `id` int(11) NOT NULL auto_increment,
@@ -103,6 +119,8 @@ CREATE TABLE `libros` (
 # Structure for the `tipos_tarrjetas` table : 
 #
 
+DROP TABLE IF EXISTS `tipos_tarrjetas`;
+
 CREATE TABLE `tipos_tarrjetas` (
   `id` int(11) NOT NULL auto_increment,
   `nombre` varchar(20) default NULL,
@@ -112,6 +130,8 @@ CREATE TABLE `tipos_tarrjetas` (
 #
 # Structure for the `tarjetas` table : 
 #
+
+DROP TABLE IF EXISTS `tarjetas`;
 
 CREATE TABLE `tarjetas` (
   `id` int(11) NOT NULL auto_increment,
@@ -128,6 +148,8 @@ CREATE TABLE `tarjetas` (
 # Structure for the `pedidos` table : 
 #
 
+DROP TABLE IF EXISTS `pedidos`;
+
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL auto_increment,
   `fecha_pedido` date default NULL,
@@ -141,9 +163,9 @@ CREATE TABLE `pedidos` (
   KEY `id_tarjeta` (`id_tarjeta`),
   KEY `id_libro` (`id_libro`),
   KEY `id_cliente` (`id_cliente`),
-  CONSTRAINT `pedidos_fk2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`),
   CONSTRAINT `pedidos_fk` FOREIGN KEY (`id_tarjeta`) REFERENCES `tarjetas` (`id`),
-  CONSTRAINT `pedidos_fk1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`)
+  CONSTRAINT `pedidos_fk1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`),
+  CONSTRAINT `pedidos_fk2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
