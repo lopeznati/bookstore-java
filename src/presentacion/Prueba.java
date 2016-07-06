@@ -22,6 +22,7 @@ public class Prueba {
 		l=cl.getAllLibros();
 		for (Libro libros : l) {
 			System.out.println(libros.getIsbn());
+			System.out.println(libros.getTitulo());
 			
 		}
 
