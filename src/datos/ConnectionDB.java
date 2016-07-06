@@ -15,7 +15,7 @@ public class ConnectionDB {
 		return instancia;
 	}
 	// DATOS USER
-	private static String DBURL="jdbc:mysql://localhost:3307/LibroDB";
+	private static String DBURL="jdbc:mysql://localhost:3306/bookstore";
 	private static String DBUSER="root";
 	private static String DBPASSWORD="";
 	
