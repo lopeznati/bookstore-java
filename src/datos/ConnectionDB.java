@@ -4,7 +4,11 @@ import java.sql.Connection; //para crear la conexion
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
+
 public class ConnectionDB {
+	//HOLAAAAAA
+	
 	//creamos una variable de la instancia de la DB
 	private static ConnectionDB instancia;
 	//metodo para obtener la unica instancia
