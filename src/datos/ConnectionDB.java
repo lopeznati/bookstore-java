@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 public class ConnectionDB {
-	//HOLAAAAAA
+	//HOLA NATI
 	
 	//creamos una variable de la instancia de la DB
 	private static ConnectionDB instancia;

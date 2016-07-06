@@ -1,2 +1,2 @@
 *.jar
-/ConnectionDB.java
+datos/ConnectionDB.java
