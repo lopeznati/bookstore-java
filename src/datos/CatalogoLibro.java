@@ -35,6 +35,7 @@ public class CatalogoLibro {
 				l.setNumero_edicion(rs.getInt("numero_edicion"));
 				l.setPrecio(rs.getDouble("precio"));
 				l.setTitulo(rs.getString("titulo"));
+				
 				//agregar categoria, editorial y  autor
 				
 				
