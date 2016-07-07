@@ -3,9 +3,12 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 
-import entidades.Libro;
-import datos.ConnectionDB;
 
+
+import entidades.Autor;
+import entidades.Libro;
+import datos.CatalogoAutor;
+import datos.ConnectionDB;
 import negocio.ControladorLibro;
 
 
@@ -23,6 +26,13 @@ public class Prueba {
 		for (Libro libros : l) {
 			System.out.println(libros.getIsbn());
 			System.out.println(libros.getTitulo());
+			System.out.println(libros.getCategoria().getDescripcion());
+			System.out.println(libros.getEditorial().getNombre());
+			System.out.println(libros.getAutor().getId());
+			//CatalogoAutor ca=new CatalogoAutor();
+			//System.out.println(ca.getOneAutor(1).getNombre());
+			
+	
 			
 		}
 

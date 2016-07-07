@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import entidades.*;
 
 public class CatalogoLibro {
@@ -37,6 +38,14 @@ public class CatalogoLibro {
 				l.setTitulo(rs.getString("titulo"));
 				
 				//agregar categoria, editorial y  autor
+				
+				Categoria c=new CatalogoCategoria().getOneCategoria(rs.getInt("id_categoria"));
+				l.setCategoria(c);
+				Editorial e=new CatalogoEditorial().getOneEditorial(rs.getInt("id_editorial"));
+				l.setEditorial(e);
+				Autor a=new CatalogoAutor().getOneAutor(rs.getInt("id_autor"));
+				l.setAutor(a);
+
 				
 				
 				

@@ -1,6 +1,7 @@
 package datos;
 import entidades.Autor;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -43,5 +44,31 @@ public class CatalogoAutor {
 			}
 		}
 		return autores;
+	}
+	
+	public  Autor getOneAutor(int id) {
+		PreparedStatement sentencia=null;
+		ResultSet rs=null;
+		Autor a=null;
+		String sql="select * from autores where id=?";
+		try {
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
+			sentencia.setInt(1, id);
+			rs=sentencia.executeQuery();
+			
+			if(rs.next()){
+				a=new Autor();
+				a.setId(rs.getInt("id"));
+				a.setNombre(rs.getString("nombre"));
+				a.setApellido(rs.getString("apellido"));
+
+				
+			}
+			
+		} catch (SQLException e2) {
+			e2.printStackTrace();
+		}
+		
+		return a;
 	}
 }

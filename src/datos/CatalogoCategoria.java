@@ -1,4 +1,5 @@
 package datos;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,6 +43,31 @@ public class CatalogoCategoria {
 		}
 	}
 	return categorias;
+	}
+	
+	public Categoria getOneCategoria(int id) {
+		PreparedStatement sentencia=null;
+		ResultSet rs=null;
+		Categoria c=null;
+		String sql="select * from Categorias where id=?";
+		try {
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
+			sentencia.setInt(1, id);
+			rs=sentencia.executeQuery();
+			
+			if(rs.next()){
+				c=new Categoria();
+				c.setId(rs.getInt("id"));
+				c.setDescripcion(rs.getString("descripcion"));
+				
+			}
+			
+		} catch (SQLException e2) {
+			e2.printStackTrace();
+		}
+		
+		return c;
+		
 	}
 }
 
