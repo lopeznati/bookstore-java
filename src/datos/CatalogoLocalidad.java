@@ -10,6 +10,9 @@ import entidades.Localidad;
 public class CatalogoLocalidad {
 	
 	
+	//falta getAll()
+	
+	
 	public  Localidad getOneLocalidad(int id) {
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;

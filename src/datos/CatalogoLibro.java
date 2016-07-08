@@ -37,8 +37,7 @@ public class CatalogoLibro {
 				l.setPrecio(rs.getDouble("precio"));
 				l.setTitulo(rs.getString("titulo"));
 				
-				//agregar categoria, editorial y  autor
-				
+				//relaciones
 				Categoria c=new CatalogoCategoria().getOneCategoria(rs.getInt("id_categoria"));
 				l.setCategoria(c);
 				Editorial e=new CatalogoEditorial().getOneEditorial(rs.getInt("id_editorial"));
@@ -116,5 +115,116 @@ public class CatalogoLibro {
 			
 		return l;
 	}
+	
+	
+	public void AltaLibro(Libro l){
+		//preparo la sentencia sql
+		//El PreparedStatement nos permite definir una sentencia SQL base
+		PreparedStatement sentencia=null;
+		//con el Resulset  creamos una consulta que nos va a regresar datos
+		ResultSet rs=null;
+		//consulta sql
+		String sql="insert into Libros(isbn,titulo,sipnosis,numero_edicion,cantidad_paginas,precio,existencia,foto,id_editorial,id_categoria,id_autor) values(?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+			
+			//abro la conexion a la base de datos
+			//Una vez establecida la conexión, podemos crear el PreparedStatement llamando al método prepareStatement() de la Connection.
+			//es importante guardar este PreparedStatement en algún sitio al que podamos acceder cuando lo necesitemos
+			
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+			//primero debemos darle valor a los parámetros que dejamos como interrogantes
+			sentencia.setInt(1, l.getIsbn());
+			sentencia.setString(2, l.getTitulo());
+			sentencia.setString(3, l.getSinopsis());
+			sentencia.setInt(4, l.getNumero_edicion());
+			sentencia.setInt(5, l.getCantidad_paginas());
+			sentencia.setDouble(6, l.getPrecio());
+			sentencia.setInt(7, l.getExistencia());
+			sentencia.setString(8, l.getFoto());
+			sentencia.setInt(9, l.getEditorial().getId());
+			sentencia.setInt(10, l.getCategoria().getId());
+			sentencia.setInt(11, l.getAutor().getId());
+			
+			//ejecutamos la sentencia
+			sentencia.execute();
+			// Se obtiene la clave generada ya que es autoincremntar
+			//ResultSet sólo tendrá una fila (el bucle while sólo se ejecutará una vez)
+			rs=sentencia.getGeneratedKeys();
+		
+			if(rs!=null && rs.next()){
+				l.setId(rs.getInt(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		//bloque que si o si se ejecuta comprueba la conexion para cerrarla
+		finally{
+			try {
+				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
+				ConnectionDB.getInstancia().CloseConn();
+				
+			} catch (SQLException sqle) {
+				sqle.printStackTrace();
+			}
+			
+		}
+	}
+	
+	public void BajaLibro(Libro l){
+		PreparedStatement sentencia=null;
+		String sql="delete from Libros where id=?";
+		try {
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
+			sentencia.setInt(1, l.getId());
+			sentencia.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
+				ConnectionDB.getInstancia().CloseConn();
+				
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
+	
+	public void ActualizarLibro(Libro nuevolib) {
+		PreparedStatement sentencia=null;
+		String sql="update Libros set isbn=?, titulo=?, sipnosis=?, numero_edicion=?, cantidad_paginas=?, precio=?, existencia=?, id_editorial=?, id_categoria=?, id_autor=? where id=?";
+		try {
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
+			//System.out.println(nuevolib.getIsbn());
+			sentencia.setInt(1, nuevolib.getIsbn());
+			sentencia.setString(2, nuevolib.getTitulo());
+			sentencia.setString(3, nuevolib.getSinopsis());
+			sentencia.setInt(4, nuevolib.getNumero_edicion());
+			sentencia.setInt(5, nuevolib.getCantidad_paginas());
+			sentencia.setDouble(6, nuevolib.getPrecio());
+			sentencia.setInt(7, nuevolib.getExistencia());
+			sentencia.setInt(8, nuevolib.getEditorial().getId());
+			sentencia.setInt(9, nuevolib.getCategoria().getId());
+			sentencia.setInt(10, nuevolib.getAutor().getId());
+			sentencia.setInt(11, nuevolib.getId());
+			sentencia.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		finally{
+			try {
+				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
+				ConnectionDB.getInstancia().CloseConn();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+		}
 	
 }

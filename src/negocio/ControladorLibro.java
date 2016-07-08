@@ -19,5 +19,18 @@ private CatalogoCategoria cc;
 		return cl.getOneLibro(idlibro);
 	}
 	
+	public void altaLibro(Libro l) {
+		cl.AltaLibro(l);
+	}
+	
+	public void bajaLibro(Libro l) {
+		cl.BajaLibro(l);
+	}
+	
+	public void ActualizarLibro(Libro nuevolib) {
+		cl.ActualizarLibro(nuevolib);
+	}
+	
+	
 
 }
