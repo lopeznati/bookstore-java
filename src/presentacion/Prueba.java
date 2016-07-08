@@ -28,13 +28,18 @@ public class Prueba {
 			System.out.println(libros.getTitulo());
 			System.out.println(libros.getCategoria().getDescripcion());
 			System.out.println(libros.getEditorial().getNombre());
-			System.out.println(libros.getAutor().getId());
+			System.out.println(libros.getAutor().getNombre());
 			//CatalogoAutor ca=new CatalogoAutor();
 			//System.out.println(ca.getOneAutor(1).getNombre());
 			
 	
 			
 		}
+		
+		Libro li=cl.getOneLibro(1);
+		
+		System.out.println(li.getCantidad_paginas());
+		System.out.println(li.getAutor().getNombre());
 
 	}
 

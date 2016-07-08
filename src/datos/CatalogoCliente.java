@@ -1,5 +1,12 @@
 package datos;
+import entidades.Autor;
+import entidades.Categoria;
 import entidades.Cliente;
+import entidades.Editorial;
+import entidades.Libro;
+import entidades.Localidad;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,8 +36,8 @@ public class CatalogoCliente {
 				e.setTelefono(rs.getString("telefono"));
 				e.setRol(rs.getString("rol"));
 				
-				
-				//Agregar localidad que es clave forranea
+				Localidad l=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
+				e.setLocalidad(l);
 				
 				clientes.add(e);
 			}
@@ -52,6 +59,52 @@ public class CatalogoCliente {
 			}
 		}
 		return clientes;
+	}
+	
+	public Cliente getOneLibro(int id){
+		PreparedStatement sentencia=null;
+		ResultSet rs=null;
+		Cliente c=null;
+		String sql="select * from clientes where id=?";
+		try {
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
+			sentencia.setInt(1, id);
+			rs=sentencia.executeQuery();
+			if(rs.next()){
+			c=new Cliente();
+			c.setId(rs.getInt("id"));
+			
+			c.setUsuario(rs.getString("usuario"));
+			c.setClave(rs.getString("clave"));
+			c.setNombre(rs.getString("nombre"));
+			c.setApellido(rs.getString("apellido"));
+			c.setTelefono(rs.getString("telefono"));
+			c.setMail(rs.getString("mail"));
+			c.setRol(rs.getString("rol"));
+			c.setNombre(rs.getString("nombre"));
+			c.setFoto(rs.getString("foto"));
+			
+			
+			Localidad l=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
+			c.setLocalidad(l);
+			
+			
+			}
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		finally{
+			try {
+				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
+				ConnectionDB.getInstancia().CloseConn();
+				
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+			
+		return c;
 	}
 
 }

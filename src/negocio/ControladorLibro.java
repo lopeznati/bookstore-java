@@ -15,5 +15,9 @@ private CatalogoCategoria cc;
 		return cl.getAllLibros();
 	}
 	
+	public Libro getOneLibro(int idlibro) {
+		return cl.getOneLibro(idlibro);
+	}
+	
 
 }

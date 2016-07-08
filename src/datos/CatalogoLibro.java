@@ -70,5 +70,51 @@ public class CatalogoLibro {
 		
 		return libros;
 	}
-
+	
+	public Libro getOneLibro(int idlibro){
+		PreparedStatement sentencia=null;
+		ResultSet rs=null;
+		Libro l=null;
+		String sql="select * from Libros where id=?";
+		try {
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
+			sentencia.setInt(1, idlibro);
+			rs=sentencia.executeQuery();
+			if(rs.next()){
+			l=new Libro();
+			l.setId(rs.getInt("id"));
+			l.setIsbn(rs.getInt("isbn"));
+			l.setTitulo(rs.getString("titulo"));
+			l.setSinopsis(rs.getString("sipnosis"));
+			l.setNumero_edicion(rs.getInt("numero_edicion"));
+			l.setCantidad_paginas(rs.getInt("cantidad_paginas"));
+			l.setExistencia(rs.getInt("existencia"));
+			l.setPrecio(rs.getDouble("precio"));
+			l.setFoto(rs.getString("foto"));
+			
+			Categoria c=new CatalogoCategoria().getOneCategoria(rs.getInt("id_categoria"));
+			l.setCategoria(c);
+			Editorial e=new CatalogoEditorial().getOneEditorial(rs.getInt("id_editorial"));
+			l.setEditorial(e);
+			Autor a=new CatalogoAutor().getOneAutor(rs.getInt("id_autor"));
+			l.setAutor(a);
+			
+			}
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		finally{
+			try {
+				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
+				ConnectionDB.getInstancia().CloseConn();
+				
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+			
+		return l;
+	}
+	
 }
