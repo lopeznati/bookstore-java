@@ -5,11 +5,12 @@ import datos.*;
 
 public class ControladorLibro {
 private CatalogoLibro cl;
+
 private CatalogoCategoria cc;
 	
 	public ControladorLibro(){
-	cl = new CatalogoLibro();
-	cc=new CatalogoCategoria();
+		cl = new CatalogoLibro();
+		cc = new CatalogoCategoria();
 	}
 	public ArrayList<Libro> getAllLibros() {
 		return cl.getAllLibros();
