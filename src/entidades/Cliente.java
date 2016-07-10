@@ -11,6 +11,7 @@ public class Cliente {
 	private String rol;
 	private String foto;
 	private Localidad localidad;
+	
 	public int getId() {
 		return id;
 	}
