@@ -127,7 +127,7 @@ DROP TABLE IF EXISTS `provincias`;
 
 CREATE TABLE `provincias` (
   `id` int(11) NOT NULL auto_increment,
-  `nombre_provincia` varchar(45) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -173,7 +173,7 @@ CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL auto_increment,
   `fecha_pedido` date default NULL,
   `cantidad_libro` int(11) default NULL,
-  `domicilio` varchar(50) default NULL,
+  `direccion` varchar(50) default NULL,
   `subtotal` double(15,3) default NULL,
   `id_tarjeta` int(11) default NULL,
   `id_libro` int(11) default NULL,
@@ -182,8 +182,8 @@ CREATE TABLE `pedidos` (
   KEY `id_tarjeta` (`id_tarjeta`),
   KEY `id_cliente` (`id_cliente`),
   KEY `id_libro` (`id_libro`),
-  CONSTRAINT `pedidos_fk1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`),
   CONSTRAINT `pedidos_fk` FOREIGN KEY (`id_tarjeta`) REFERENCES `tarjetas` (`id`),
+  CONSTRAINT `pedidos_fk1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`),
   CONSTRAINT `pedidos_fk2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -255,7 +255,7 @@ COMMIT;
 # Data for the `provincias` table  (LIMIT 0,500)
 #
 
-INSERT INTO `provincias` (`id`, `nombre_provincia`) VALUES 
+INSERT INTO `provincias` (`id`, `nombre`) VALUES 
   (1,'Santa Fe'),
   (2,'Buenos Aires'),
   (3,'Tucuman'),
@@ -306,7 +306,7 @@ COMMIT;
 # Data for the `pedidos` table  (LIMIT 0,500)
 #
 
-INSERT INTO `pedidos` (`id`, `fecha_pedido`, `cantidad_libro`, `domicilio`, `subtotal`, `id_tarjeta`, `id_libro`, `id_cliente`) VALUES 
+INSERT INTO `pedidos` (`id`, `fecha_pedido`, `cantidad_libro`, `direccion`, `subtotal`, `id_tarjeta`, `id_libro`, `id_cliente`) VALUES 
   (1,'2016-05-20',2,'Rosario',100,1,1,1);
 
 COMMIT;
