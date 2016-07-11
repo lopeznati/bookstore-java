@@ -21,7 +21,7 @@ public class Prueba {
 			System.err.println("holaa");
 		}*/
 		ControladorLibro cl=new ControladorLibro();
-		ArrayList<Libro>l=new ArrayList<>();
+		ArrayList<Libro> l=new ArrayList<>();
 		l=cl.getAllLibros();
 		for (Libro libros : l) {
 			System.out.println(libros.getIsbn());

@@ -20,21 +20,15 @@
   	</div>
   	<div class="row">
   		<div class="col-md-4"></div>
+  	
   		
-    	<%ControladorLibro catLibro = new ControladorLibro();
-			ArrayList<Libro> libros = catLibro.getAllLibros();
+    	<%  
+	     ArrayList<Libro> l = new ControladorLibro().getAllLibros();
+			
 		
-		for (int i=0;i<libros.size();i++){
-   				out.println("<div class='col-md-3'>");
-   				out.println("<img src="+"'"+libros.get(i).getFoto()+"'"+"/>");
-   				//+libros.get(i).getTitulo());
-   				out.println("</div>");
-   				if(i%3 == 0){
-	   				out.println("<div class='row'>");
-   				}
-			}
-			out.println("</div>");
 		%>
+		<%=l.get(1).getCantidad_paginas() %>
+	
 			
 </div>
   	

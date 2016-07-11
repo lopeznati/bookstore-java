@@ -28,6 +28,7 @@ public class CatalogoTarjeta {
 				t.setNumero_tarjeta(rs.getString("numero_tarjeta"));
 				t.setTitular(rs.getString("titular"));
 				
+				
 				Tipo_Tarjeta tt = new CatalogoTipoTarjeta().getOneTipoTarjeta(rs.getInt("id_tipo_tarjeta"));
 				t.setTipo_tarjeta(tt);
 				
