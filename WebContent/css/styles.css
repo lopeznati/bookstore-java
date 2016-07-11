@@ -9,7 +9,7 @@
 }
 
 img {
-	width: 150px;
+	width: 200px;
 	height: auto;
 }
 
@@ -27,7 +27,7 @@ hr{
 
 /*==============HOVER EFFECT==================*/
 .hovereffect {
-  width: 150px;
+  width: 200px;
   height: auto;
   float: left;
   overflow: hidden;
@@ -38,7 +38,7 @@ hr{
 }
 
 .hovereffect .overlay {
-   width: 150px;
+   width: 200px;
   height: auto;
   position: absolute;
   overflow: hidden;
@@ -93,7 +93,7 @@ hr{
   opacity: 0;
   filter: alpha(opacity=0);
   color: #fff;
-  text-transform: uppercase;
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 .hovereffect:hover a.info, .hovereffect:hover h2 {

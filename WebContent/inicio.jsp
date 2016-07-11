@@ -13,7 +13,7 @@
 <link href="css/styles.css" rel="stylesheet">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+<link href='https://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -42,7 +42,7 @@
  	</div>
  	
   	<div class="row">
-  		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  		<div class="col-lg-3 col-md-8 col-sm-6 col-xs-12">
   		
   			<ul>
   			<%ArrayList<Libro> libros = new ControladorLibro().getAllLibros();
@@ -50,8 +50,8 @@
  				for (Libro l: libros){
  				if(cont%3 == 0){%>
  				
- 				<li class="hovereffect">
- 					<img class="img-responsive" src="<%=l.getFoto()%>"/>
+ 				<li class="hovereffect acomodarse">
+ 					<img class="img-responsive " src="<%=l.getFoto()%>"/>
  					<div class="overlay">
            				<h2><%=l.getTitulo()%><br>$<%=l.getPrecio()%></h2>
            				<a class="info" href="#">Detalles</a>
