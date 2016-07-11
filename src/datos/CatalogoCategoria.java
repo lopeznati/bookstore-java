@@ -4,12 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import entidades.Autor;
 import entidades.Categoria;
 
 public class CatalogoCategoria {
-	
+
+//GETALL
 	public ArrayList<Categoria> getAllCategorias(){
 	ArrayList<Categoria> categorias = new ArrayList<>();
 	Statement sentencia = null;
@@ -45,7 +44,8 @@ public class CatalogoCategoria {
 	}
 	return categorias;
 	}
-	
+
+//GETONE
 	public Categoria getOneCategoria(int id) {
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;

@@ -1,18 +1,13 @@
 package entidades;
 
 public class Libro {
-	private int id;
-	private int isbn;
-	private String titulo;
-	private String sinopsis;
-	private int numero_edicion;
-	private int cantidad_paginas;
+	private int id,isbn,numero_edicion,cantidad_paginas, existencia;
+	private String titulo,sinopsis,foto;	
 	private double precio;
-	private int existencia;
-	private String foto;
 	private Editorial editorial;
 	private Categoria categoria;
 	private Autor autor;
+	
 	public int getId() {
 		return id;
 	}

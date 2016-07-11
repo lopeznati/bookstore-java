@@ -1,14 +1,12 @@
 package datos;
 
 import entidades.*;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import entidades.*;
 
 public class CatalogoLibro {
 	public ArrayList<Libro> getAllLibros(){
@@ -44,11 +42,6 @@ public class CatalogoLibro {
 				l.setEditorial(e);
 				Autor a=new CatalogoAutor().getOneAutor(rs.getInt("id_autor"));
 				l.setAutor(a);
-
-				
-				
-				
-				
 				libros.add(l);
 			}
 		} catch (SQLException e) {

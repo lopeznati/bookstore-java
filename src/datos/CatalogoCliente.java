@@ -1,9 +1,5 @@
 package datos;
-import entidades.Autor;
-import entidades.Categoria;
 import entidades.Cliente;
-import entidades.Editorial;
-import entidades.Libro;
 import entidades.Localidad;
 
 import java.sql.PreparedStatement;
@@ -30,10 +26,12 @@ public class CatalogoCliente {
 				e.setId(rs.getInt("id"));
 				e.setNombre(rs.getString("nombre"));
 				e.setApellido(rs.getString("apellido"));
+				e.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
 				e.setUsuario(rs.getString("usuario"));
 				e.setClave(rs.getString("clave"));
 				e.setMail(rs.getString("mail"));
 				e.setTelefono(rs.getString("telefono"));
+				e.setDireccion(rs.getString("direccion"));
 				e.setRol(rs.getString("rol"));
 				
 				Localidad l=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
@@ -73,21 +71,19 @@ public class CatalogoCliente {
 			if(rs.next()){
 			c=new Cliente();
 			c.setId(rs.getInt("id"));
-			
 			c.setUsuario(rs.getString("usuario"));
 			c.setClave(rs.getString("clave"));
 			c.setNombre(rs.getString("nombre"));
 			c.setApellido(rs.getString("apellido"));
+			c.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
 			c.setTelefono(rs.getString("telefono"));
 			c.setMail(rs.getString("mail"));
+			c.setDireccion(rs.getString("direccion"));
 			c.setRol(rs.getString("rol"));
-			c.setNombre(rs.getString("nombre"));
 			c.setFoto(rs.getString("foto"));
-			
 			
 			Localidad l=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
 			c.setLocalidad(l);
-			
 			
 			}
 			
