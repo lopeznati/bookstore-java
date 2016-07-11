@@ -1,6 +1,8 @@
 package negocio;
 import datos.CatalogoCategoria;
 import entidades.Categoria;
+import entidades.Editorial;
+
 import java.util.ArrayList;
 
 public class ControladorCategoria {
@@ -15,6 +17,10 @@ public class ControladorCategoria {
 	public ArrayList<Categoria> getAllCategorias()
 	{
 		return cc.getAllCategorias();
+	}
+	
+	public Categoria getOneCategoria(int id) {
+		return cc.getOneCategoria(id);
 	}
 }
 

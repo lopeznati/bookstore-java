@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 /datos
 /entidades
 /negocio
 /presentacion
+=======
+/DiagramaDeClases.ucls
+/DiagramaDeClases.jpg
+/datos
+/entidades
+/servlet
+>>>>>>> 5dfd38560ab3ca792c997382da1a4f52126b9d09

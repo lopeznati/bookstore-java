@@ -15,7 +15,7 @@ public class CatalogoEditorial {
 		
 		Statement sentencia = null;
 		ResultSet rs = null;
-		String sql = "sentencia * from Editoriales";
+		String sql = "select * from editoriales";
 		try
 		{
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();

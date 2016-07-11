@@ -2,7 +2,7 @@ package entidades;
 
 public class Libro {
 	private int id,isbn,numero_edicion,cantidad_paginas, existencia;
-	private String titulo,sinopsis,foto;	
+	private String titulo,sipnosis,foto;	
 	private double precio;
 	private Editorial editorial;
 	private Categoria categoria;
@@ -26,11 +26,11 @@ public class Libro {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public String getSinopsis() {
-		return sinopsis;
+	public String getSipnosis() {
+		return sipnosis;
 	}
-	public void setSinopsis(String sinopsis) {
-		this.sinopsis = sinopsis;
+	public void setSipnosis(String sinopsis) {
+		this.sipnosis = sinopsis;
 	}
 	public int getNumero_edicion() {
 		return numero_edicion;
@@ -80,5 +80,30 @@ public class Libro {
 	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
+	
+	public Libro(){
+		
+	}
+	public Libro(int isbn, String titulo, 
+			String sipnosis, int cantPag, int numEdicion, double precio,
+			int existencia, Editorial e, Categoria c, Autor a, String foto) {
+		
+		this.isbn=isbn;
+		this.titulo=titulo;
+		this.sipnosis=sipnosis;
+		this.cantidad_paginas=cantPag;
+		this.numero_edicion=numEdicion;
+		this.precio=precio;
+		this.existencia=existencia;
+		this.editorial=e;
+		this.categoria=c;
+		this.autor=a;
+		this.foto=foto;
+		
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 
 }

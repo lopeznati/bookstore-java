@@ -35,6 +35,7 @@ public class CatalogoLibro {
 				l.setPrecio(rs.getDouble("precio"));
 				l.setTitulo(rs.getString("titulo"));
 				l.setFoto(rs.getString("foto"));
+				l.setSipnosis(rs.getString("sipnosis"));
 				
 				//relaciones
 				Categoria c=new CatalogoCategoria().getOneCategoria(rs.getInt("id_categoria"));
@@ -78,12 +79,13 @@ public class CatalogoLibro {
 			l.setId(rs.getInt("id"));
 			l.setIsbn(rs.getInt("isbn"));
 			l.setTitulo(rs.getString("titulo"));
-			l.setSinopsis(rs.getString("sipnosis"));
+			l.setSipnosis(rs.getString("sipnosis"));
 			l.setNumero_edicion(rs.getInt("numero_edicion"));
 			l.setCantidad_paginas(rs.getInt("cantidad_paginas"));
 			l.setExistencia(rs.getInt("existencia"));
 			l.setPrecio(rs.getDouble("precio"));
 			l.setFoto(rs.getString("foto"));
+			l.setSipnosis(rs.getString("sipnosis"));
 			
 			Categoria c=new CatalogoCategoria().getOneCategoria(rs.getInt("id_categoria"));
 			l.setCategoria(c);
@@ -129,7 +131,7 @@ public class CatalogoLibro {
 			//primero debemos darle valor a los parámetros que dejamos como interrogantes
 			sentencia.setInt(1, l.getIsbn());
 			sentencia.setString(2, l.getTitulo());
-			sentencia.setString(3, l.getSinopsis());
+			sentencia.setString(3, l.getSipnosis());
 			sentencia.setInt(4, l.getNumero_edicion());
 			sentencia.setInt(5, l.getCantidad_paginas());
 			sentencia.setDouble(6, l.getPrecio());
@@ -197,7 +199,7 @@ public class CatalogoLibro {
 			//System.out.println(nuevolib.getIsbn());
 			sentencia.setInt(1, nuevolib.getIsbn());
 			sentencia.setString(2, nuevolib.getTitulo());
-			sentencia.setString(3, nuevolib.getSinopsis());
+			sentencia.setString(3, nuevolib.getSipnosis());
 			sentencia.setInt(4, nuevolib.getNumero_edicion());
 			sentencia.setInt(5, nuevolib.getCantidad_paginas());
 			sentencia.setDouble(6, nuevolib.getPrecio());
