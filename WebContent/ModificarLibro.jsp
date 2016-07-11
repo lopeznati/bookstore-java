@@ -1,3 +1,5 @@
+<%@page import="negocio.ControladorLibro"%>
+<%@page import="entidades.Libro"%>
 <%@page import="negocio.ControladorAutor"%>
 <%@page import="entidades.Autor"%>
 <%@page import="negocio.ControladorCategoria"%>
@@ -12,13 +14,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+</head>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
-</head>
 <body>
+
+<%Libro libro=new ControladorLibro().getOneLibro(Integer.parseInt(request.getParameter("idMod"))); %>
+
 
 <div class="row">
 	    <div class="col-xs-12" align="center">
@@ -27,44 +33,49 @@
 	    </div>
 	   </div>
 
- <form action="AltaLibro" method="POST" >
+ <form action="ModificarLibro" method="POST" >
 		  <table class="table table-striped">
-             
+		  
+              <tr>
+                  
+                  <td><input type="hidden" name="id" value="<%=libro.getId() %>" required></td>
+                </tr>
+               
                 <tr>
                   <td>ISBN</td>
-                  <td><input type="text" name="isbn" required></td>
+                  <td><input type="text" name="isbn" value="<%=libro.getIsbn() %>" required></td>
                 </tr>
 				
 				<tr>
                   <td>Titulo</td>
-                  <td><input type="text" name="titulo" required></td>
+                  <td><input type="text" name="titulo" value="<%=libro.getTitulo() %>" required></td>
                 </tr>
 				
 				<tr>
                   <td>Sipnosis</td>
-                  <td><textarea rows="8" cols="50" name="sipnosis" required></textarea></td>
+                  <td><textarea rows="8" cols="50" name="sipnosis"  required><%=libro.getSipnosis() %></textarea></td>
                 </tr>
 				
 				
 				
 				<tr>
                   <td>Cantidad de Paginas</td>
-                  <td><input type="text" name="cpaginas" required></td>
+                  <td><input type="text" name="cpaginas" value="<%=libro.getCantidad_paginas()%>" required></td>
                 </tr>
 				
 				<tr>
                   <td>Numero Edicion</td>
-                  <td><input type="text" name="nedicion" required></td>
+                  <td><input type="text" name="nedicion" value="<%=libro.getNumero_edicion() %>" required></td>
                 </tr>
 				
 				<tr>
                   <td>Precio</td>
-                  <td><input type="text" name="precio" required></td>
+                  <td><input type="text" name="precio" value="<%=libro.getPrecio() %>" required></td>
                 </tr>
 				
 				<tr>
                   <td>Existencia</td>
-                  <td><input type="text" name="nexistencia" required></td>
+                  <td><input type="text" name="nexistencia" value="<%=libro.getExistencia() %>" required></td>
                 </tr>
 				
 				<tr>
@@ -74,10 +85,14 @@
 					<select name="editorial_id">
 						<option>Elegir Opcion</option>
 						<%
+						String sel;
 							ArrayList<Editorial> editoriales=new ControladorEditorial().getAllEditoriales();
 										for(Editorial e:editoriales){
+											if(e.getId()==libro.getEditorial().getId()){
+												sel="selected";
+											}else sel="";
 						%>
-							<option value="<%=e.getId()%>"><%=e.getNombre()%></option>
+							<option <%=sel %> value="<%=e.getId()%>"><%=e.getNombre()%></option>
 							<%
 								}
 							%>
@@ -98,9 +113,14 @@
 						<option>Elegir Opcion</option>
 						<%
 							ArrayList<Categoria> categorias=new ControladorCategoria().getAllCategorias();
+							
 										for(Categoria c:categorias){
+											
+											if(c.getId()==libro.getCategoria().getId()){
+												sel="selected";
+											}else sel="";
 						%>
-							<option value="<%=c.getId()%>"><%=c.getDescripcion()%></option>
+							<option <%=sel %> value="<%=c.getId()%>"><%=c.getDescripcion()%></option>
 							<%
 								}
 							%>
@@ -119,8 +139,13 @@
 						<%
 							ArrayList<Autor> autores=new ControladorAutor().getAllAutores();
 										for(Autor a:autores){
+											
+
+											if(a.getId()==libro.getAutor().getId()){
+												sel="selected";
+											}else sel="";
 						%>
-							<option value="<%=a.getId()%>"><%=a.getNombre() + ' ' + a.getApellido()%></option>
+							<option <%=sel %> value="<%=a.getId()%>"><%=a.getNombre() + ' ' + a.getApellido()%></option>
 							<%} %>
 						
 					
@@ -131,7 +156,7 @@
 				
 				<tr>
                   <td>Imagen</td>
-                  <td><input type="text" name="foto"><br /></td>
+                  <td><input type="text" value="<%=libro.getFoto() %>" name="foto"><br /></td>
                 </tr>
 				
 				

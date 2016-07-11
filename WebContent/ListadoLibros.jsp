@@ -58,10 +58,10 @@
 				    
 				    <td><%=l.getEditorial().getNombre() %></td>
 				    <td><%=l.getCategoria().getDescripcion() %></td>
-				    <td><%=l.getAutor().getNombre() %></td>
+				    <td><%=l.getAutor().getNombre() +' ' + l.getAutor().getApellido() %></td>
 				    
-				    <td><a href='#'><IMG SRC="imagenes/modify.png" WIDTH=20 HEIGHT=20></a>
-				        <a href='#'> <IMG SRC='imagenes/gnome_edit_delete.png' WIDTH=30 HEIGHT=30>  </a></td>
+				    <td><a href='ModificarLibro.jsp?idMod=<%=l.getId()%>'><IMG SRC="imagenes/modify.png" WIDTH=20 HEIGHT=20></a>
+				        <a href='EliminarLibro.jsp?idElim=<%=l.getId()%>'> <IMG SRC='imagenes/gnome_edit_delete.png' WIDTH=30 HEIGHT=30>  </a></td>
  
 				  <% } %>
  

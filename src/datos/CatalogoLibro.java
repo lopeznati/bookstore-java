@@ -35,6 +35,7 @@ public class CatalogoLibro {
 				l.setPrecio(rs.getDouble("precio"));
 				l.setTitulo(rs.getString("titulo"));
 				l.setFoto(rs.getString("foto"));
+				l.setSipnosis(rs.getString("sipnosis"));
 				
 				//relaciones
 				Categoria c=new CatalogoCategoria().getOneCategoria(rs.getInt("id_categoria"));
@@ -84,6 +85,7 @@ public class CatalogoLibro {
 			l.setExistencia(rs.getInt("existencia"));
 			l.setPrecio(rs.getDouble("precio"));
 			l.setFoto(rs.getString("foto"));
+			l.setSipnosis(rs.getString("sipnosis"));
 			
 			Categoria c=new CatalogoCategoria().getOneCategoria(rs.getInt("id_categoria"));
 			l.setCategoria(c);

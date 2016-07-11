@@ -86,7 +86,7 @@ public class Libro {
 	}
 	public Libro(int isbn, String titulo, 
 			String sipnosis, int cantPag, int numEdicion, double precio,
-			int existencia, Editorial e, Categoria c, Autor a) {
+			int existencia, Editorial e, Categoria c, Autor a, String foto) {
 		
 		this.isbn=isbn;
 		this.titulo=titulo;
@@ -98,6 +98,7 @@ public class Libro {
 		this.editorial=e;
 		this.categoria=c;
 		this.autor=a;
+		this.foto=foto;
 		
 		// TODO Auto-generated constructor stub
 	}

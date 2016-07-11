@@ -18,16 +18,16 @@ import entidades.Editorial;
 import entidades.Libro;
 
 /**
- * Servlet implementation class AltaLibro
+ * Servlet implementation class ModificarLibro
  */
-@WebServlet("/AltaLibro")
-public class AltaLibro extends HttpServlet {
+@WebServlet("/ModificarLibro")
+public class ModificarLibro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AltaLibro() {
+    public ModificarLibro() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,6 +44,7 @@ public class AltaLibro extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int id=Integer.parseInt(request.getParameter("id"));
 		
 		int isbn=Integer.parseInt(request.getParameter("isbn"));
 		String titulo=request.getParameter("titulo");
@@ -60,14 +61,12 @@ public class AltaLibro extends HttpServlet {
 		
 		
 		Libro l=new Libro(isbn,titulo,sipnosis,CantPag,NumEdicion,precio,existencia,e,c,a,foto);
+		l.setId(id);
 		
 		ControladorLibro cl=new ControladorLibro();
-		cl.altaLibro(l);
+		cl.ActualizarLibro(l);
 		response.sendRedirect("ListadoLibros.jsp");
 				
-		
-		
-		
 	}
 
 }
