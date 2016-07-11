@@ -1,6 +1,8 @@
 package negocio;
 import java.util.ArrayList;
+
 import entidades.Editorial;
+import entidades.Libro;
 import datos.CatalogoEditorial;
 
 public class ControladorEditorial {
@@ -16,5 +18,9 @@ public class ControladorEditorial {
 	{
 		return ce.getAllEditoriales();
 	}
+	public Editorial getOneEditorial(int id) {
+		return ce.getOneEditorial(id);
+	}
+	
 
 }
