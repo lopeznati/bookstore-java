@@ -7,13 +7,19 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
+DROP DATABASE IF EXISTS `bookstore`;
+
 CREATE DATABASE `bookstore`
     CHARACTER SET 'latin1'
     COLLATE 'latin1_swedish_ci';
 
+USE `bookstore`;
+
 #
 # Structure for the `autores` table : 
 #
+
+DROP TABLE IF EXISTS `autores`;
 
 CREATE TABLE `autores` (
   `id` int(11) NOT NULL auto_increment,
@@ -26,6 +32,8 @@ CREATE TABLE `autores` (
 # Structure for the `categorias` table : 
 #
 
+DROP TABLE IF EXISTS `categorias`;
+
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL auto_increment,
   `descripcion` varchar(20) default NULL,
@@ -35,6 +43,8 @@ CREATE TABLE `categorias` (
 #
 # Structure for the `localidades` table : 
 #
+
+DROP TABLE IF EXISTS `localidades`;
 
 CREATE TABLE `localidades` (
   `id` int(11) NOT NULL auto_increment,
@@ -48,6 +58,8 @@ CREATE TABLE `localidades` (
 #
 # Structure for the `clientes` table : 
 #
+
+DROP TABLE IF EXISTS `clientes`;
 
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL auto_increment,
@@ -71,6 +83,8 @@ CREATE TABLE `clientes` (
 # Structure for the `editoriales` table : 
 #
 
+DROP TABLE IF EXISTS `editoriales`;
+
 CREATE TABLE `editoriales` (
   `id` int(11) NOT NULL auto_increment,
   `nombre` varchar(20) default NULL,
@@ -81,6 +95,8 @@ CREATE TABLE `editoriales` (
 # Structure for the `libros` table : 
 #
 
+DROP TABLE IF EXISTS `libros`;
+
 CREATE TABLE `libros` (
   `id` int(11) NOT NULL auto_increment,
   `isbn` int(25) default NULL,
@@ -90,7 +106,7 @@ CREATE TABLE `libros` (
   `cantidad_paginas` int(11) default NULL,
   `precio` double(15,3) default NULL,
   `existencia` int(11) default NULL,
-  `foto` varchar(20) default NULL,
+  `foto` varchar(255) default NULL,
   `id_editorial` int(11) default NULL,
   `id_categoria` int(11) default NULL,
   `id_autor` int(11) default NULL,
@@ -107,6 +123,8 @@ CREATE TABLE `libros` (
 # Structure for the `provincias` table : 
 #
 
+DROP TABLE IF EXISTS `provincias`;
+
 CREATE TABLE `provincias` (
   `id` int(11) NOT NULL auto_increment,
   `nombre_provincia` varchar(45) NOT NULL,
@@ -116,6 +134,8 @@ CREATE TABLE `provincias` (
 #
 # Structure for the `tipos_tarjetas` table : 
 #
+
+DROP TABLE IF EXISTS `tipos_tarjetas`;
 
 CREATE TABLE `tipos_tarjetas` (
   `id` int(11) NOT NULL auto_increment,
@@ -129,6 +149,8 @@ CREATE TABLE `tipos_tarjetas` (
 #
 # Structure for the `tarjetas` table : 
 #
+
+DROP TABLE IF EXISTS `tarjetas`;
 
 CREATE TABLE `tarjetas` (
   `id` int(11) NOT NULL auto_increment,
@@ -144,6 +166,8 @@ CREATE TABLE `tarjetas` (
 #
 # Structure for the `pedidos` table : 
 #
+
+DROP TABLE IF EXISTS `pedidos`;
 
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL auto_increment,
@@ -222,7 +246,7 @@ COMMIT;
 #
 
 INSERT INTO `libros` (`id`, `isbn`, `titulo`, `sipnosis`, `numero_edicion`, `cantidad_paginas`, `precio`, `existencia`, `foto`, `id_editorial`, `id_categoria`, `id_autor`) VALUES 
-  (1,12133434,'Adulterio','Linda está casada con un hombre rico, tienen dos hijos y la familia vive en una hermosa casa en Ginebra, Suiza. Trabaja en el periódico más importante del país, es guapa, viste bien y tiene todo lo que se pueda desear. A ojos de todos, su vida es perfecta. Sin embargo, no es feliz; una gran insatisfacción la corroe y se siente culpable por no ser capaz de disfrutar de lo que tiene. Por eso no habla con nadie de lo que sucede. Ama a su marido pero la relación con él se ha vuelto rutinaria, apática.\r\n\r\nUn día, el periódico la envía a entrevistar a Jacob König, un antiguo novio del instituto que ahora es un político de cierta relevancia. Este encuentro es suficiente para que ella se sienta capaz de hacer algo con lo que soñaba desde muchacha, y empieza a dar rienda suelta a sus fantasías. Vuelve a sentir pasión por la vida. Ahora hará todo lo que sea para conquistar ese amor imposible y descenderá hasta el fondo del pozo de las emociones humanas para, por fin, encontrar su redención.',1000,5000,300,6,NULL,1,1,1),
+  (1,12133434,'Adulterio','Linda está casada con un hombre rico, tienen dos hijos y la familia vive en una hermosa casa en Ginebra, Suiza. Trabaja en el periódico más importante del país, es guapa, viste bien y tiene todo lo que se pueda desear. A ojos de todos, su vida es perfecta. Sin embargo, no es feliz; una gran insatisfacción la corroe y se siente culpable por no ser capaz de disfrutar de lo que tiene. Por eso no habla con nadie de lo que sucede. Ama a su marido pero la relación con él se ha vuelto rutinaria, apática.\r\n\r\nUn día, el periódico la envía a entrevistar a Jacob König, un antiguo novio del instituto que ahora es un político de cierta relevancia. Este encuentro es suficiente para que ella se sienta capaz de hacer algo con lo que soñaba desde muchacha, y empieza a dar rienda suelta a sus fantasías. Vuelve a sentir pasión por la vida. Ahora hará todo lo que sea para conquistar ese amor imposible y descenderá hasta el fondo del pozo de las emociones humanas para, por fin, encontrar su redención.',1000,5000,300,6,'http://www.librolibro.es/images/portadas/Adulterio-Paulo_Coelho-9788408131625.jpg',1,1,1),
   (2,222222,'El ultimo adiós','Escritora de superventas Kate Morton sobresale una vez más con esta novela de misterio, con la Inglaterra de la década de 1930 como sugerente telón de fondo. La trama es impecable y los personajes, modelados con habilidad y reunidos al final del libro como resultado de la investigación de Sparrow, quedan tan sorprendidos como los lectores por el inesperado desenlace.',2,300,250,5,NULL,3,3,3);
 
 COMMIT;
