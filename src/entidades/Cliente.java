@@ -1,16 +1,12 @@
 package entidades;
 
+import java.sql.Date;
+
 public class Cliente {
 	private int id;
-	private String usuario;
-	private String clave;
-	private String nombre;
-	private String apellido;
-	private String telefono;
-	private String mail;
-	private String rol;
-	private String foto;
+	private String usuario, clave,nombre,apellido,direccion,telefono,mail,rol,foto;
 	private Localidad localidad;
+	private Date fecha_nacimiento;
 	
 	public int getId() {
 		return id;
@@ -42,6 +38,12 @@ public class Cliente {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
 	public String getTelefono() {
 		return telefono;
 	}
@@ -72,5 +74,10 @@ public class Cliente {
 	public void setLocalidad(Localidad localidad) {
 		this.localidad = localidad;
 	}
-
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
 }

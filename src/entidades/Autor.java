@@ -2,8 +2,8 @@ package entidades;
 
 public class Autor {
 	private int id;
-	private String nombre;
-	private String apellido;
+	private String nombre,apellido;
+	
 	public int getId() {
 		return id;
 	}

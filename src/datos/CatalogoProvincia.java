@@ -4,32 +4,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import entidades.Localidad;
 import entidades.Provincia;
 
-public class CatalogoLocalidad {
-	
-	public ArrayList<Localidad> getAllLocalidades()
+public class CatalogoProvincia {
+
+	public ArrayList<Provincia> getAllProvincia()
 	{
-		ArrayList<Localidad> localidades = new ArrayList<>();
+		ArrayList<Provincia> provincias = new ArrayList<>();
 		
 		Statement sentencia = null;
 		ResultSet rs = null;
-		String sql = "sentencia * from Localidades";
+		String sql = "sentencia * from Provincias";
 		try
 		{
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();
 			rs = sentencia.executeQuery(sql);
 			
 			while (rs.next()){
-				Localidad l = new Localidad();
-				l.setId(rs.getInt("id"));
-				l.setNombre(rs.getString("nombre"));
-				l.setCodigo_postal(rs.getInt("codigo_postal"));
-				Provincia p = new CatalogoProvincia().getOneProvincia(rs.getInt("id_provincia"));
-				l.setProvincia(p);
-				
-				localidades.add(l);
+				Provincia e = new Provincia();
+				e.setId(rs.getInt("id"));
+				e.setNombre(rs.getString("nombre"));
+				provincias.add(e);
 			}
 		}
 		catch(SQLException e1)
@@ -48,33 +43,30 @@ public class CatalogoLocalidad {
 				e2.printStackTrace();
 			}
 		}
-		return localidades;
+		return provincias;
 	}
 	
-	public  Localidad getOneLocalidad(int id) {
+	
+	public  Provincia getOneProvincia(int id) {
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
-		Localidad l=null;
-		String sql="select * from localidades where id=?";
+		Provincia p=null;
+		String sql="select * from provincias where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
 			sentencia.setInt(1, id);
 			rs=sentencia.executeQuery();
 			
 			if(rs.next()){
-				l=new Localidad();
-				l.setId(rs.getInt("id"));
-				l.setNombre(rs.getString("nombre"));
-				l.setId(rs.getInt("codigo_postal"));
-				
-				Provincia p=new CatalogoProvincia().getOneProvincia(rs.getInt("id_provincia"));
-				l.setProvincia(p);
+				p=new Provincia();
+				p.setId(rs.getInt("id"));
+				p.setNombre(rs.getString("nombre"));
 			}
 			
 		} catch (SQLException e2) {
 			e2.printStackTrace();
 		}
-		return l;
+		return p;
 	}
-
+	
 }

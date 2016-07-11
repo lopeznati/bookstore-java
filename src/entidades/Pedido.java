@@ -1,18 +1,15 @@
 package entidades;
-
 import java.util.Date;
 
-
-
 public class Pedido {
-	private int id;
+	private int id,cantidad_libro;
 	private Date fecha_pedido;
-	private int cantidad_libro;
-	private String domicilio;
+	private String direccion;
 	private double subtotal;
 	private Tarjeta tarjeta;
 	private Libro libro;
 	private Cliente cliente;
+	
 	public int getId() {
 		return id;
 	}
@@ -31,11 +28,11 @@ public class Pedido {
 	public void setCantidad_libro(int cantidad_libro) {
 		this.cantidad_libro = cantidad_libro;
 	}
-	public String getDomicilio() {
-		return domicilio;
+	public String getDireccion() {
+		return direccion;
 	}
-	public void setDomicilio(String domicilio) {
-		this.domicilio = domicilio;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 	public double getSubtotal() {
 		return subtotal;

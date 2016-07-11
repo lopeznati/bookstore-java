@@ -1,35 +1,35 @@
 package datos;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import entidades.Localidad;
 import entidades.Provincia;
+import entidades.Tipo_Tarjeta;
 
-public class CatalogoLocalidad {
-	
-	public ArrayList<Localidad> getAllLocalidades()
+public class CatalogoTipoTarjeta {
+
+	public ArrayList<Tipo_Tarjeta> getAllTiposTarjetas()
 	{
-		ArrayList<Localidad> localidades = new ArrayList<>();
+		ArrayList<Tipo_Tarjeta> tipos_tarjetas = new ArrayList<>();
 		
 		Statement sentencia = null;
 		ResultSet rs = null;
-		String sql = "sentencia * from Localidades";
+		String sql = "sentencia * from Tipos_Tarjetas";
 		try
 		{
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();
 			rs = sentencia.executeQuery(sql);
 			
 			while (rs.next()){
-				Localidad l = new Localidad();
-				l.setId(rs.getInt("id"));
-				l.setNombre(rs.getString("nombre"));
-				l.setCodigo_postal(rs.getInt("codigo_postal"));
+				Tipo_Tarjeta tt=new Tipo_Tarjeta();
+				tt.setId(rs.getInt("id"));
+				tt.setNombre(rs.getString("nombre"));
 				Provincia p = new CatalogoProvincia().getOneProvincia(rs.getInt("id_provincia"));
-				l.setProvincia(p);
+				tt.setProvincia(p);
 				
-				localidades.add(l);
+				tipos_tarjetas.add(tt);
 			}
 		}
 		catch(SQLException e1)
@@ -48,33 +48,33 @@ public class CatalogoLocalidad {
 				e2.printStackTrace();
 			}
 		}
-		return localidades;
+		return tipos_tarjetas;
 	}
 	
-	public  Localidad getOneLocalidad(int id) {
+	
+	public Tipo_Tarjeta getOneTipoTarjeta(int id) {
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
-		Localidad l=null;
-		String sql="select * from localidades where id=?";
+		Tipo_Tarjeta tt=null;
+		String sql="select * from tipos_tarjetas where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
 			sentencia.setInt(1, id);
 			rs=sentencia.executeQuery();
 			
 			if(rs.next()){
-				l=new Localidad();
-				l.setId(rs.getInt("id"));
-				l.setNombre(rs.getString("nombre"));
-				l.setId(rs.getInt("codigo_postal"));
+				tt=new Tipo_Tarjeta();
+				tt.setId(rs.getInt("id"));
+				tt.setNombre(rs.getString("nombre"));
 				
 				Provincia p=new CatalogoProvincia().getOneProvincia(rs.getInt("id_provincia"));
-				l.setProvincia(p);
+				tt.setProvincia(p);
 			}
 			
 		} catch (SQLException e2) {
 			e2.printStackTrace();
 		}
-		return l;
+		return tt;
 	}
 
 }

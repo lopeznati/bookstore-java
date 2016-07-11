@@ -1,11 +1,10 @@
 package entidades;
 
 public class Tarjeta {
-	private int id;
-	private String numero_tarjeta;
-	private String titular;
-	private int codigo_seguridad;
-	private int id_tipo_tarjeta;
+	private int id,codigo_seguridad;
+	private String numero_tarjeta,titular;
+	private Tipo_Tarjeta tipo_tarjeta;
+	
 	public int getId() {
 		return id;
 	}
@@ -30,11 +29,11 @@ public class Tarjeta {
 	public void setCodigo_seguridad(int codigo_seguridad) {
 		this.codigo_seguridad = codigo_seguridad;
 	}
-	public int getId_tipo_tarjeta() {
-		return id_tipo_tarjeta;
+	public Tipo_Tarjeta getTipo_tarjeta() {
+		return tipo_tarjeta;
 	}
-	public void setId_tipo_tarjeta(int id_tipo_tarjeta) {
-		this.id_tipo_tarjeta = id_tipo_tarjeta;
+	public void setTipo_tarjeta(Tipo_Tarjeta tipo_tarjeta) {
+		this.tipo_tarjeta = tipo_tarjeta;
 	}
 
 }
