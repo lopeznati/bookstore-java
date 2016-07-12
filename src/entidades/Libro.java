@@ -99,11 +99,6 @@ public class Libro {
 		this.categoria=c;
 		this.autor=a;
 		this.foto=foto;
-		
-		// TODO Auto-generated constructor stub
+
 	}
-
-
-
-
 }

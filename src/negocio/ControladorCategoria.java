@@ -1,7 +1,6 @@
 package negocio;
 import datos.CatalogoCategoria;
 import entidades.Categoria;
-import entidades.Editorial;
 
 import java.util.ArrayList;
 

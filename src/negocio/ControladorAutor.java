@@ -1,6 +1,5 @@
 package negocio;
 import entidades.Autor;
-import entidades.Editorial;
 import datos.CatalogoAutor;
 
 import java.util.ArrayList;

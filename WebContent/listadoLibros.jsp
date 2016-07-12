@@ -71,7 +71,7 @@
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
 
-		</section><! --/wrapper -->
+		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
 

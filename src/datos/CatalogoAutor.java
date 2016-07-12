@@ -85,18 +85,18 @@ public class CatalogoAutor {
 		try {
 			
 			//abro la conexion a la base de datos
-			//Una vez establecida la conexión, podemos crear el PreparedStatement llamando al método prepareStatement() de la Connection.
-			//es importante guardar este PreparedStatement en algún sitio al que podamos acceder cuando lo necesitemos
+			//Una vez establecida la conexiï¿½n, podemos crear el PreparedStatement llamando al mï¿½todo prepareStatement() de la Connection.
+			//es importante guardar este PreparedStatement en algï¿½n sitio al que podamos acceder cuando lo necesitemos
 			
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
-			//primero debemos darle valor a los parámetros que dejamos como interrogantes
+			//primero debemos darle valor a los parï¿½metros que dejamos como interrogantes
 			sentencia.setString(1, a.getNombre());
 			sentencia.setString(2, a.getApellido());			
 			
 			//ejecutamos la sentencia
 			sentencia.execute();
 			// Se obtiene la clave generada ya que es autoincremntar
-			//ResultSet sólo tendrá una fila (el bucle while sólo se ejecutará una vez)
+			//ResultSet sï¿½lo tendrï¿½ una fila (el bucle while sï¿½lo se ejecutarï¿½ una vez)
 			rs=sentencia.getGeneratedKeys();
 		
 			if(rs!=null && rs.next()){
@@ -104,7 +104,6 @@ public class CatalogoAutor {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			// TODO: handle exception
 		}
 		//bloque que si o si se ejecuta comprueba la conexion para cerrarla
 		finally{

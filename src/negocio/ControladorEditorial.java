@@ -2,7 +2,6 @@ package negocio;
 import java.util.ArrayList;
 
 import entidades.Editorial;
-import entidades.Libro;
 import datos.CatalogoEditorial;
 
 public class ControladorEditorial {

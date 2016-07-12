@@ -1,17 +1,7 @@
 package presentacion;
-import java.sql.Connection;
 import java.util.ArrayList;
-
-
-
-
-
-
-import entidades.Autor;
 import entidades.Editorial;
 import entidades.Libro;
-import datos.CatalogoAutor;
-import datos.ConnectionDB;
 import negocio.ControladorEditorial;
 import negocio.ControladorLibro;
 
@@ -19,7 +9,6 @@ import negocio.ControladorLibro;
 public class Prueba {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		/*Connection conn=ConnectionDB.getInstancia().getconn();
 		if(conn!=null){
 			System.err.println("holaa");
