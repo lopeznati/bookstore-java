@@ -221,28 +221,4 @@ public class CatalogoLibro {
 			}
 		}
 	}	
-	
-	public ArrayList<Categoria> getAllCategorias()
-	{
-		CatalogoCategoria cc = new CatalogoCategoria();
-		return cc.getAllCategorias();	
-	}
-	
-	public Categoria getOneCategoria(int categoria_id)
-	{
-		CatalogoCategoria cc = new CatalogoCategoria();
-		return cc.getOneCategoria(categoria_id);
-	}
-	
-	public ArrayList<Editorial> getAllEditoriales()
-	{
-		CatalogoEditorial ce = new CatalogoEditorial();
-		return ce.getAllEditoriales();
-	}
-	
-	public Editorial getOneEditorial(int editorial_id)
-	{
-		CatalogoEditorial ce = new CatalogoEditorial();
-		return ce.getOneEditorial(editorial_id);
-	}
 }

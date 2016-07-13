@@ -1,6 +1,8 @@
 package negocio;
 import entidades.Cliente;
+import entidades.Localidad;
 import datos.CatalogoCliente;
+import datos.CatalogoLocalidad;
 
 import java.util.ArrayList;
 
@@ -30,8 +32,15 @@ public class ControladorCliente {
 		cc.bajaCliente(c);
 	}
 	
-	public void actualizarLibro(Cliente nuevoCli) {
+	public void actualizarCliente(Cliente nuevoCli) {
 		cc.actualizarCliente(nuevoCli);
 	}
 	
+
+	public ArrayList<Localidad> getAllLocalidades()
+	{
+		CatalogoLocalidad cl = new CatalogoLocalidad();
+		return cl.getAllLocalidades();
+		
+	}
 }

@@ -2,9 +2,7 @@
 <%@page import="entidades.Libro"%>
 <%@page import="negocio.ControladorAutor"%>
 <%@page import="entidades.Autor"%>
-<%@page import="negocio.ControladorCategoria"%>
 <%@page import="entidades.Categoria"%>
-<%@page import="negocio.ControladorEditorial"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Editorial"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -86,7 +84,7 @@
 						<option>Elegir Opcion</option>
 						<%
 						String sel;
-							ArrayList<Editorial> editoriales=new ControladorEditorial().getAllEditoriales();
+							ArrayList<Editorial> editoriales=new ControladorLibro().getAllEditoriales();
 										for(Editorial e:editoriales){
 											if(e.getId()==libro.getEditorial().getId()){
 												sel="selected";
@@ -112,7 +110,7 @@
 					<select name="categoria_id">
 						<option>Elegir Opcion</option>
 						<%
-							ArrayList<Categoria> categorias=new ControladorCategoria().getAllCategorias();
+							ArrayList<Categoria> categorias=new ControladorLibro().getAllCategorias();
 							
 										for(Categoria c:categorias){
 											

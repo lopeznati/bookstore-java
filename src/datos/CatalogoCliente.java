@@ -198,13 +198,5 @@ public class CatalogoCliente {
 				e2.printStackTrace();
 			}
 		}
-	}
-
-	public ArrayList<Localidad> getAllLocalidades()
-	{
-		CatalogoLocalidad cl = new CatalogoLocalidad();
-		return cl.getAllLocalidades();
-		
-	}
-	
+	}	
 }

@@ -51,8 +51,8 @@ public class altaLibro extends HttpServlet {
 		int existencia=Integer.parseInt(request.getParameter("nexistencia"));
 		
 		
-		Editorial e=new CatalogoLibro().getOneEditorial(Integer.parseInt(request.getParameter("editorial_id")));
-		Categoria c=new CatalogoLibro().getOneCategoria(Integer.parseInt(request.getParameter("categoria_id")));
+		Editorial e=new ControladorLibro().getOneEditorial(Integer.parseInt(request.getParameter("editorial_id")));
+		Categoria c=new ControladorLibro().getOneCategoria(Integer.parseInt(request.getParameter("categoria_id")));
 		Autor a=new ControladorAutor().getOneAutor(Integer.parseInt(request.getParameter("autor_id")));
 		String foto=request.getParameter("foto");
 		

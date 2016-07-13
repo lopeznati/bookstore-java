@@ -1,4 +1,3 @@
-<%@page import="negocio.ControladorCategoria"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Libro" %>
 <%@page import="entidades.Categoria" %>
@@ -50,7 +49,7 @@
               	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">Book Store</h5>
               	  
-              	  <% ArrayList<Categoria> categorias = new ControladorCategoria().getAllCategorias(); 
+              	  <% ArrayList<Categoria> categorias = new ControladorLibro().getAllCategorias(); 
 						for (Categoria c: categorias){%>
                   <li class="mt">                            
                           <a class="change-size" href="#"><%=c.getDescripcion()%></a>             

@@ -1,5 +1,3 @@
-
-<%@page import="negocio.ControladorCategoria"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Libro" %>
 <%@page import="entidades.Categoria" %>

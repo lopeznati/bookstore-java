@@ -1,6 +1,6 @@
+<%@page import="negocio.ControladorCliente"%>
 <%@page import="datos.CatalogoCliente"%>
 <%@page import="datos.CatalogoLibro"%>
-<%@page import="datos.CatalogoLocalidad"%>
 <%@page import="entidades.Localidad"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -57,7 +57,7 @@
           				<div class="col-lg-12">
                   			<div class="form-panel">
                   	  			<h4 class="mb"><i class="fa fa-angle-right"></i> Completar el formulario</h4>
-                      			<form class="form-horizontal style-form" action="AltaLibro" method="POST">
+                      			<form class="form-horizontal style-form" action="AltaCliente" method="POST">
                       	 			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Usuario</label>
                               			<div class="col-sm-10">
@@ -123,7 +123,7 @@
                               			<div class="col-sm-10">
                                   			<select name="id_localidad" class="form-control">
 						  						<option>...</option>
-						  							<%ArrayList<Localidad> localidades= new CatalogoCliente().getAllLocalidades();
+						  							<%ArrayList<Localidad> localidades= new ControladorCliente().getAllLocalidades();
 													for(Localidad l:localidades){%>
 						  						<option value="<%=l.getId()%>"><%=l.getNombre()%></option>
 						  						<%} %>						  			

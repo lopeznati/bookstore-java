@@ -2,9 +2,7 @@
 <%@page import="entidades.Libro"%>
 <%@page import="negocio.ControladorAutor"%>
 <%@page import="entidades.Autor"%>
-<%@page import="negocio.ControladorCategoria"%>
 <%@page import="entidades.Categoria"%>
-<%@page import="negocio.ControladorEditorial"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Editorial"%>
 <!DOCTYPE html>
@@ -120,7 +118,7 @@
                                   <select name="editorial_id" class="form-control">
 						  			<option>...</option>
 						  			<%String sel;
-									ArrayList<Editorial> editoriales=new ControladorEditorial().getAllEditoriales();
+									ArrayList<Editorial> editoriales=new ControladorLibro().getAllEditoriales();
 										for(Editorial e:editoriales){
 											if(e.getId()==libro.getEditorial().getId()){
 												sel="selected";
@@ -135,7 +133,7 @@
                               <div class="col-sm-10">
                                   <select name="categoria_id" class="form-control">
 									<option>...</option>
-									<%ArrayList<Categoria> categorias=new ControladorCategoria().getAllCategorias();
+									<%ArrayList<Categoria> categorias=new ControladorLibro().getAllCategorias();
 										for(Categoria c:categorias){	
 											if(c.getId()==libro.getCategoria().getId()){
 												sel="selected";
