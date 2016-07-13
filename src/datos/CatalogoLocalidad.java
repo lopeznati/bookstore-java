@@ -15,7 +15,7 @@ public class CatalogoLocalidad {
 		
 		Statement sentencia = null;
 		ResultSet rs = null;
-		String sql = "sentencia * from Localidades";
+		String sql = "select * from localidades";
 		try
 		{
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();
@@ -51,7 +51,7 @@ public class CatalogoLocalidad {
 		return localidades;
 	}
 	
-	public  Localidad getOneLocalidad(int id) {
+	public Localidad getOneLocalidad(int id) {
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
 		Localidad l=null;

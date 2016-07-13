@@ -113,7 +113,7 @@ public class CatalogoLibro {
 	}
 	
 	
-	public void AltaLibro(Libro l){
+	public void altaLibro(Libro l){
 		//preparo la sentencia sql
 		//El PreparedStatement nos permite definir una sentencia SQL base
 		PreparedStatement sentencia=null;
@@ -166,7 +166,7 @@ public class CatalogoLibro {
 		}
 	}
 	
-	public void BajaLibro(Libro l){
+	public void bajaLibro(Libro l){
 		PreparedStatement sentencia=null;
 		String sql="delete from Libros where id=?";
 		try {
@@ -190,7 +190,7 @@ public class CatalogoLibro {
 	}
 	
 	
-	public void ActualizarLibro(Libro nuevolib) {
+	public void actualizarLibro(Libro nuevolib) {
 		PreparedStatement sentencia=null;
 		String sql="update Libros set isbn=?, titulo=?, sipnosis=?, numero_edicion=?, cantidad_paginas=?, precio=?, existencia=?, id_editorial=?, id_categoria=?, id_autor=? where id=?";
 		try {
@@ -220,6 +220,29 @@ public class CatalogoLibro {
 				e2.printStackTrace();
 			}
 		}
-		}
+	}	
 	
+	public ArrayList<Categoria> getAllCategorias()
+	{
+		CatalogoCategoria cc = new CatalogoCategoria();
+		return cc.getAllCategorias();	
+	}
+	
+	public Categoria getOneCategoria(int categoria_id)
+	{
+		CatalogoCategoria cc = new CatalogoCategoria();
+		return cc.getOneCategoria(categoria_id);
+	}
+	
+	public ArrayList<Editorial> getAllEditoriales()
+	{
+		CatalogoEditorial ce = new CatalogoEditorial();
+		return ce.getAllEditoriales();
+	}
+	
+	public Editorial getOneEditorial(int editorial_id)
+	{
+		CatalogoEditorial ce = new CatalogoEditorial();
+		return ce.getOneEditorial(editorial_id);
+	}
 }

@@ -1,8 +1,8 @@
+<%@page import="datos.CatalogoEditorial"%>
+<%@page import="datos.CatalogoLibro"%>
 <%@page import="negocio.ControladorAutor"%>
 <%@page import="entidades.Autor"%>
-<%@page import="negocio.ControladorCategoria"%>
 <%@page import="entidades.Categoria"%>
-<%@page import="negocio.ControladorEditorial"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Editorial"%>
 <!DOCTYPE html>
@@ -111,7 +111,7 @@
                               <div class="col-sm-10">
                                   <select name="editorial_id" class="form-control">
 						  			<option>...</option>
-						  			<%ArrayList<Editorial> editoriales=new ControladorEditorial().getAllEditoriales();
+						  			<%ArrayList<Editorial> editoriales=new CatalogoLibro().getAllEditoriales();
 										for(Editorial e:editoriales){%>
 						  			<option value="<%=e.getId()%>"><%=e.getNombre()%></option>
 						  			<%} %>						  			
@@ -123,7 +123,7 @@
                               <div class="col-sm-10">
                                   <select name="categoria_id" class="form-control">
 									<option>...</option>
-									<%ArrayList<Categoria> categorias=new ControladorCategoria().getAllCategorias();
+									<%ArrayList<Categoria> categorias=new CatalogoLibro().getAllCategorias();
 										for(Categoria c:categorias){%>
 									<option value="<%=c.getId()%>"><%=c.getDescripcion()%></option>
 									<%}%>

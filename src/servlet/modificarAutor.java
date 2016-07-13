@@ -11,14 +11,14 @@ import entidades.Autor;
 /**
  * Servlet implementation class ModificarAutor
  */
-@WebServlet("/ModificarAutor")
-public class ModificarAutor extends HttpServlet {
+@WebServlet("/modificarAutor")
+public class modificarAutor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificarAutor() {
+    public modificarAutor() {
         super();
     }
 
@@ -42,7 +42,7 @@ public class ModificarAutor extends HttpServlet {
 
 		ControladorAutor ca = new ControladorAutor();
 		ca.ActualizarAutor(a);
-		response.sendRedirect("ListadoAutor.jsp");
+		response.sendRedirect("listadoAutor.jsp");
 				
 		
 	}

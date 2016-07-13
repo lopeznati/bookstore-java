@@ -15,7 +15,7 @@ public class CatalogoCliente {
 		
 		Statement sentencia = null;
 		ResultSet rs = null;
-		String sql = "select * from Clientes";
+		String sql = "select * from clientes";
 		try
 		{
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();
@@ -59,7 +59,7 @@ public class CatalogoCliente {
 		return clientes;
 	}
 	
-	public Cliente getOneLibro(int id){
+	public Cliente getOneCliente(int id){
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
 		Cliente c=null;
@@ -102,5 +102,109 @@ public class CatalogoCliente {
 			
 		return c;
 	}
+	
+	public void altaCliente(Cliente c){
 
+		PreparedStatement sentencia=null;
+		ResultSet rs=null;
+		String sql="insert into clientes(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,foto,id_localidad) values(?,?,?,?,?,?,?,?,?,?,?)";
+		
+		try 
+		{
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+			sentencia.setString(1, c.getUsuario());
+			sentencia.setString(2, c.getClave());
+			sentencia.setString(3, c.getNombre());
+			sentencia.setString(4, c.getApellido());
+			sentencia.setDate(5, c.getFecha_nacimiento());
+			sentencia.setString(6, c.getTelefono());
+			sentencia.setString(7, c.getMail());
+			sentencia.setString(8, c.getDireccion());
+			sentencia.setString(9, c.getRol());
+			sentencia.setString(10, c.getFoto());
+			sentencia.setInt(11, c.getLocalidad().getId());
+
+			sentencia.execute();
+			rs=sentencia.getGeneratedKeys();
+		
+			if(rs!=null && rs.next()){
+				c.setId(rs.getInt(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
+				ConnectionDB.getInstancia().CloseConn();
+				
+			} catch (SQLException sqle) {
+				sqle.printStackTrace();
+			}
+			
+		}
+	}
+	
+	public void bajaCliente(Cliente c){
+		PreparedStatement sentencia=null;
+		String sql="delete from clientes where id=?";
+		try {
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
+			sentencia.setInt(1, c.getId());
+			sentencia.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
+				ConnectionDB.getInstancia().CloseConn();
+				
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public void actualizarCliente(Cliente nuevoCli) {
+		PreparedStatement sentencia=null;
+		String sql="update clientes set usuario=?, clave=?, nombre=?, apellido=?, fecha_nacimiento=?, telefono=?, mail=?, direccion=?, rol=?, foto=? id_localidad=? where id=?";
+		try {
+			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
+			sentencia.setString(1, nuevoCli.getUsuario());
+			sentencia.setString(2, nuevoCli.getClave());
+			sentencia.setString(3, nuevoCli.getNombre());
+			sentencia.setString(4, nuevoCli.getApellido());
+			sentencia.setDate(5, nuevoCli.getFecha_nacimiento());
+			sentencia.setString(6, nuevoCli.getTelefono());
+			sentencia.setString(7, nuevoCli.getMail());
+			sentencia.setString(8, nuevoCli.getDireccion());
+			sentencia.setString(9, nuevoCli.getRol());
+			sentencia.setString(10, nuevoCli.getFoto());
+			sentencia.setInt(11, nuevoCli.getLocalidad().getId());
+			sentencia.setInt(12, nuevoCli.getId());
+			sentencia.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		finally{
+			try {
+				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
+				ConnectionDB.getInstancia().CloseConn();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+
+	public ArrayList<Localidad> getAllLocalidades()
+	{
+		CatalogoLocalidad cl = new CatalogoLocalidad();
+		return cl.getAllLocalidades();
+		
+	}
+	
 }

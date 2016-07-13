@@ -14,7 +14,7 @@
 
 <% ControladorLibro cl=new ControladorLibro();
 cl.bajaLibro(cl.getOneLibro(Integer.parseInt(request.getParameter("idElim"))));
-response.sendRedirect("ListadoLibros.jsp");
+response.sendRedirect("listadoLibros.jsp");
 
 %>
 </body>

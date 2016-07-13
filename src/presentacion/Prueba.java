@@ -1,8 +1,6 @@
 package presentacion;
 import java.util.ArrayList;
-import entidades.Editorial;
 import entidades.Libro;
-import negocio.ControladorEditorial;
 import negocio.ControladorLibro;
 
 
@@ -28,19 +26,7 @@ public class Prueba {
 	
 			
 		}
-		
-		ControladorEditorial ce=new ControladorEditorial();
-		ArrayList<Editorial> e=new ArrayList<>();
-		e=ce.getAllEditoriales();
-		for (Editorial edi : e) {
-			System.out.println(edi.getNombre());
-			System.out.println(edi.getId());
-			
-			//CatalogoAutor ca=new CatalogoAutor();
-			//System.out.println(ca.getOneAutor(1).getNombre());
-			
-	
-			
+
 		}
 		
 		
@@ -96,9 +82,5 @@ public class Prueba {
 		cl.ActualizarLibro(li2);
 		
 		*/
-		
-	
-
-	}
-
 }
+

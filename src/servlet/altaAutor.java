@@ -11,14 +11,14 @@ import entidades.Autor;
 /**
  * Servlet implementation class AltaAutor
  */
-@WebServlet("/AltaAutor")
-public class AltaAutor extends HttpServlet {
+@WebServlet("/altaAutor")
+public class altaAutor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AltaAutor() {
+    public altaAutor() {
         super();
     }
 

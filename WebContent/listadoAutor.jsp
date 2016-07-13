@@ -45,8 +45,8 @@
 				    			<td><%=a.getNombre() %></td>
 				    			<td><%=a.getApellido() %></td>
                                   <td>
-                                      <button class="btn btn-primary btn-xs" onClick="window.location.href='ModificarAutor.jsp?idMod=<%=a.getId()%>'"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" onClick="window.location.href='EliminarAutor.jsp?idElim=<%=a.getId()%>'"><i class="fa fa-trash-o "></i></button>
+                                      <button class="btn btn-primary btn-xs" onClick="window.location.href='modificarAutor.jsp?idMod=<%=a.getId()%>'"><i class="fa fa-pencil"></i></button>
+                                      <button class="btn btn-danger btn-xs" onClick="window.location.href='eliminarAutor.jsp?idElim=<%=a.getId()%>'"><i class="fa fa-trash-o "></i></button>
                                   </td>
                               </tr>                    
                                <% } %>

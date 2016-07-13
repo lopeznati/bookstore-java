@@ -38,7 +38,7 @@ public class CatalogoPedido {
 				Libro l = new CatalogoLibro().getOneLibro(rs.getInt("id_libro"));
 				p.setLibro(l);
 				
-				Cliente c = new CatalogoCliente().getOneLibro(rs.getInt("id_cliente"));
+				Cliente c = new CatalogoCliente().getOneCliente(rs.getInt("id_cliente"));
 				p.setCliente(c);
 				
 				pedidos.add(p);
@@ -87,7 +87,7 @@ public class CatalogoPedido {
 				Libro l = new CatalogoLibro().getOneLibro(rs.getInt("id_libro"));
 				p.setLibro(l);
 				
-				Cliente c = new CatalogoCliente().getOneLibro(rs.getInt("id_cliente"));
+				Cliente c = new CatalogoCliente().getOneCliente(rs.getInt("id_cliente"));
 				p.setCliente(c);
 			}
 			

@@ -60,8 +60,8 @@
 				    			<td><%=l.getCategoria().getDescripcion() %></td>
 				    			<td><%=l.getAutor().getNombre() +' ' + l.getAutor().getApellido() %></td>
                                   <td>
-                                      <button class="btn btn-primary btn-xs" onClick="window.location.href='ModificarLibro.jsp?idMod=<%=l.getId()%>'"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" onClick="window.location.href='EliminarLibro.jsp?idElim=<%=l.getId()%>'"><i class="fa fa-trash-o "></i></button>
+                                      <button class="btn btn-primary btn-xs" onClick="window.location.href='modificarLibro.jsp?idMod=<%=l.getId()%>'"><i class="fa fa-pencil"></i></button>
+                                      <button class="btn btn-danger btn-xs" onClick="window.location.href='eliminarLibro.jsp?idElim=<%=l.getId()%>'"><i class="fa fa-trash-o "></i></button>
                                   </td>
                               </tr>                    
                                <% } %>

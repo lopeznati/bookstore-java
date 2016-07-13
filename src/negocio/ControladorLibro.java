@@ -19,15 +19,15 @@ private CatalogoLibro cl;
 	}
 	
 	public void altaLibro(Libro l) {
-		cl.AltaLibro(l);
+		cl.altaLibro(l);
 	}
 	
 	public void bajaLibro(Libro l) {
-		cl.BajaLibro(l);
+		cl.bajaLibro(l);
 	}
 	
-	public void ActualizarLibro(Libro nuevolib) {
-		cl.ActualizarLibro(nuevolib);
+	public void actualizarLibro(Libro nuevolib) {
+		cl.actualizarLibro(nuevolib);
 	}
 	
 	

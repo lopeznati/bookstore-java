@@ -80,4 +80,25 @@ public class Cliente {
 	public void setFecha_nacimiento(Date fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
+	
+	public Cliente(){
+		
+	}
+	
+	public Cliente(String usuario,String clave,String nombre,String apellido,Date fecha_nacimiento,String telefono,String mail,String direccion,String rol,String foto,Localidad l)
+	{
+		
+		this.usuario=usuario;
+		this.clave=clave;
+		this.nombre=nombre;
+		this.apellido=apellido;
+		this.fecha_nacimiento=fecha_nacimiento;
+		this.telefono=telefono;
+		this.mail=mail;
+		this.direccion=direccion;
+		this.rol=rol;
+		this.foto=foto;
+		this.localidad=l;
+
+	}
 }

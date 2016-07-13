@@ -59,8 +59,8 @@
 				    					<td><%=c.getFoto() %></td>
 				    					<td><%=c.getLocalidad().getNombre()%></td>
                                   		<td>
-                                      		<button class="btn btn-primary btn-xs" onClick="window.location.href='ModificarCliente.jsp?idMod=<%=c.getId()%>'"><i class="fa fa-pencil"></i></button>
-                                      		<button class="btn btn-danger btn-xs" onClick="window.location.href='EliminarCliente.jsp?idElim=<%=c.getId()%>'"><i class="fa fa-trash-o "></i></button>
+                                      		<button class="btn btn-primary btn-xs" onClick="window.location.href='modificarCliente.jsp?idMod=<%=c.getId()%>'"><i class="fa fa-pencil"></i></button>
+                                      		<button class="btn btn-danger btn-xs" onClick="window.location.href='eliminarCliente.jsp?idElim=<%=c.getId()%>'"><i class="fa fa-trash-o "></i></button>
                                   		</td>
                               		</tr>                    
                                		<% } %>
