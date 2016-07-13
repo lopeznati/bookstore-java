@@ -28,7 +28,7 @@
 
 <div class="row">
 	    <div class="col-xs-12" align="center">
-	    	<h2>Nuevo Libros</h2>
+	    	<h2>Modificar Libros</h2>
 	    	
 	    </div>
 	   </div>

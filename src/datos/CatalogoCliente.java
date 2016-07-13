@@ -15,7 +15,7 @@ public class CatalogoCliente {
 		
 		Statement sentencia = null;
 		ResultSet rs = null;
-		String sql = "sentencia * from Clientes";
+		String sql = "select * from Clientes";
 		try
 		{
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();

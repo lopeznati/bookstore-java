@@ -30,5 +30,4 @@ public class Autor {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
 }

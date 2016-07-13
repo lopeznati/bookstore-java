@@ -9,16 +9,16 @@ import negocio.ControladorAutor;
 import entidades.Autor;
 
 /**
- * Servlet implementation class AltaAutor
+ * Servlet implementation class ModificarAutor
  */
-@WebServlet("/AltaAutor")
-public class AltaAutor extends HttpServlet {
+@WebServlet("/ModificarAutor")
+public class ModificarAutor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AltaAutor() {
+    public ModificarAutor() {
         super();
     }
 
@@ -32,16 +32,19 @@ public class AltaAutor extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String nombre=request.getParameter("nombre");
 		
+		int id = Integer.parseInt(request.getParameter("id"));
+		String nombre = request.getParameter("nombre");
 		String apellido=request.getParameter("apellido");
+
+		Autor a = new Autor(nombre,apellido);
+		a.setId(id);
+
+		ControladorAutor ca = new ControladorAutor();
+		ca.ActualizarAutor(a);
+		response.sendRedirect("ListadoAutor.jsp");
+				
 		
-		Autor a=new Autor(nombre,apellido);
-		
-		ControladorAutor ca=new ControladorAutor();
-		ca.altaAutor(a);
-		response.sendRedirect("listadoAutor.jsp");
 	}
 
 }

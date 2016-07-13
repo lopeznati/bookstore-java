@@ -77,7 +77,7 @@
 						<div class="project-wrapper">
 		                    <div class="project">		                        
 		                            <div id="en-fila" class="photo hovereffect">
-		                            	<img class="img-responsive" src="<%=l.getFoto()%>" alt=""></a>		                            
+		                            	<img class="img-responsive" src="<%=l.getFoto()%>" alt="">	                            
 		                            <div class="overlay2"><h2><%=l.getTitulo()%><br>$<%=l.getPrecio()%></h2>
            								<a class="info" href="#">Detalles</a>
            							</div>    
