@@ -5,9 +5,13 @@ import datos.*;
 
 public class ControladorLibro {
 private CatalogoLibro cl;
+private CatalogoCategoria cc;
+private CatalogoEditorial ce;
 
 	public ControladorLibro(){
 		cl = new CatalogoLibro();
+		cc = new CatalogoCategoria();
+		ce = new CatalogoEditorial();
 
 	}
 	public ArrayList<Libro> getAllLibros() {
@@ -30,6 +34,11 @@ private CatalogoLibro cl;
 		cl.actualizarLibro(nuevolib);
 	}
 	
-	
+	public void getAllCategorias(){
+		cc.getAllCategorias();
+	}
 
+	public void getAllEditoriales(){
+		ce.getAllEditoriales();
+	}
 }

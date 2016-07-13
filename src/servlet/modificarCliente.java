@@ -56,7 +56,7 @@ public class modificarCliente extends HttpServlet {
 		c.setId(id);
 
 		ControladorCliente cc = new ControladorCliente();
-		cc.actualizarLibro(c);
+		cc.actualizarCliente(c);
 		response.sendRedirect("listadoClientes.jsp");
 		
 	}

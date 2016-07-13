@@ -30,7 +30,7 @@ public class ControladorCliente {
 		cc.bajaCliente(c);
 	}
 	
-	public void actualizarLibro(Cliente nuevoCli) {
+	public void actualizarCliente(Cliente nuevoCli) {
 		cc.actualizarCliente(nuevoCli);
 	}
 	

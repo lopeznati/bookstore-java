@@ -2,9 +2,9 @@
 <%@page import="entidades.Libro"%>
 <%@page import="negocio.ControladorAutor"%>
 <%@page import="entidades.Autor"%>
-<%@page import="negocio.ControladorCategoria"%>
+
 <%@page import="entidades.Categoria"%>
-<%@page import="negocio.ControladorEditorial"%>
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Editorial"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
