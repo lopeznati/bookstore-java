@@ -4,6 +4,14 @@ public class Autor {
 	private int id;
 	private String nombre,apellido;
 	
+	public Autor(){
+		
+	}
+	
+	public Autor(String nombre, String apellido) {
+		this.nombre=nombre;
+		this.apellido=apellido;
+	}
 	public int getId() {
 		return id;
 	}

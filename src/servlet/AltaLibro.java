@@ -60,7 +60,7 @@ public class AltaLibro extends HttpServlet {
 		
 		ControladorLibro cl=new ControladorLibro();
 		cl.altaLibro(l);
-		response.sendRedirect("ListadoLibros.jsp");
+		response.sendRedirect("listadoLibros.jsp");
 				
 		
 		

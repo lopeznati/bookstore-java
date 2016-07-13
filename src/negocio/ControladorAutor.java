@@ -1,5 +1,6 @@
 package negocio;
 import entidades.Autor;
+import entidades.Libro;
 import datos.CatalogoAutor;
 
 import java.util.ArrayList;
@@ -19,5 +20,17 @@ public class ControladorAutor {
 	
 	public Autor getOneAutor(int id) {
 		return ca.getOneAutor(id);
+	}
+	
+	public void altaAutor(Autor a) {
+		ca.AltaAutor(a);
+	}
+	
+	public void bajaAutor(Autor a) {
+		ca.BajaAutor(a);
+	}
+	
+	public void ActualizarAutor(Autor a) {
+		ca.ActualizarAutor(a);
 	}
 }
