@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<jsp:include page="navbar.html"></jsp:include>
+<jsp:include page="navbar.jsp"></jsp:include>
 <jsp:include page="sidebarAdmin.html"></jsp:include>
 	  <section id="main-content">
           <section class="wrapper">

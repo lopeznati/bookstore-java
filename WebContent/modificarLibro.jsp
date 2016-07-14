@@ -37,7 +37,7 @@
   <body>
 
   <section id="container" >
-      <jsp:include page="navbar.html"></jsp:include>
+      <jsp:include page="navbar.jsp"></jsp:include>
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU

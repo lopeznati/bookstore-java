@@ -1,17 +1,18 @@
 package negocio;
 import entidades.Cliente;
 import entidades.Localidad;
-import datos.CatalogoCliente;
-import datos.CatalogoLocalidad;
+import datos.*;
 
 import java.util.ArrayList;
 
 public class ControladorCliente {
 	
 	private CatalogoCliente cc;
+	private CatalogoLocalidad cl;
 	
 	public ControladorCliente() {
 			cc = new CatalogoCliente();
+			cl = new CatalogoLocalidad();
 		}
 		
 	public ArrayList<Cliente> getAllClientes()
@@ -39,8 +40,9 @@ public class ControladorCliente {
 
 	public ArrayList<Localidad> getAllLocalidades()
 	{
-		CatalogoLocalidad cl = new CatalogoLocalidad();
+		
 		return cl.getAllLocalidades();
 		
 	}
+		
 }

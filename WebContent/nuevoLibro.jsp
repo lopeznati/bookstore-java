@@ -1,6 +1,5 @@
-<%@page import="datos.CatalogoEditorial"%>
-<%@page import="datos.CatalogoLibro"%>
 <%@page import="negocio.ControladorAutor"%>
+<%@page import="negocio.ControladorLibro"%>
 <%@page import="entidades.Autor"%>
 <%@page import="entidades.Categoria"%>
 <%@page import="java.util.ArrayList"%>
@@ -37,7 +36,7 @@
   <body>
 
   <section id="container" >
-      <jsp:include page="navbar.html"></jsp:include>
+      <jsp:include page="navbar.jsp"></jsp:include>
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
@@ -111,7 +110,8 @@
                               <div class="col-sm-10">
                                   <select name="editorial_id" class="form-control">
 						  			<option>...</option>
-						  			<%ArrayList<Editorial> editoriales=new CatalogoLibro().getAllEditoriales();
+						  			<%
+						  			ArrayList<Editorial> editoriales = new ControladorLibro().getAllEditoriales();
 										for(Editorial e:editoriales){%>
 						  			<option value="<%=e.getId()%>"><%=e.getNombre()%></option>
 						  			<%} %>						  			
@@ -123,7 +123,7 @@
                               <div class="col-sm-10">
                                   <select name="categoria_id" class="form-control">
 									<option>...</option>
-									<%ArrayList<Categoria> categorias=new CatalogoLibro().getAllCategorias();
+									<%ArrayList<Categoria> categorias=new ControladorLibro().getAllCategorias();
 										for(Categoria c:categorias){%>
 									<option value="<%=c.getId()%>"><%=c.getDescripcion()%></option>
 									<%}%>

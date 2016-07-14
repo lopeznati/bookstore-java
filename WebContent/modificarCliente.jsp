@@ -1,3 +1,4 @@
+<%@page import="negocio.ControladorLibro"%>
 <%@page import="datos.CatalogoCliente"%>
 <%@page import="datos.CatalogoLibro"%>
 <%@page import="datos.CatalogoLocalidad"%>
@@ -26,7 +27,7 @@
 		    	<h2>Modificar Cliente</h2>
 	    	</div>
 		</div>
- 		<form action="ModificarAutor" method="POST" >
+ 		<form action="modificarCliente" method="POST" >
 			<table class="table table-striped">
               	<tr>
                 	<td><input type="hidden" name="id" value="<%=cliente.getId() %>"required></td>
@@ -76,7 +77,7 @@
               		<td>
                         <select name="id_localidad">
 						  	<option>...</option>
-						  	<% ArrayList<Localidad> localidades=new CatalogoCliente().getAllLocalidades();
+						  	<% ArrayList<Localidad> localidades = new ControladorCliente().getAllLocalidades();
 							   for(Localidad l:localidades){%>
 						  		<option value="<%=l.getId()%>"><%=l.getNombre()%></option>
 									<%} %>						  			

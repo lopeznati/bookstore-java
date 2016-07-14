@@ -11,8 +11,6 @@ private CatalogoEditorial ce;
 
 	public ControladorLibro(){
 		cl = new CatalogoLibro();
-		cc = new CatalogoCategoria();
-		ce = new CatalogoEditorial();
 
 	}
 	public ArrayList<Libro> getAllLibros() {
