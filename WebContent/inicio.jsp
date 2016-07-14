@@ -89,7 +89,7 @@
 
 		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
-
+</section>
       <!--main content end-->
       
 <jsp:include page="footer.html"></jsp:include>
