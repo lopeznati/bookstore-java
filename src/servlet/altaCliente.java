@@ -20,13 +20,13 @@ import entidades.Localidad;
  * Servlet implementation class ModificarCliente
  */
 @WebServlet("/modificarCliente")
-public class modificarCliente extends HttpServlet {
+public class altaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public modificarCliente() {
+    public altaCliente() {
         super();
     }
 
@@ -47,16 +47,20 @@ public class modificarCliente extends HttpServlet {
 
 		ControladorCliente cc = new ControladorCliente();
 		ArrayList<Cliente> clientes = cc.getAllClientes();
+		Cliente clienteActual = new Cliente();
 		for(Cliente cliente : clientes){
 			if(usuario == cliente.getUsuario() && clave == cliente.getClave()){
 				band = true;
+				clienteActual = cliente;
 				HttpSession session = request.getSession(true);
 			    session.setAttribute("usuario",usuario);
 			    
 			}		
 		}
 		
-		response.sendRedirect("listadoClientes.jsp");
+		if(clienteActual.getRol() == "admin"){
+			response.sendRedirect("inicioAdmin.jsp");
+		} else response.sendRedirect("inicio.jsp");
 		
 	}
 
