@@ -2,7 +2,13 @@
 <%@page import="entidades.Libro"%>
 <%@page import="negocio.ControladorAutor"%>
 <%@page import="entidades.Autor"%>
+<<<<<<< HEAD
 <%@page import="entidades.Categoria"%>
+=======
+
+<%@page import="entidades.Categoria"%>
+
+>>>>>>> a92e5011cc3e3942f06a0d7520098671b31d82ed
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Editorial"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"

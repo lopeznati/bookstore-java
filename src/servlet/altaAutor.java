@@ -39,7 +39,7 @@ public class altaAutor extends HttpServlet {
 		
 		Autor a=new Autor(nombre,apellido);
 		
-		ControladorAutor ca=new ControladorAutor();
+		ControladorAutor ca = new ControladorAutor();
 		ca.altaAutor(a);
 		response.sendRedirect("listadoAutor.jsp");
 	}

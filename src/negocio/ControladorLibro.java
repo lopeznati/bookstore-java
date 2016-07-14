@@ -6,9 +6,13 @@ import datos.*;
 
 public class ControladorLibro {
 private CatalogoLibro cl;
+private CatalogoCategoria cc;
+private CatalogoEditorial ce;
 
 	public ControladorLibro(){
 		cl = new CatalogoLibro();
+		cc = new CatalogoCategoria();
+		ce = new CatalogoEditorial();
 
 	}
 	public ArrayList<Libro> getAllLibros() {
@@ -31,6 +35,7 @@ private CatalogoLibro cl;
 		cl.actualizarLibro(nuevolib);
 	}
 	
+<<<<<<< HEAD
 	public ArrayList<Categoria> getAllCategorias()
 	{
 		CatalogoCategoria cc = new CatalogoCategoria();
@@ -53,6 +58,13 @@ private CatalogoLibro cl;
 	{
 		CatalogoEditorial ce = new CatalogoEditorial();
 		return ce.getOneEditorial(editorial_id);
+=======
+	public void getAllCategorias(){
+		cc.getAllCategorias();
+>>>>>>> a92e5011cc3e3942f06a0d7520098671b31d82ed
 	}
 
+	public void getAllEditoriales(){
+		ce.getAllEditoriales();
+	}
 }
