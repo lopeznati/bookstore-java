@@ -34,8 +34,7 @@ private CatalogoEditorial ce;
 	public void actualizarLibro(Libro nuevolib) {
 		cl.actualizarLibro(nuevolib);
 	}
-	
-<<<<<<< HEAD
+
 	public ArrayList<Categoria> getAllCategorias()
 	{
 		CatalogoCategoria cc = new CatalogoCategoria();
@@ -58,13 +57,5 @@ private CatalogoEditorial ce;
 	{
 		CatalogoEditorial ce = new CatalogoEditorial();
 		return ce.getOneEditorial(editorial_id);
-=======
-	public void getAllCategorias(){
-		cc.getAllCategorias();
->>>>>>> a92e5011cc3e3942f06a0d7520098671b31d82ed
-	}
-
-	public void getAllEditoriales(){
-		ce.getAllEditoriales();
 	}
 }
