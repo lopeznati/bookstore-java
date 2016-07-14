@@ -63,8 +63,8 @@ DROP TABLE IF EXISTS `clientes`;
 
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL auto_increment,
-  `usuario` varchar(20) default NULL,
-  `clave` varchar(20) default NULL,
+  `usuario` varchar(20) NOT NULL,
+  `clave` varchar(20) NOT NULL,
   `nombre` varchar(20) default NULL,
   `apellido` varchar(20) default NULL,
   `telefono` varchar(20) default NULL,
@@ -75,6 +75,7 @@ CREATE TABLE `clientes` (
   `fecha_nacimiento` date NOT NULL,
   `direccion` varchar(45) NOT NULL,
   PRIMARY KEY  (`id`),
+  UNIQUE KEY `usuario` (`usuario`),
   KEY `id_localidad` (`id_localidad`),
   CONSTRAINT `clientes_fk` FOREIGN KEY (`id_localidad`) REFERENCES `localidades` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -227,7 +228,8 @@ COMMIT;
 
 INSERT INTO `clientes` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `telefono`, `mail`, `rol`, `foto`, `id_localidad`, `fecha_nacimiento`, `direccion`) VALUES 
   (1,'mcaste','1234','Mailen','Castellarin','3476565656','mc@gmail.com','admin',NULL,2,'0000-00-00',''),
-  (2,'nlopez','9876','Natali',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00','');
+  (2,'nlopez','9876','Natali',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',''),
+  (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com',NULL,'http://fcucala.neocities.org/m4ejfinal/lisa.p',2,'1993-10-19','Sarmiento 1621');
 
 COMMIT;
 
@@ -302,7 +304,7 @@ COMMIT;
 INSERT INTO `tarjetas` (`id`, `numero_tarjeta`, `titular`, `codigo_seguridad`, `id_tipo_tarjeta`) VALUES 
   (1,'12345678','Natali Lopez Leiva',1234,1),
   (2,'87654321','Mailen Castellarin',2933,2),
-  (3,'66666666',NULL,NULL,NULL);
+  (3,'66666666','Martina Pintener',0,2);
 
 COMMIT;
 
