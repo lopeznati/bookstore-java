@@ -49,11 +49,26 @@ public class loginCliente extends HttpServlet {
 		ControladorCliente cc = new ControladorCliente();
 		ArrayList<Cliente> clientes = cc.getAllClientes();
 		for(Cliente cliente : clientes){
-			if(usuario == cliente.getUsuario() && clave == cliente.getClave()){
+			if(usuario.equals(cliente.getUsuario())  && clave.equals(cliente.getClave())){
+				
 							
 			    session.setAttribute("usuario",cliente.getId());
 			    session.setAttribute("rolUsuario", cliente.getRol());
-			}else session.setAttribute("usuario",null);		
+			    
+			    if (session.getAttribute("rolUsuario")== "admin"){
+    			   // response.sendRedirect("inicioAdmin.jsp");
+    			    
+    			
+    			}else { // response.sendRedirect("inicio.jsp");
+    			};
+			}else{ session.setAttribute("usuario",null);
+			 response.sendRedirect("login.jsp");}
+			
+			
+			
+			   
+			           
+				    		
 		}
 		
 	}

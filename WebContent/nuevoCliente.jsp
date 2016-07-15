@@ -57,7 +57,7 @@
           				<div class="col-lg-12">
                   			<div class="form-panel">
                   	  			<h4 class="mb"><i class="fa fa-angle-right"></i> Completar el formulario</h4>
-                      			<form class="form-horizontal style-form" action="AltaCliente" method="POST">
+                      			<form class="form-horizontal style-form" action="altaCliente" method="POST">
                       	 			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Usuario</label>
                               			<div class="col-sm-10">

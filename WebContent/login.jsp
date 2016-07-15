@@ -38,12 +38,10 @@
 	  	<div class="container">
 	  			<% session.setAttribute("usuario",null);
 	  			session.setAttribute("rolUsuario",null); %>
-		      <form class="form-login" action="loginCliente">
+		      <form class="form-login" action="loginCliente" method="post">
 		        <h2 class="form-login-heading">INICIAR SESIÓN</h2>
 		        <div class="login-wrap">
-		        <%if (session.getAttribute("usuario")==null){ %>
-		        	<p>Nombre de usuario/ contraseña incorrectos</p>
-		        	<%} %>
+		      
 		            <input type="text" name="usuario" class="form-control" placeholder="usuario" autofocus>
 		            <br>
 		            <input type="password" name="clave" class="form-control" placeholder="clave">
@@ -53,12 +51,9 @@
 		
 		                </span>
 		            </label>
-		            <button class="btn btn-theme btn-block" 
-		            href='<%    
-		            if (session.getAttribute("rolUsuario")== "admin"){
-			    			response.sendRedirect("inicioAdmin.jsp");
-			    			}else response.sendRedirect("inicio.jsp");
-			    		%>' type="submit"><i class="fa fa-lock"></i> INGRESAR</button>
+		            
+		            <input class="btn btn-theme btn-block" type="submit" value="Ingresar">
+		          
 		            <hr>
 		            <div class="registration">
 		                Si no estas registrado, hacé click acá<br/>
