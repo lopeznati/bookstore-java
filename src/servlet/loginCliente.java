@@ -19,14 +19,14 @@ import entidades.Localidad;
 /**
  * Servlet implementation class altaCliente
  */
-@WebServlet("/altaCliente")
-public class altaCliente extends HttpServlet {
+@WebServlet("/loginCliente")
+public class loginCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public altaCliente() {
+    public loginCliente() {
         super();
     }
 
@@ -44,19 +44,17 @@ public class altaCliente extends HttpServlet {
 		
 		String usuario = request.getParameter("usuario");
 		String clave =request.getParameter("clave");
+		HttpSession session = request.getSession(true);
 
 		ControladorCliente cc = new ControladorCliente();
 		ArrayList<Cliente> clientes = cc.getAllClientes();
 		for(Cliente cliente : clientes){
 			if(usuario == cliente.getUsuario() && clave == cliente.getClave()){
-				
-				HttpSession session = request.getSession(true);
-			    session.setAttribute("usuario",usuario);
-			    
-			}		
+							
+			    session.setAttribute("usuario",cliente.getId());
+			    session.setAttribute("rolUsuario", cliente.getRol());
+			}else session.setAttribute("usuario",null);		
 		}
-		
-		response.sendRedirect("listadoClientes.jsp");
 		
 	}
 

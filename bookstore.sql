@@ -227,9 +227,8 @@ COMMIT;
 #
 
 INSERT INTO `clientes` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `telefono`, `mail`, `rol`, `foto`, `id_localidad`, `fecha_nacimiento`, `direccion`) VALUES 
-  (1,'mcaste','1234','Mailen','Castellarin','3476565656','mc@gmail.com','admin',NULL,2,'0000-00-00',''),
-  (2,'nlopez','9876','Natali',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',''),
-  (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com',NULL,'http://fcucala.neocities.org/m4ejfinal/lisa.p',2,'1993-10-19','Sarmiento 1621');
+  (2,'nlopez','9876','Natali',NULL,NULL,NULL,'user',NULL,NULL,'1993-11-01',''),
+  (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com','user','http://fcucala.neocities.org/m4ejfinal/lisa.p',2,'1993-10-19','Sarmiento 1621');
 
 COMMIT;
 
@@ -305,15 +304,6 @@ INSERT INTO `tarjetas` (`id`, `numero_tarjeta`, `titular`, `codigo_seguridad`, `
   (1,'12345678','Natali Lopez Leiva',1234,1),
   (2,'87654321','Mailen Castellarin',2933,2),
   (3,'66666666','Martina Pintener',0,2);
-
-COMMIT;
-
-#
-# Data for the `pedidos` table  (LIMIT 0,500)
-#
-
-INSERT INTO `pedidos` (`id`, `fecha_pedido`, `cantidad_libro`, `direccion`, `subtotal`, `id_tarjeta`, `id_libro`, `id_cliente`) VALUES 
-  (1,'2016-05-20',2,'Rosario',100,1,1,1);
 
 COMMIT;
 
