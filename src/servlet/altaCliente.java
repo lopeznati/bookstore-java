@@ -19,14 +19,14 @@ import entidades.Localidad;
 /**
  * Servlet implementation class ModificarCliente
  */
-@WebServlet("/modificarCliente")
-public class modificarCliente extends HttpServlet {
+@WebServlet("/altaCliente")
+public class altaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public modificarCliente() {
+    public altaCliente() {
         super();
     }
 
@@ -41,7 +41,7 @@ public class modificarCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		boolean band = false;
+		
 		String usuario = request.getParameter("usuario");
 		String clave =request.getParameter("clave");
 
@@ -49,7 +49,7 @@ public class modificarCliente extends HttpServlet {
 		ArrayList<Cliente> clientes = cc.getAllClientes();
 		for(Cliente cliente : clientes){
 			if(usuario == cliente.getUsuario() && clave == cliente.getClave()){
-				band = true;
+				
 				HttpSession session = request.getSession(true);
 			    session.setAttribute("usuario",usuario);
 			    
