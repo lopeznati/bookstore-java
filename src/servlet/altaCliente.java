@@ -17,16 +17,16 @@ import entidades.Cliente;
 import entidades.Localidad;
 
 /**
- * Servlet implementation class ModificarCliente
+ * Servlet implementation class altaCliente
  */
-@WebServlet("/modificarCliente")
-public class modificarCliente extends HttpServlet {
+@WebServlet("/altaCliente")
+public class altaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public modificarCliente() {
+    public altaCliente() {
         super();
     }
 
