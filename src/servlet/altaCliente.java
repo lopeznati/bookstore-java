@@ -17,7 +17,7 @@ import entidades.Cliente;
 import entidades.Localidad;
 
 /**
- * Servlet implementation class ModificarCliente
+ * Servlet implementation class altaCliente
  */
 @WebServlet("/altaCliente")
 public class altaCliente extends HttpServlet {
