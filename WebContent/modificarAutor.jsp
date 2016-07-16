@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
 	
 	<body>
+		<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 
 		<%Autor autor=new ControladorAutor().getOneAutor(Integer.parseInt(request.getParameter("idMod"))); %>
 
@@ -42,6 +43,10 @@
                 </tr>
            </table>
 		</form>
+		
+		 	<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</body>

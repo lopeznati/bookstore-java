@@ -45,30 +45,39 @@ public class loginCliente extends HttpServlet {
 		String usuario = request.getParameter("usuario");
 		String clave =request.getParameter("clave");
 		HttpSession session = request.getSession(true);
+		
+		//variable para confirmar si encontro o no el usuario
+		Boolean encontro=false;
 
 		ControladorCliente cc = new ControladorCliente();
 		ArrayList<Cliente> clientes = cc.getAllClientes();
 		for(Cliente cliente : clientes){
-			if(usuario.equals(cliente.getUsuario())  && clave.equals(cliente.getClave())){
+			if(usuario.equals(cliente.getUsuario()) && clave.equals(cliente.getClave())){
 				
 							
 			    session.setAttribute("usuario",cliente.getId());
 			    session.setAttribute("rolUsuario", cliente.getRol());
+			    encontro=true;
 			    
-			    if (session.getAttribute("rolUsuario")== "admin"){
-    			   // response.sendRedirect("inicioAdmin.jsp");
+			    if (session.getAttribute("rolUsuario").equals("admin")){
+    			   response.sendRedirect("inicioAdmin.jsp");
     			    
     			
-    			}else { // response.sendRedirect("inicio.jsp");
-    			};
-			}else{ session.setAttribute("usuario",null);
-			 response.sendRedirect("login.jsp");}
+    			}else {  
+    				response.sendRedirect("inicio.jsp");
+    			}
+			}
 			
 			
 			
 			   
 			           
 				    		
+		}
+		// si el usuario no fue encontrado lo mando al login
+		if(!encontro){
+			response.sendRedirect("login.jsp");
+			
 		}
 		
 	}

@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+ <%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 
 
 <% ControladorLibro cl=new ControladorLibro();
@@ -17,5 +18,9 @@ cl.bajaLibro(cl.getOneLibro(Integer.parseInt(request.getParameter("idElim"))));
 response.sendRedirect("listadoLibros.jsp");
 
 %>
+			  	 	<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>
+
 </body>
 </html>

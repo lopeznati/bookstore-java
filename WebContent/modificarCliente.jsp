@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
 	</head>
 	<body>
+	<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 		<%Cliente cliente = new ControladorCliente().getOneCliente(Integer.parseInt(request.getParameter("idMod")));%>
 		<div class="row">
 		    <div class="col-xs-12" align="center">
@@ -90,6 +91,9 @@
                 </tr>
            </table>
 		</form>
+			 	<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</body>

@@ -10,9 +10,15 @@
 		<title>Baja Clientes</title>
 	</head>
 	<body>
+	 <%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 		<% ControladorCliente cc = new ControladorCliente();
 			cc.bajaCliente(cc.getOneCliente(Integer.parseInt(request.getParameter("idElim"))));
 			response.sendRedirect("listadoClientes.jsp");
 		%>
+		
+				  	 	<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>
+		
 	</body>
 </html>

@@ -9,13 +9,18 @@
 </head>
 <body>
 
-
+ <%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 
 <% ControladorAutor ca=new ControladorAutor();
 ca.bajaAutor(ca.getOneAutor(Integer.parseInt(request.getParameter("idElim"))));
 response.sendRedirect("listadoAutor.jsp");
 
 %>
+
+		  	 	<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>
+
 
 </body>
 </html>

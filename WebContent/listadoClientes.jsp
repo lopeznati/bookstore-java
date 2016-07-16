@@ -16,6 +16,9 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
 	</head>
 	<body>
+	
+	<!-- Valido que el usuario sea administrador, caso contrario lo mando al login -->
+	<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 		<jsp:include page="navbar.jsp"></jsp:include>
 		<jsp:include page="sidebarAdmin.html"></jsp:include>
 	  	<section id="main-content">
@@ -72,6 +75,10 @@
 			</section><!--/wrapper -->
       	</section><!-- /MAIN CONTENT -->
 	  	<jsp:include page="footer.html"></jsp:include>
+	  	
+	  	<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</body>

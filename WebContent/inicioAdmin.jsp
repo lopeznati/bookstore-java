@@ -30,6 +30,8 @@
   </head>
 
   <body>
+  
+  <%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 
   <section id="container" >
       <jsp:include page="navbar.jsp"></jsp:include>
@@ -279,6 +281,11 @@
       </footer>
       <!--footer end-->
   </section>
+  
+  			  	 	<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>
+  
 
 	<!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
