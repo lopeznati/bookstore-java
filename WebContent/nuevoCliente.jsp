@@ -35,7 +35,7 @@
     	<![endif]-->
 	</head>
 	<body>
-	<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
+	
   		<section id="container" >
       		<jsp:include page="navbar.jsp"></jsp:include>
       		
@@ -58,7 +58,7 @@
           				<div class="col-lg-12">
                   			<div class="form-panel">
                   	  			<h4 class="mb"><i class="fa fa-angle-right"></i> Completar el formulario</h4>
-                      			<form class="form-horizontal style-form" action="altaCliente" method="POST">
+                      			<form class="form-horizontal style-form" onSubmit="return validarPasswd()" action="altaCliente" method="POST">
                       	 			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Usuario</label>
                               			<div class="col-sm-10">
@@ -66,9 +66,15 @@
                               			</div>
                           			</div>
                           			<div class="form-group">
-                              			<label class="col-sm-2 col-sm-2 control-label">Clave</label>
+                              			<label class="col-sm-2 col-sm-2 control-label">Contraseña</label>
                               			<div class="col-sm-10">
                                   			<input type="text" name="clave" required class="form-control">
+                              			</div>
+                          			</div>
+                          			<div class="form-group">
+                              			<label class="col-sm-2 col-sm-2 control-label">Repetir contraseña</label>
+                              			<div class="col-sm-10">
+                                  			<input type="text" name="clave2" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -150,9 +156,7 @@
       				<!--footer end-->
   				</section>
   				
-  				  	 	<%}else{
-	  		response.sendRedirect("login.jsp");
-	  	}%>
+  				  	 	
     			
     			<!-- js placed at the end of the document so the pages load faster -->
     			<script src="assets/js/jquery.js"></script>
@@ -181,6 +185,17 @@
 					$(function(){
           				$('select.styled').customSelect();
       				});
+      				//validate password
+      				function validarPasswd(){
+      					var c1 = document.getElementById("clave").value;
+          				var c2 = document.getElementById("clave2").value;
+          				if(c1!== c2){      					
+          					  alert("Las passwords deben de coincidir");
+          					  return false;
+          					}
+          				
+      				}
+      				
   				</script>
 	</body>
 </html>

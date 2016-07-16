@@ -1,6 +1,5 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Libro" %>
-<%@page import="entidades.Categoria" %>
 <%@page import="negocio.ControladorLibro"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -11,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-    <title>DASHGUM - Book Store</title>
+    <title>Home</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -35,30 +34,15 @@
   <body>
 
   <section id="container" >
+  
       <jsp:include page="navbar.jsp"></jsp:include>
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Book Store</h5>
-              	  
-              	  <% ArrayList<Categoria> categorias = new ControladorLibro().getAllCategorias(); 
-						for (Categoria c: categorias){%>
-                  <li class="mt">                            
-                          <a class="change-size" href="#"><%=c.getDescripcion()%></a>             
-                  </li> 
-                  <%} %>  
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+      <jsp:include page="sidebar.jsp"></jsp:include>
+      
       <!--sidebar end-->
       
       <!-- **********************************************************************************************************************************************************
@@ -94,7 +78,7 @@
       <!--main content end-->
       
 <jsp:include page="footer.html"></jsp:include>
-      
+   </section>   
 
   </body>
 </html>

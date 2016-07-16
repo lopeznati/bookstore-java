@@ -8,7 +8,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>Login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -37,11 +37,13 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  			<% session.setAttribute("usuario",null);
-	  			session.setAttribute("rolUsuario",null); %>
+	  			session.setAttribute("rolUsuario",null); %>	  			
 		      <form class="form-login" action="loginCliente" method="post">
 		        <h2 class="form-login-heading">INICIAR SESIÓN</h2>
 		        <div class="login-wrap">
-		      
+		      	<%if(session.getAttribute("msj") != null){ %>
+		      		<p class="error">Usuario o contraseña incorrectos</p>
+		      		<%} %>
 		            <input type="text" name="usuario" class="form-control" placeholder="usuario" autofocus>
 		            <br>
 		            <input type="password" name="clave" class="form-control" placeholder="clave">
@@ -53,11 +55,11 @@
 		            </label>
 		            
 		            <input class="btn btn-theme btn-block" type="submit" value="Ingresar">
-		          
+		          	<input class="btn btn-theme btn-block" type="submit" value="Volver al inicio" onclick="javascript:history.back()">
 		            <hr>
 		            <div class="registration">
 		                Si no estas registrado, hacé click acá<br/>
-		                <a class="" href="altaCliente">
+		                <a class="" href="crearCuenta.jsp">
 		                    Crear una cuenta
 		                </a>
 		            </div>
@@ -70,10 +72,10 @@
 		                  <div class="modal-content">
 		                      <div class="modal-header">
 		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                          <h4 class="modal-title">Forgot Password ?</h4>
+		                          <h4 class="modal-title">Olvidaste tu contraseña ?</h4>
 		                      </div>
 		                      <div class="modal-body">
-		                          <p>Por favor, ingresa tu email para resetear tu contraseña</p>
+		                          <p>Por favor, ingresa tu email para resetearla</p>
 		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 		
 		                      </div>

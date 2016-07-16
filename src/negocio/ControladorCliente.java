@@ -1,6 +1,7 @@
 package negocio;
 import entidades.Cliente;
 import entidades.Localidad;
+import entidades.Provincia;
 import datos.*;
 
 import java.util.ArrayList;
@@ -9,10 +10,12 @@ public class ControladorCliente {
 	
 	private CatalogoCliente cc;
 	private CatalogoLocalidad cl;
+	private CatalogoProvincia cp;
 	
 	public ControladorCliente() {
 			cc = new CatalogoCliente();
 			cl = new CatalogoLocalidad();
+			cp = new CatalogoProvincia();
 		}
 		
 	public ArrayList<Cliente> getAllClientes()
@@ -42,6 +45,13 @@ public class ControladorCliente {
 	{
 		
 		return cl.getAllLocalidades();
+		
+	}
+	
+	public ArrayList<Provincia> getAllProvincias()
+	{
+		
+		return cp.getAllProvincia();
 		
 	}
 		

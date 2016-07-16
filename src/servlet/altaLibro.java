@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datos.CatalogoLibro;
+
 import negocio.ControladorAutor;
 import negocio.ControladorLibro;
 import entidades.Autor;
