@@ -41,6 +41,7 @@
 		      <form class="form-login" action="loginCliente" method="post">
 		        <h2 class="form-login-heading">INICIAR SESIÓN</h2>
 		        <div class="login-wrap">
+		        
 		      	<%if(session.getAttribute("msj") != null){ %>
 		      		<p class="error">Usuario o contraseña incorrectos</p>
 		      		<%} %>

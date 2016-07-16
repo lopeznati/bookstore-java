@@ -33,8 +33,7 @@
   <body>
 
   <section id="container" >
-  <% session.setAttribute("usuario",null);
-	  			session.setAttribute("rolUsuario",null); %>
+ 
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
@@ -77,7 +76,7 @@
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-            	<%if(session.getAttribute("usuario").equals(null)){ %>
+            	<%if(session.getAttribute("usuario")==null){ %>
                     <li><a class="logout" href="login.jsp">Iniciar Sesión</a></li>
                     <%} else{%>
                     <li><a class="logout" href="login.jsp">Cerrar Sesión</a></li>  
