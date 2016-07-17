@@ -64,6 +64,7 @@
 		                            	<img class="img-responsive" src="<%=l.getFoto()%>" alt="">	                            
 		                            <div class="overlay2"><h2><%=l.getTitulo()%><br>$<%=l.getPrecio()%></h2>
            								<a class="info" href="detalleLibro.jsp?idLibro=<%=l.getId() %>">Detalles</a>
+           								<a class="info" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
            							</div>    
 		                        </div>
 		                    </div>

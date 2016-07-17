@@ -57,6 +57,7 @@ public class loginCliente extends HttpServlet {
 				
 				session.setAttribute("msj", null);			
 			    session.setAttribute("usuario",cliente.getId());
+			    session.setAttribute("nombreUsuario", cliente.getUsuario());
 			    session.setAttribute("rolUsuario", cliente.getRol());
 			    encontro=true;
 			    

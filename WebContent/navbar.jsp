@@ -79,6 +79,7 @@
             	<%if(session.getAttribute("usuario")==null){ %>
                     <li><a class="logout" href="login.jsp">Iniciar Sesión</a></li>
                     <%} else{%>
+                    <li><h5 class="centered acomodar">Hola, <%out.print(session.getAttribute("nombreUsuario")); %>!</h5></li>
                     <li><a class="logout" href="login.jsp">Cerrar Sesión</a></li>  
                     <%} %>                  
             	</ul>

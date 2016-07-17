@@ -12,6 +12,11 @@ Premium: http://www.gridgum.com
 .mas-padding{
 	padding:10px;
 }
+
+.acomodar{
+	margin-top: 15px;
+	padding: 5px 15px 5px 15px;
+}
 /* BASIC THEME CONFIGURATION */
 body {
     color: #797979;
