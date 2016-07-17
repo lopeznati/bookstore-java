@@ -67,7 +67,7 @@
                                 </a>
                             </li>                         
                             <li class="external">
-                                <a href="#">Ver Carrito completo</a>
+                                <a href="carrito.jsp">Ver Carrito completo</a>
                             </li>
                         </ul>
                     </li>

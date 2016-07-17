@@ -7,6 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ 		
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
 </head>
 <body>
 
@@ -22,6 +28,7 @@ Libro l=new CatalogoLibro().getOneLibro(Integer.parseInt(request.getParameter("i
               
               	<td width="100"><img width="200" src="<%=l.getFoto()%>"/></td>
               	<td>
+              	<form action="carrito" method="post">
               		<table class="table table-striped">
               		<tr>
               			<td>ISBN: <%=l.getIsbn()%></td>
@@ -41,10 +48,20 @@ Libro l=new CatalogoLibro().getOneLibro(Integer.parseInt(request.getParameter("i
               		</tr>
               		<tr>
               			<td>Autor: <%=l.getEditorial().getNombre()%></td>
+              			
+              		</tr>
+              		
+              		<tr>
+              		<input type="hidden" name="id" id="id" value="<%=l.getId()%>">
+              			<td><input  type='submit' class='btn btn-primary' value='Comprar +'/></td>
               		</tr>
               		
               		
+														
+              		
+              		
               		</table>
+              		</form>
               	
               	</td>
               	
@@ -62,6 +79,9 @@ Libro l=new CatalogoLibro().getOneLibro(Integer.parseInt(request.getParameter("i
               	<td Colspan="2">Sinopsis: <%=l.getSipnosis()%></td>
               
               </tr>
+              
+              
+              
 
 				
 
@@ -71,5 +91,7 @@ Libro l=new CatalogoLibro().getOneLibro(Integer.parseInt(request.getParameter("i
             </table>
 			
 
+        	<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

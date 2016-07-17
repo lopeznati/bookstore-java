@@ -37,7 +37,8 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  			<% session.setAttribute("usuario",null);
-	  			session.setAttribute("rolUsuario",null); %>	  			
+	  			session.setAttribute("rolUsuario",null);
+	  			session.setAttribute("carrito",null);%>	  			
 		      <form class="form-login" action="loginCliente" method="post">
 		        <h2 class="form-login-heading">INICIAR SESIÓN</h2>
 		        <div class="login-wrap">
