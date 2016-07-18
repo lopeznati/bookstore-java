@@ -60,7 +60,7 @@ public class modificarLibro extends HttpServlet {
 		
 		ControladorLibro cl=new ControladorLibro();
 		cl.actualizarLibro(l);
-		response.sendRedirect("ListadoLibros.jsp");
+		response.sendRedirect("listadoLibros.jsp");
 				
 	}
 

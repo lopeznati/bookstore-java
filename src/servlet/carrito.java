@@ -56,12 +56,7 @@ public class carrito extends HttpServlet {
 			carrito.add(l);
 			session.setAttribute("carrito", carrito);
 		}
-		
-		
-
 		response.sendRedirect("carrito.jsp");
-		
-	
 	}
 
 }

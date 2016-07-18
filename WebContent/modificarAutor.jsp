@@ -24,7 +24,7 @@
 		    	<h2>Modificar Autor</h2>
 	    	</div>
 		</div>
- 		<form action="ModificarAutor" method="POST" >
+ 		<form action="modificarAutor" method="POST" >
 			<table class="table table-striped">
               	<tr>
                 	<td><input type="hidden" name="id" value="<%=autor.getId() %>"required></td>

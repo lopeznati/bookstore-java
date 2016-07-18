@@ -14,7 +14,7 @@ public class CatalogoProvincia {
 		
 		Statement sentencia = null;
 		ResultSet rs = null;
-		String sql = "sentencia * from Provincias";
+		String sql = "select * from provincias";
 		try
 		{
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();

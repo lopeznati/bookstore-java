@@ -60,6 +60,7 @@
 			total=total + carrito.get(i).getPrecio();
 			totalArticulos+=1;
 		
+			
 		%>
 		
 		<div> 
@@ -103,6 +104,8 @@
 		<img src="imagenes/continuar.gif" width="13" height="13" border="0"></a> 
 		</div>
 		<br>
+		
+		
 		
 		<div  align="center"><a href='comprar.jsp'><botton class='btn btn-primary'>Iniciar Compra</botton></a> </div>
 		<%}else{ %>

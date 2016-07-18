@@ -1,5 +1,5 @@
 package entidades;
-import java.util.Date;
+import java.sql.Date;
 
 public class Pedido {
 	private int id,cantidad_libro;
@@ -9,6 +9,7 @@ public class Pedido {
 	private Tarjeta tarjeta;
 	private Libro libro;
 	private Cliente cliente;
+	private Localidad localidad;
 	
 	public int getId() {
 		return id;
@@ -59,4 +60,24 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
+	public Localidad getLocalidad() {
+		return localidad;
+	}
+	public void setLocalidad(Localidad localidad) {
+		this.localidad = localidad;
+	}
+	public Pedido(){
+		
+	}
+	
+	public Pedido(Date fecha_pedido,String direccion, Localidad loc,Libro l,Cliente c,Tarjeta t,Double subtotal)
+	{
+		this.fecha_pedido = fecha_pedido;
+		this.direccion = direccion;
+		this.localidad = loc;
+		this.libro = l;
+		this.cliente = c;
+		this.tarjeta = t;
+		this.subtotal = subtotal;
+	}
 }

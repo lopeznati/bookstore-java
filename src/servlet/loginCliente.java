@@ -55,7 +55,8 @@ public class loginCliente extends HttpServlet {
 		for(Cliente cliente : clientes){
 			if(usuario.equals(cliente.getUsuario()) && clave.equals(cliente.getClave())){
 				
-				session.setAttribute("msj", null);			
+				session.setAttribute("msj", null);		
+				session.setAttribute("cliente", cliente.getApellido().concat(", " + cliente.getNombre()));
 			    session.setAttribute("usuario",cliente.getId());
 			    session.setAttribute("nombreUsuario", cliente.getUsuario());
 			    session.setAttribute("rolUsuario", cliente.getRol());
