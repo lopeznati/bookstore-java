@@ -1,10 +1,11 @@
+<%@page import="entidades.Tipo_Tarjeta"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="datos.CatalogoCliente"%>
 <%@page import="datos.CatalogoLibro"%>
 <%@page import="entidades.Localidad"%>
-<%@page import="entidades.Tarjeta"%>
+
 <%@page import="entidades.Pedido"%>
 <%@page import="negocio.ControladorPedido"%>
 <%@page import="entidades.Libro"%>
@@ -65,10 +66,10 @@
                       	 			 <div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Cliente</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="id_cliente" value="<%=session.getAttribute("cliente")%>" disabled class="form-control">
+                                  			<input type="text" name="cliente_id" value="<%=session.getAttribute("usuario")%>" class="form-control">
                               			</div>
                           			</div>
-                          			 <div class="form-group">
+                          		   <div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Libro</label>
                               			<div class="col-sm-10">
                               				<%
@@ -80,14 +81,7 @@
                               						subtotal = subtotal + carrito.get(i).getPrecio();
                               					}
                               				%>                              			
-                                  			<input type="text" name="id_libro" value="<%=tituloLibro%>" disabled class="form-control">
-                              			</div>
-                          			</div>
-                      	 			<div class="form-group">
-                              			<label class="col-sm-2 col-sm-2 control-label">Fecha Pedido</label>
-                              			<div class="col-sm-10">
-                              				<% Date fecha_pedido = new Date(0);%>
-                                  			<input type="text" name="fecha_pedido" value="<%=fecha_pedido%>" disabled class="form-control">
+                                  			<input type="text" name="id_libro" value="<%=tituloLibro%>"  class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -99,7 +93,7 @@
          							<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Localidad</label>
                               			<div class="col-sm-10">
-                                  			<select name="id_localidad" class="form-control">
+                                  			<select name="localidad_id" class="form-control">
 						  						<option>...</option>
 						  							<%ArrayList<Localidad> localidades= new ControladorPedido().getAllLocalidades();
 													for(Localidad l:localidades){%>
@@ -108,14 +102,20 @@
 											</select>
                               			</div>
                               		</div>
+                              		<div class="form-group">
+                              			<label class="col-sm-2 col-sm-2 control-label">Numero de tarjeta</label>
+                              			<div class="col-sm-10">
+                                  			<input type="text" name="num_tarjeta" requiered class="form-control">
+                              			</div>
+                          			</div>
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Tarjeta</label>
                               			<div class="col-sm-10">
-                                  			<select name="id_tarjeta" class="form-control">
+                                  			<select name="tipo_tarjeta_id" class="form-control">
 						  						<option>...</option>
-						  							<%ArrayList<Tarjeta> tarjetas= new ControladorPedido().getAllTarjeta();
-													for(Tarjeta t:tarjetas){%>
-						  						<option value="<%=t.getId()%>"><%=t.getTipo_tarjeta().getNombre()%></option>
+						  							<%ArrayList<Tipo_Tarjeta> tt= new ControladorPedido().getAllTipoTarjeta();
+													for(Tipo_Tarjeta targeta:tt){%>
+						  						<option value="<%=targeta.getId()%>"><%=targeta.getNombre()%></option>
 						  						<%} %>						  			
 											</select>
                               			</div>
@@ -123,12 +123,12 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Subtotal</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="subtotal" value="<%=subtotal%>" disabled class="form-control">
+                                  			<input type="text" name="subtotal" value="<%=subtotal%>" class="form-control">
                               			</div>
                           			</div>
                           			
                           			<div class="centrar-cont">
-                          				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">GUARDAR</button>	
+                          				<input type="submit" value="GUARDAR" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">	
                           			</div>
                     		 	</form>
                   			</div>

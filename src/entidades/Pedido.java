@@ -6,10 +6,11 @@ public class Pedido {
 	private Date fecha_pedido;
 	private String direccion;
 	private double subtotal;
-	private Tarjeta tarjeta;
+	private String nro_tarjeta;
 	private Libro libro;
 	private Cliente cliente;
 	private Localidad localidad;
+	private Tipo_Tarjeta tipo_tarjeta;
 	
 	public int getId() {
 		return id;
@@ -20,9 +21,7 @@ public class Pedido {
 	public Date getFecha_pedido() {
 		return fecha_pedido;
 	}
-	public void setFecha_pedido(Date fecha_pedido) {
-		this.fecha_pedido = fecha_pedido;
-	}
+
 	public int getCantidad_libro() {
 		return cantidad_libro;
 	}
@@ -40,12 +39,6 @@ public class Pedido {
 	}
 	public void setSubtotal(double subtotal) {
 		this.subtotal = subtotal;
-	}
-	public Tarjeta getTarjeta() {
-		return tarjeta;
-	}
-	public void setTarjeta(Tarjeta tarjeta) {
-		this.tarjeta = tarjeta;
 	}
 	public Libro getLibro() {
 		return libro;
@@ -66,18 +59,33 @@ public class Pedido {
 	public void setLocalidad(Localidad localidad) {
 		this.localidad = localidad;
 	}
+	
+	
+	public Tipo_Tarjeta getTipo_tarjeta() {
+		return tipo_tarjeta;
+	}
+	public void setTipo_tarjeta(Tipo_Tarjeta tipo_tarjeta) {
+		this.tipo_tarjeta = tipo_tarjeta;
+	}
+
 	public Pedido(){
 		
 	}
 	
-	public Pedido(Date fecha_pedido,String direccion, Localidad loc,Libro l,Cliente c,Tarjeta t,Double subtotal)
+	public Pedido(String direccion, Localidad loc,Libro l,Cliente c,String nro_tarjeta,Double subtotal,Tipo_Tarjeta tt)
 	{
-		this.fecha_pedido = fecha_pedido;
 		this.direccion = direccion;
 		this.localidad = loc;
 		this.libro = l;
 		this.cliente = c;
-		this.tarjeta = t;
+		this.nro_tarjeta = nro_tarjeta;
 		this.subtotal = subtotal;
+		this.tipo_tarjeta = tt;
+	}
+	public String getNro_tarjeta() {
+		return nro_tarjeta;
+	}
+	public void setNro_tarjeta(String nro_tarjeta) {
+		this.nro_tarjeta = nro_tarjeta;
 	}
 }

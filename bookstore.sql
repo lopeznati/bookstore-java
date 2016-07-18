@@ -173,7 +173,6 @@ DROP TABLE IF EXISTS `pedidos`;
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL auto_increment,
   `fecha_pedido` date default NULL,
-  `cantidad_libro` int(11) default NULL,
   `direccion` varchar(50) default NULL,
   `subtotal` double(15,3) default NULL,
   `id_tarjeta` int(11) default NULL,
@@ -185,10 +184,10 @@ CREATE TABLE `pedidos` (
   KEY `id_cliente` (`id_cliente`),
   KEY `id_libro` (`id_libro`),
   KEY `id_localidad` (`id_localidad`),
-  CONSTRAINT `pedidos_fk3` FOREIGN KEY (`id_localidad`) REFERENCES `localidades` (`id`),
   CONSTRAINT `pedidos_fk` FOREIGN KEY (`id_tarjeta`) REFERENCES `tarjetas` (`id`),
   CONSTRAINT `pedidos_fk1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`),
-  CONSTRAINT `pedidos_fk2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`)
+  CONSTRAINT `pedidos_fk2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`),
+  CONSTRAINT `pedidos_fk3` FOREIGN KEY (`id_localidad`) REFERENCES `localidades` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
@@ -230,7 +229,7 @@ COMMIT;
 #
 
 INSERT INTO `clientes` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `telefono`, `mail`, `rol`, `foto`, `id_localidad`, `fecha_nacimiento`, `direccion`) VALUES 
-  (2,'nlopez','9876','Natali',NULL,NULL,NULL,'user',NULL,1,'1993-11-01',''),
+  (2,'nlopez','9876','Natali','Natali','34144444',NULL,'user',NULL,1,'1993-11-01',''),
   (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com','user','http://fcucala.neocities.org/m4ejfinal/lisa.p',2,'1993-10-19','Sarmiento 1621'),
   (4,'mcaste','1234','Mailen','Castellarin','3476597263','mai_clarke_20@hotmai','admin',NULL,1,'1993-07-20','sarmiento 223');
 

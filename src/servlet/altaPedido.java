@@ -16,7 +16,7 @@ import org.apache.catalina.Session;
 import datos.CatalogoCliente;
 import datos.CatalogoLibro;
 import datos.CatalogoLocalidad;
-import datos.CatalogoTarjeta;
+
 import negocio.ControladorCliente;
 import negocio.ControladorLibro;
 import negocio.ControladorPedido;
@@ -24,7 +24,8 @@ import entidades.Cliente;
 import entidades.Libro;
 import entidades.Localidad;
 import entidades.Pedido;
-import entidades.Tarjeta;
+
+import entidades.Tipo_Tarjeta;
 
 /**
  * Servlet implementation class altaPedido
@@ -55,23 +56,38 @@ public class altaPedido extends HttpServlet {
 		
 		HttpSession session = request.getSession(true);
 		
-		Date fecha_pedido = Date.valueOf(request.getParameter("fecha_pedido"));
-		String direccion = request.getParameter("direcciom");
-		Double subtotal = Double.valueOf(request.getParameter("subtotal"));
+		String direccion = request.getParameter("direccion");
+		double subtotal = Double.parseDouble(request.getParameter("subtotal"));
+		
 		
 		Cliente c = new ControladorCliente().getOneCliente(Integer.parseInt(request.getParameter("cliente_id")));
-		Tarjeta t = new ControladorPedido().getOneTarjeta(Integer.parseInt(request.getParameter("tarjeta_id")));	
-		Libro l = new ControladorLibro().getOneLibro(Integer.parseInt(request.getParameter("libro_id")));
+		Tipo_Tarjeta tt = new ControladorPedido().getOneTipoTarjeta((Integer.parseInt(request.getParameter("tipo_tarjeta_id"))));
 		Localidad loc = new ControladorPedido().getOneLocalidad(Integer.parseInt(request.getParameter("localidad_id")));
+		String numero_targeta=request.getParameter("num_tarjeta");
+		
+		
+		ArrayList<Libro> carrito=(ArrayList<Libro>)session.getAttribute("carrito");
+	
 			
-		if ((l.getExistencia() > 1) && (session.getAttribute("cliente")!=null))
-		{
-			l.setExistencia(l.getExistencia() - 1);
-			Pedido pedido = new Pedido(fecha_pedido,direccion,loc,l,c,t,subtotal);
+		for(int i=0;i<carrito.size();i++){
+	
 			
-			ControladorPedido cp = new ControladorPedido();
-			cp.altaPedido(pedido);
+			if (((carrito.get(i).getExistencia())>0))
+			{
+				
+				carrito.get(i).setExistencia(carrito.get(i).getExistencia() - 1);
+				ControladorLibro cl=new ControladorLibro();
+				cl.actualizarLibro(carrito.get(i));
+	
+				Pedido pedido = new Pedido(direccion,loc,carrito.get(i),c,numero_targeta,carrito.get(i).getPrecio(),tt);
+			
+				ControladorPedido cp = new ControladorPedido();
+				cp.altaPedido(pedido);
+				
+			}
+			System.out.println(i);
+			
 		}
-		response.sendRedirect("inicio.jsp");
+		response.sendRedirect("inicio.jsp"); 
 	}
 }

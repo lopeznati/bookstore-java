@@ -6,17 +6,19 @@ import datos.CatalogoLibro;
 import datos.CatalogoLocalidad;
 import datos.CatalogoPedido;
 import datos.CatalogoProvincia;
-import datos.CatalogoTarjeta;
+
+import datos.CatalogoTipoTarjeta;
 import entidades.Libro;
 import entidades.Localidad;
 import entidades.Pedido;
 import entidades.Provincia;
-import entidades.Tarjeta;
+
+import entidades.Tipo_Tarjeta;
 
 public class ControladorPedido {
 	
 	private CatalogoPedido cp;
-	private CatalogoTarjeta ct;
+	private CatalogoTipoTarjeta tt;
 	private CatalogoLocalidad cl;
 	
 	public ControladorPedido() {
@@ -35,22 +37,14 @@ public class ControladorPedido {
 		cp.altaPedido(p);
 	}
 	
-	public void actualizarPedido(Pedido nuevoPed) {
-		cp.actualizarPedido(nuevoPed);
+	public Tipo_Tarjeta getOneTipoTarjeta(int tarjeta_id){
+		tt = new CatalogoTipoTarjeta();
+		return tt.getOneTipoTarjeta(tarjeta_id);
 	}
 	
-	public void bajaPedido(Pedido p) {
-		cp.bajaPedido(p);
-	}
-	
-	public Tarjeta getOneTarjeta(int tarjeta_id){
-		ct = new CatalogoTarjeta();
-		return ct.getOneTarjeta(tarjeta_id);
-	}
-	
-	public ArrayList<Tarjeta> getAllTarjeta(){
-		ct = new CatalogoTarjeta();
-		return ct.getAllTarjetas();
+	public ArrayList<Tipo_Tarjeta> getAllTipoTarjeta(){
+		tt = new CatalogoTipoTarjeta();
+		return tt.getAllTiposTarjetas();
 	}
 	
 	public Localidad getOneLocalidad(int localidad_id){

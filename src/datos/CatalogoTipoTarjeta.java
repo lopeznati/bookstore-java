@@ -16,7 +16,7 @@ public class CatalogoTipoTarjeta {
 		
 		Statement sentencia = null;
 		ResultSet rs = null;
-		String sql = "sentencia * from Tipos_Tarjetas";
+		String sql = "select * from Tipos_Tarjetas";
 		try
 		{
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();
