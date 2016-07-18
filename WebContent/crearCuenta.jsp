@@ -119,6 +119,9 @@
                           	<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
 						  	ACEPTAR
 							</button>	
+							<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+						  	CANCELAR
+							</button>
                           </div>
                           
                       </form>

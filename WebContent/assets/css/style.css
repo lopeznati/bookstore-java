@@ -1496,93 +1496,6 @@ PANELS CONFIGURATIONS
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGFJREFUeNpinHLMhgEHKADia0xQThIQs6JJ9gPxZhYQAcS6QHwDiI8hSYJAC0gBPxDLAvFcIJ6JJJkDxFNBVtgBcQ8Qa6BLghgwN4A4a9ElQYAFSj8C4mwg3o8sCQIAAQYA78QTYqnPZuEAAAAASUVORK5CYII=') no-repeat center center;
 }
 
-/* PROFILE PANELS */
-/* Profile 01*/
-#profile-01 {
-	background: url(../img/profile-01.jpg) no-repeat center top;
-	margin-top: -15px;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 150px;
-	width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-#profile-01 h3 {
-	color: white;
-	padding-top: 50px;
-	margin: 0px;
-	text-align: center;
-}
-#profile-01 h6 {
-	color: white;
-	text-align: center;
-	margin-bottom: 0px;
-	font-weight: 900;
-}
-.profile-01 {
-	background: #68dff0;
-	height: 50px;
-}
-.profile-01:hover {
-	background: #2f2f2f;
-  -webkit-transition: background-color 0.6s;
-  -moz-transition: background-color 0.6s;
-  -o-transition: background-color 0.6s;
-  transition: background-color 0.6s;
-  cursor: pointer;
-}
-.profile-01 p {
-	color: white;
-	padding-top: 15px;
-	font-weight: 400;
-	font-size: 15px;
-}
-
-/* Profile 02*/
-#profile-02 {
-	background: url(../img/profile-02.jpg) no-repeat center top;
-	margin-top: -15px;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 200px;
-	width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-#profile-02 .user {
-	padding-top: 40px;
-	text-align: center;
-}
-#profile-02 h4 {
-	color: white;
-	margin:0px;
-	padding-top: 8px;
-}
-.pr2-social a {
-	color: #cdcdcd;
-}
-.pr2-social a:hover {
-	color: #68dff0;
-}
-.pr2-social i {
-	margin-top: 15px;
-	margin-right: 12px;
-	font-size: 20px;
-}
-
 
 /*spark line*/
 .chart {
@@ -1658,28 +1571,7 @@ PANELS CONFIGURATIONS
 
 
 
-/* Calendar Events - Calendar.html*/
-.external-event {
-	cursor: move;
-	display: inline-block !important;
-	margin-bottom: 7px !important;
-	margin-right: 7px !important;
-	padding: 10px;
-}
 
-.drop-after {
-	padding-top: 15px;
-	margin-top: 15px;
-	border-top: 1px solid #ccc;
-}
-
-.fc-state-default, .fc-state-default .fc-button-inner {
-	background: #f2f2f2;
-}
-
-.fc-state-active .fc-button-inner {
-	background: #FFFFFF;
-}
 
 /* Gallery Configuration */
 .photo-wrapper {

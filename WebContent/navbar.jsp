@@ -1,4 +1,6 @@
-
+<%@page import="negocio.ControladorLibro"%>
+<%@page import="entidades.Libro"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -58,14 +60,21 @@
                             <li>
                                 <p class="green">Carrito de compras</p>
                             </li>
-                            <li>
-                                <a href="index.html#">
-                                    <div class="task-info">
-                                        <div class="desc">aca va el producto</div>
-                                        <div class="percent">aca el precio</div>
-                                    </div>                                    
-                                </a>
-                            </li>                         
+                            <%if(session.getAttribute("carrito")!=null){
+										ArrayList<Libro> carrito=(ArrayList<Libro>)session.getAttribute("carrito");		
+										for(int i=0;i<carrito.size();i++){
+										%>
+                            <li>               
+                                <div class="task-info">           
+                                     <div class="desc"><%=carrito.get(i).getTitulo() %>
+                                     <a href="borracar.jsp?id=<%=i%>"><i class="fa fa-trash-o" aria-hidden="true"></i> 
+                                     </div>
+                                     <div class="percent">$<%=carrito.get(i).getPrecio() %></div>                                       
+                                   	 <div><input name="idlibro" type="hidden" id="idlibro" value="<%= carrito.get(i).getId() %>"> </div>
+                                </div>                                                                                                              
+                            </li> 
+                            <%} %> 
+                            <%} %>                       
                             <li class="external">
                                 <a href="carrito.jsp">Ver Carrito completo</a>
                             </li>

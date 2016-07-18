@@ -44,11 +44,11 @@ public class carrito extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		Libro l=new ControladorLibro().getOneLibro(Integer.parseInt(request.getParameter("id")));
+		Libro l = new ControladorLibro().getOneLibro(Integer.parseInt(request.getParameter("id")));
 		ArrayList<Libro> carrito;
 		HttpSession session = request.getSession(true);
 		if(session.getAttribute("carrito")!=null){
-			carrito=(ArrayList<Libro>)session.getAttribute("carrito");
+			carrito = (ArrayList<Libro>)session.getAttribute("carrito");
 			carrito.add(l);
 			session.setAttribute("carrito", carrito);
 		}else{
