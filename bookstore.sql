@@ -179,10 +179,13 @@ CREATE TABLE `pedidos` (
   `id_tarjeta` int(11) default NULL,
   `id_libro` int(11) default NULL,
   `id_cliente` int(11) default NULL,
+  `id_localidad` int(11) default NULL,
   PRIMARY KEY  (`id`),
   KEY `id_tarjeta` (`id_tarjeta`),
   KEY `id_cliente` (`id_cliente`),
   KEY `id_libro` (`id_libro`),
+  KEY `id_localidad` (`id_localidad`),
+  CONSTRAINT `pedidos_fk3` FOREIGN KEY (`id_localidad`) REFERENCES `localidades` (`id`),
   CONSTRAINT `pedidos_fk` FOREIGN KEY (`id_tarjeta`) REFERENCES `tarjetas` (`id`),
   CONSTRAINT `pedidos_fk1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`),
   CONSTRAINT `pedidos_fk2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`)
@@ -227,8 +230,9 @@ COMMIT;
 #
 
 INSERT INTO `clientes` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `telefono`, `mail`, `rol`, `foto`, `id_localidad`, `fecha_nacimiento`, `direccion`) VALUES 
-  (2,'nlopez','9876','Natali',NULL,NULL,NULL,'user',NULL,NULL,'1993-11-01',''),
-  (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com','user','http://fcucala.neocities.org/m4ejfinal/lisa.p',2,'1993-10-19','Sarmiento 1621');
+  (2,'nlopez','9876','Natali',NULL,NULL,NULL,'user',NULL,1,'1993-11-01',''),
+  (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com','user','http://fcucala.neocities.org/m4ejfinal/lisa.p',2,'1993-10-19','Sarmiento 1621'),
+  (4,'mcaste','1234','Mailen','Castellarin','3476597263','mai_clarke_20@hotmai','admin',NULL,1,'1993-07-20','sarmiento 223');
 
 COMMIT;
 
