@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import entidades.Provincia;
 import entidades.Tipo_Tarjeta;
 
@@ -70,9 +71,8 @@ public class CatalogoTipoTarjeta {
 				Provincia p=new CatalogoProvincia().getOneProvincia(rs.getInt("id_provincia"));
 				tt.setProvincia(p);
 			}
-			
-		} catch (SQLException e2) {
-			e2.printStackTrace();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
 		}
 		return tt;
 	}

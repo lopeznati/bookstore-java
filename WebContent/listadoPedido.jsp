@@ -33,31 +33,26 @@
                 					<tr>
                   						<th>#</th>
                   						<th>Cliente</th>
-                 					 	<th>Libro</th>
-                 					 	<th>Fecha Pedido</th>             		
+                 					 	<th>Libro</th>         				    	
                  					 	<th>Direccion</th>
                  					 	<th>Localidad</th>
                  					 	<th>Subtotal</th>
-				  					<th>Acciones</th>
+				  						<th>Tipo tarjeta</th>
                 					</tr>
               					</thead>
                               <tbody>
-                              <%ArrayList<Pedido> pedidos=new ControladorPedido().getAllPedidos();
-			  					for(Pedido p:pedidos){
-			  						String cliente = p.getCliente().getApellido().concat(", " + p.getCliente().getNombre());
-			  				   %>
+                             	 <%
+                             	 	ArrayList<Pedido> pedidos=new ControladorPedido().getAllPedidos();
+			  						for(Pedido p:pedidos){
+			  				  	 %>
                               <tr>
                                 <td><%=p.getId() %></td>
-				    			<td><%=cliente%></td>
+				    			<td><%=p.getCliente().getId()%></td>
 				    			<td><%=p.getLibro().getTitulo()%></td>
-				    			<td><%=p.getFecha_pedido()%></td>
 				    			<td><%=p.getDireccion()%></td>
-				    			<td><%=p.getLocalidad()%></td>
+				    			<td><%=p.getLocalidad().getNombre()%></td>
 				    			<td><%=p.getSubtotal()%></td>
-                                <td>
-                                	<button class="btn btn-primary btn-xs" onClick="window.location.href='modificarPedido.jsp?idMod=<%=p.getId()%>'"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs" onClick="window.location.href='eliminarPedido.jsp?idElim=<%=p.getId()%>'"><i class="fa fa-trash-o "></i></button>
-                                </td>
+				    			<td><%=p.getTipo_tarjeta().getNombre() %></td>
                               </tr>                    
                                <% } %>
                               </tbody>

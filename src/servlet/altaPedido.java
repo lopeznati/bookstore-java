@@ -63,7 +63,7 @@ public class altaPedido extends HttpServlet {
 		Cliente c = new ControladorCliente().getOneCliente(Integer.parseInt(request.getParameter("cliente_id")));
 		Tipo_Tarjeta tt = new ControladorPedido().getOneTipoTarjeta((Integer.parseInt(request.getParameter("tipo_tarjeta_id"))));
 		Localidad loc = new ControladorPedido().getOneLocalidad(Integer.parseInt(request.getParameter("localidad_id")));
-		String numero_targeta=request.getParameter("num_tarjeta");
+		String numero_tarjeta= request.getParameter("numero_tarjeta");
 		
 		
 		ArrayList<Libro> carrito=(ArrayList<Libro>)session.getAttribute("carrito");
@@ -79,15 +79,13 @@ public class altaPedido extends HttpServlet {
 				ControladorLibro cl=new ControladorLibro();
 				cl.actualizarLibro(carrito.get(i));
 	
-				Pedido pedido = new Pedido(direccion,loc,carrito.get(i),c,numero_targeta,carrito.get(i).getPrecio(),tt);
+				Pedido pedido = new Pedido(direccion,loc,carrito.get(i),c,numero_tarjeta,carrito.get(i).getPrecio(),tt);
 			
 				ControladorPedido cp = new ControladorPedido();
 				cp.altaPedido(pedido);
-				
+
 			}
-			System.out.println(i);
-			
 		}
-		response.sendRedirect("inicio.jsp"); 
+		response.sendRedirect("inicio.jsp");
 	}
 }

@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import entidades.Localidad;
 import entidades.Provincia;
 
@@ -65,15 +66,16 @@ public class CatalogoLocalidad {
 				l=new Localidad();
 				l.setId(rs.getInt("id"));
 				l.setNombre(rs.getString("nombre"));
-				l.setId(rs.getInt("codigo_postal"));
+				l.setCodigo_postal(rs.getInt("codigo_postal"));
 				
 				Provincia p=new CatalogoProvincia().getOneProvincia(rs.getInt("id_provincia"));
 				l.setProvincia(p);
 			}
 			
-		} catch (SQLException e2) {
-			e2.printStackTrace();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
 		}
+
 		return l;
 	}
 

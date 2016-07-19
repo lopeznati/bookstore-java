@@ -1,3 +1,4 @@
+<%@page import="negocio.ControladorLibro"%>
 <%@page import="entidades.Tipo_Tarjeta"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.util.ArrayList"%>
@@ -62,11 +63,12 @@
           				<div class="col-lg-12">
                   			<div class="form-panel">
                   	  			<h4 class="mb"><i class="fa fa-angle-right"></i> Completar el formulario</h4>
-                      			<form class="form-horizontal style-form" action="altaPedido" method="POST">
+                      			<form class="form-horizontal style-form" action="altaPedido" method="POST" >
                       	 			 <div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Cliente</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="cliente_id" value="<%=session.getAttribute("usuario")%>" class="form-control">
+                                  			<input READONLY type="hidden" name="cliente_id" value="<%=session.getAttribute("usuario")%>" class="form-control">
+                                  			<input READONLY type="text" value="<%=session.getAttribute("cliente")%>" class="form-control">
                               			</div>
                           			</div>
                           		   <div class="form-group">
@@ -80,8 +82,8 @@
                               						tituloLibro = carrito.get(i).getTitulo();
                               						subtotal = subtotal + carrito.get(i).getPrecio();
                               					}
-                              				%>                              			
-                                  			<input type="text" name="id_libro" value="<%=tituloLibro%>"  class="form-control">
+                              				%>  
+                              				<input READONLY type="text" name="id_libro" value="<%=tituloLibro%>"  class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -105,7 +107,7 @@
                               		<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Numero de tarjeta</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="num_tarjeta" requiered class="form-control">
+                                  			<input type="text" name="numero_tarjeta" requiered class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -113,9 +115,9 @@
                               			<div class="col-sm-10">
                                   			<select name="tipo_tarjeta_id" class="form-control">
 						  						<option>...</option>
-						  							<%ArrayList<Tipo_Tarjeta> tt= new ControladorPedido().getAllTipoTarjeta();
-													for(Tipo_Tarjeta targeta:tt){%>
-						  						<option value="<%=targeta.getId()%>"><%=targeta.getNombre()%></option>
+						  							<%ArrayList<Tipo_Tarjeta> tiposTarjetas= new ControladorPedido().getAllTipoTarjeta();
+													for(Tipo_Tarjeta tt:tiposTarjetas){%>
+						  						<option value="<%=tt.getId()%>"><%=tt.getNombre()%></option>
 						  						<%} %>						  			
 											</select>
                               			</div>
@@ -123,7 +125,7 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Subtotal</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="subtotal" value="<%=subtotal%>" class="form-control">
+                                  			<input READONLY type="text" name="subtotal" value="<%=subtotal%>" class="form-control">
                               			</div>
                           			</div>
                           			
@@ -145,6 +147,9 @@
       				</footer>
       				<!--footer end-->
   				</section>
+  				
+  	
+  				
     			<!-- js placed at the end of the document so the pages load faster -->
     			<script src="assets/js/jquery.js"></script>
     			<script src="assets/js/bootstrap.min.js"></script>

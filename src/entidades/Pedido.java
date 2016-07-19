@@ -2,11 +2,11 @@ package entidades;
 import java.sql.Date;
 
 public class Pedido {
-	private int id,cantidad_libro;
+	private int id;
 	private Date fecha_pedido;
 	private String direccion;
 	private double subtotal;
-	private String nro_tarjeta;
+	private String numero_tarjeta;
 	private Libro libro;
 	private Cliente cliente;
 	private Localidad localidad;
@@ -22,12 +22,6 @@ public class Pedido {
 		return fecha_pedido;
 	}
 
-	public int getCantidad_libro() {
-		return cantidad_libro;
-	}
-	public void setCantidad_libro(int cantidad_libro) {
-		this.cantidad_libro = cantidad_libro;
-	}
 	public String getDireccion() {
 		return direccion;
 	}
@@ -67,25 +61,26 @@ public class Pedido {
 	public void setTipo_tarjeta(Tipo_Tarjeta tipo_tarjeta) {
 		this.tipo_tarjeta = tipo_tarjeta;
 	}
+	
+	public String getNumero_tarjeta() {
+		return numero_tarjeta;
+	}
+	public void setNumero_tarjeta(String numero_tarjeta) {
+		this.numero_tarjeta =numero_tarjeta;
+	}
 
 	public Pedido(){
 		
 	}
 	
-	public Pedido(String direccion, Localidad loc,Libro l,Cliente c,String nro_tarjeta,Double subtotal,Tipo_Tarjeta tt)
+	public Pedido(String direccion, Localidad loc,Libro l,Cliente c,String numero_tarjeta,Double subtotal,Tipo_Tarjeta tt)
 	{
 		this.direccion = direccion;
 		this.localidad = loc;
 		this.libro = l;
 		this.cliente = c;
-		this.nro_tarjeta = nro_tarjeta;
+		this.numero_tarjeta = numero_tarjeta;
 		this.subtotal = subtotal;
 		this.tipo_tarjeta = tt;
-	}
-	public String getNro_tarjeta() {
-		return nro_tarjeta;
-	}
-	public void setNro_tarjeta(String nro_tarjeta) {
-		this.nro_tarjeta = nro_tarjeta;
 	}
 }

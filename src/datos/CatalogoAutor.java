@@ -1,5 +1,6 @@
 package datos;
 import entidades.Autor;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,12 +63,9 @@ public class CatalogoAutor {
 				a.setId(rs.getInt("id"));
 				a.setNombre(rs.getString("nombre"));
 				a.setApellido(rs.getString("apellido"));
-
-				
 			}
-			
-		} catch (SQLException e2) {
-			e2.printStackTrace();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
 		}
 		
 		return a;

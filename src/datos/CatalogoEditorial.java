@@ -51,7 +51,7 @@ public class CatalogoEditorial {
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
 		Editorial e=null;
-		String sql="select * from Editoriales where id=?";
+		String sql="select * from editoriales where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
 			sentencia.setInt(1, id);
@@ -63,11 +63,9 @@ public class CatalogoEditorial {
 				e.setNombre(rs.getString("nombre"));
 				
 			}
-			
-		} catch (SQLException e2) {
-			e2.printStackTrace();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
 		}
-		
 		return e;
 	}
 }

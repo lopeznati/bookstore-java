@@ -92,7 +92,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">E-MAIL</label>
                               <div class="col-sm-10">
-                                  <input type="mail" name="nedicion" required class="form-control">
+                                  <input type="email" name="nedicion" required class="form-control">
                               </div>
                           </div>                        
                           <div class="form-group">

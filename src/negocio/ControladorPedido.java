@@ -18,7 +18,7 @@ import entidades.Tipo_Tarjeta;
 public class ControladorPedido {
 	
 	private CatalogoPedido cp;
-	private CatalogoTipoTarjeta tt;
+	private CatalogoTipoTarjeta ctt;
 	private CatalogoLocalidad cl;
 	
 	public ControladorPedido() {
@@ -29,22 +29,18 @@ public class ControladorPedido {
 		return cp.getAllPedidos();
 	}
 	
-	public Pedido getOnePedido(int pedido_id){
-		return cp.getOnePedido(pedido_id);
-	}
-	
 	public void altaPedido(Pedido p) {
 		cp.altaPedido(p);
 	}
 	
 	public Tipo_Tarjeta getOneTipoTarjeta(int tarjeta_id){
-		tt = new CatalogoTipoTarjeta();
-		return tt.getOneTipoTarjeta(tarjeta_id);
+		ctt = new CatalogoTipoTarjeta();
+		return ctt.getOneTipoTarjeta(tarjeta_id);
 	}
 	
 	public ArrayList<Tipo_Tarjeta> getAllTipoTarjeta(){
-		tt = new CatalogoTipoTarjeta();
-		return tt.getAllTiposTarjetas();
+		ctt = new CatalogoTipoTarjeta();
+		return ctt.getAllTiposTarjetas();
 	}
 	
 	public Localidad getOneLocalidad(int localidad_id){

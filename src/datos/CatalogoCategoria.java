@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import entidades.Categoria;
 
 public class CatalogoCategoria {
@@ -50,7 +51,7 @@ public class CatalogoCategoria {
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
 		Categoria c=null;
-		String sql="select * from Categorias where id=?";
+		String sql="select * from categorias where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
 			sentencia.setInt(1, id);
@@ -63,8 +64,8 @@ public class CatalogoCategoria {
 				
 			}
 			
-		} catch (SQLException e2) {
-			e2.printStackTrace();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
 		}
 		
 		return c;

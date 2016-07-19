@@ -43,9 +43,7 @@ public class ControladorCliente {
 
 	public ArrayList<Localidad> getAllLocalidades()
 	{
-		
 		return cl.getAllLocalidades();
-		
 	}
 	
 	public ArrayList<Provincia> getAllProvincias()

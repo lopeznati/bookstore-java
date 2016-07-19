@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import entidades.Cliente;
 import entidades.Libro;
+import entidades.Localidad;
 import entidades.Pedido;
 import entidades.Tipo_Tarjeta;
 
@@ -17,30 +18,29 @@ public class CatalogoPedido {
 	public ArrayList<Pedido> getAllPedidos()
 	{
 		ArrayList<Pedido> pedidos = new ArrayList<>();
-		
 		Statement sentencia = null;
 		ResultSet rs = null;
 		String sql = "select * from pedidos";
 		try
-		{
+		{			
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();
 			rs = sentencia.executeQuery(sql);
 			
 			while (rs.next()){
 				Pedido p = new Pedido();
 				p.setId(rs.getInt("id"));
-				p.setDireccion(rs.getString("direccion"));
-				p.setSubtotal(rs.getDouble("subtotal"));
-				
-				Tipo_Tarjeta  tt = new CatalogoTipoTarjeta().getOneTipoTarjeta((rs.getInt("id_tipo_tarjeta")));
-				tt.setId(tt.getId());
-				p.setNro_tarjeta(rs.getString("numero_tarjeta"));
-				
-				Libro l = new CatalogoLibro().getOneLibro(rs.getInt("id_libro"));
-				p.setLibro(l);
-				
 				Cliente c = new CatalogoCliente().getOneCliente(rs.getInt("id_cliente"));
 				p.setCliente(c);
+				Libro l = new CatalogoLibro().getOneLibro(rs.getInt("id_libro"));
+				p.setLibro(l);		
+				p.setDireccion(rs.getString("direccion"));
+				Localidad loc=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
+				p.setLocalidad(loc);
+				p.setSubtotal(rs.getDouble("subtotal"));
+				Tipo_Tarjeta  tt = new CatalogoTipoTarjeta().getOneTipoTarjeta((rs.getInt("id_tipo_tarjeta")));
+				p.setTipo_tarjeta(tt);
+				
+				pedidos.add(p);
 			}
 		}
 		catch(SQLException e1)
@@ -62,39 +62,6 @@ public class CatalogoPedido {
 		return pedidos;
 	}
 	
-	public Pedido getOnePedido(int id) {
-		PreparedStatement sentencia=null;
-		ResultSet rs=null;
-		Pedido p=null;
-		String sql="select * from pedidos where id=?";
-		try {
-			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
-			sentencia.setInt(1, id);
-			rs=sentencia.executeQuery();
-			
-			if(rs.next()){
-				p = new Pedido();
-				p.setId(rs.getInt("id"));
-				p.setDireccion(rs.getString("direccion"));
-				p.setSubtotal(rs.getDouble("subtotal"));
-				
-				Tipo_Tarjeta  tt = new CatalogoTipoTarjeta().getOneTipoTarjeta((rs.getInt("id_tipo_tarjeta")));
-				tt.setId(tt.getId());
-				p.setNro_tarjeta(rs.getString("numero_tarjeta"));
-				
-				Libro l = new CatalogoLibro().getOneLibro(rs.getInt("id_libro"));
-				p.setLibro(l);
-				
-				Cliente c = new CatalogoCliente().getOneCliente(rs.getInt("id_cliente"));
-				p.setCliente(c);
-			}
-			
-		} catch (SQLException e2) {
-			e2.printStackTrace();
-		}
-		return p;
-	}
-
 	public void altaPedido(Pedido p){
 
 		PreparedStatement sentencia=null;
@@ -103,19 +70,16 @@ public class CatalogoPedido {
 		
 		try 
 		{
-			
-			
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			sentencia.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
 			sentencia.setString(2, p.getDireccion());
 			sentencia.setDouble(3, p.getSubtotal());
-			sentencia.setString(4,p.getNro_tarjeta());
+			sentencia.setString(4,p.getNumero_tarjeta());
 			sentencia.setInt(5, p.getLibro().getId());
 			sentencia.setInt(6, p.getCliente().getId());
 			sentencia.setInt(7, p.getLocalidad().getId());
 			sentencia.setInt(8, p.getTipo_tarjeta().getId());
-			
 
 			sentencia.execute();
 			rs=sentencia.getGeneratedKeys();

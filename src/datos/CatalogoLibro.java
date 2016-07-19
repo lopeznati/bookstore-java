@@ -18,7 +18,7 @@ public class CatalogoLibro {
 		//preparo la sentencia sql
 		Statement sentencia=null;
 		ResultSet rs=null;
-		String sql="select * from Libros";
+		String sql="select * from libros";
 		try {
 			//Una vez establecida la conexi�n, podemos crear el PreparedStatement llamando al m�todo prepareStatement() de la Connection.
 			//es importante guardar este PreparedStatement en alg�n sitio al que podamos acceder cuando lo necesitemos
@@ -65,14 +65,14 @@ public class CatalogoLibro {
 		return libros;
 	}
 	
-	public Libro getOneLibro(int idlibro){
+	public Libro getOneLibro(int id){
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
 		Libro l=null;
-		String sql="select * from Libros where id=?";
+		String sql="select * from libros where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
-			sentencia.setInt(1, idlibro);
+			sentencia.setInt(1, id);
 			rs=sentencia.executeQuery();
 			if(rs.next()){
 			l=new Libro();
@@ -99,15 +99,6 @@ public class CatalogoLibro {
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 		}
-		finally{
-			try {
-				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
-				ConnectionDB.getInstancia().CloseConn();
-				
-			} catch (SQLException e2) {
-				e2.printStackTrace();
-			}
-		}
 			
 		return l;
 	}
@@ -120,7 +111,7 @@ public class CatalogoLibro {
 		//con el Resulset  creamos una consulta que nos va a regresar datos
 		ResultSet rs=null;
 		//consulta sql
-		String sql="insert into Libros(isbn,titulo,sipnosis,numero_edicion,cantidad_paginas,precio,existencia,foto,id_editorial,id_categoria,id_autor) values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into libros(isbn,titulo,sipnosis,numero_edicion,cantidad_paginas,precio,existencia,foto,id_editorial,id_categoria,id_autor) values(?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			
 			//abro la conexion a la base de datos

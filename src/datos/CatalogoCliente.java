@@ -22,22 +22,22 @@ public class CatalogoCliente {
 			rs = sentencia.executeQuery(sql);
 			
 			while (rs.next()){
-				Cliente e = new Cliente();
-				e.setId(rs.getInt("id"));
-				e.setNombre(rs.getString("nombre"));
-				e.setApellido(rs.getString("apellido"));
-				e.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
-				e.setUsuario(rs.getString("usuario"));
-				e.setClave(rs.getString("clave"));
-				e.setMail(rs.getString("mail"));
-				e.setTelefono(rs.getString("telefono"));
-				e.setDireccion(rs.getString("direccion"));
-				e.setRol(rs.getString("rol"));
+				Cliente c = new Cliente();
+				c.setId(rs.getInt("id"));
+				c.setNombre(rs.getString("nombre"));
+				c.setApellido(rs.getString("apellido"));
+				c.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+				c.setUsuario(rs.getString("usuario"));
+				c.setClave(rs.getString("clave"));
+				c.setMail(rs.getString("mail"));
+				c.setTelefono(rs.getString("telefono"));
+				c.setDireccion(rs.getString("direccion"));
+				c.setRol(rs.getString("rol"));
 				
 				Localidad l=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
-				e.setLocalidad(l);
+				c.setLocalidad(l);
 				
-				clientes.add(e);
+				clientes.add(c);
 			}
 		}
 		catch(SQLException e1)
@@ -90,16 +90,6 @@ public class CatalogoCliente {
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 		}
-		finally{
-			try {
-				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
-				ConnectionDB.getInstancia().CloseConn();
-				
-			} catch (SQLException e2) {
-				e2.printStackTrace();
-			}
-		}
-			
 		return c;
 	}
 	
