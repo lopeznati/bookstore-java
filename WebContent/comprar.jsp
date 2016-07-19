@@ -1,3 +1,4 @@
+<%@page import="java.util.Arrays"%>
 <%@page import="negocio.ControladorLibro"%>
 <%@page import="entidades.Tipo_Tarjeta"%>
 <%@page import="java.sql.Date"%>
@@ -78,14 +79,15 @@
                               			<div class="col-sm-10">
                               				<%
                               					ArrayList<Libro> carrito=(ArrayList<Libro>)session.getAttribute("carrito");
-                          						String tituloLibro = "";
+                          						String tituloLibro[] = new String[carrito.size()];
                           						double subtotal = 0;
                               					for(int i=0;i<carrito.size();i++){
-                              						tituloLibro = carrito.get(i).getTitulo();
+                        							tituloLibro[i] = carrito.get(i).getTitulo();
                               						subtotal = subtotal + carrito.get(i).getPrecio();
                               					}
                               				%>  
-                              				<input READONLY type="text" name="id_libro" value="<%=tituloLibro%>"  class="form-control">
+                              				
+                              				<input READONLY type="text" name="id_libro" value="<%=Arrays.asList(tituloLibro)%>" class="form-control">s
                               			</div>
                           			</div>
                           			<div class="form-group">

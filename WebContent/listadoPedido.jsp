@@ -33,7 +33,7 @@
                 					<tr>
                   						<th>#</th>
                   						<th>Cliente</th>
-                 					 	<th>Libro</th>         				    	
+                 					 	<th>Libro</th>     				    	
                  					 	<th>Direccion</th>
                  					 	<th>Localidad</th>
                  					 	<th>Subtotal</th>
@@ -47,7 +47,7 @@
 			  				  	 %>
                               <tr>
                                 <td><%=p.getId() %></td>
-				    			<td><%=p.getCliente().getId()%></td>
+				    			<td><%=p.getCliente().getApellido().concat(" ," + p.getCliente().getNombre())%></td>
 				    			<td><%=p.getLibro().getTitulo()%></td>
 				    			<td><%=p.getDireccion()%></td>
 				    			<td><%=p.getLocalidad().getNombre()%></td>
