@@ -49,6 +49,7 @@
 		
 		
 		<% 
+		session.setAttribute("msj", "");
 		double total=0;
 		int totalArticulos=0;
 		if(session.getAttribute("carrito")!=null){

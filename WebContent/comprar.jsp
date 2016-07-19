@@ -37,6 +37,7 @@
     	<!--[if lt IE 9]>
       	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     	<![endif]-->
 	</head>
 	<body>
@@ -72,6 +73,7 @@
                               			</div>
                           			</div>
                           		   <div class="form-group">
+                          		   <input type="hidden" name="msj" id="msj" value="<%=session.getAttribute("msj")%>">
                               			<label class="col-sm-2 col-sm-2 control-label">Libro</label>
                               			<div class="col-sm-10">
                               				<%
@@ -107,7 +109,7 @@
                               		<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Numero de tarjeta</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="numero_tarjeta" requiered class="form-control">
+                                  			<input type="text" name="numero_tarjeta" id="numero_tarjeta" requiered class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -130,9 +132,12 @@
                           			</div>
                           			
                           			<div class="centrar-cont">
-                          				<input type="submit" value="GUARDAR" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">	
+                          				<input type="submit" id="bot" value="GUARDAR"  class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">	
                           			</div>
+                          			
                     		 	</form>
+                    		 	
+                    		 	
                   			</div>
           				</div><!-- col-lg-12-->      	
           			</div><!-- /row -->       
@@ -147,11 +152,40 @@
       				</footer>
       				<!--footer end-->
   				</section>
-  				
+  		
   	
   				
     			<!-- js placed at the end of the document so the pages load faster -->
     			<script src="assets/js/jquery.js"></script>
+    			
+    			<script>
+    			
+    			
+  				 	$(document).ready(function(){
+
+  				 		//valido la existencia del libro
+  				 			if($("#msj").attr("value")!=""){
+  				 				
+  				 				alert("No hay existencias");
+  				 				
+  				 			}
+  				 		//valido la longitud de la tarjeta
+  				 			
+  				 			$("#bot").click(function(){
+  				 				
+  				 				if($("#numero_tarjeta").val().length !=16){
+  				 					//var a=$("#numero_tarjeta").val().length;
+  				 					alert("El numero de tarjeta debe tener 16 caracteres");
+  				 					
+  				 				}
+  				 				
+  				 			});
+  				 			
+  				 		
+  				 	});
+  				 
+  				 
+  				 </script>
     			<script src="assets/js/bootstrap.min.js"></script>
     			<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     			<script src="assets/js/jquery.scrollTo.min.js"></script>
