@@ -64,14 +64,10 @@ public class altaPedido extends HttpServlet {
 		Tipo_Tarjeta tt = new ControladorPedido().getOneTipoTarjeta((Integer.parseInt(request.getParameter("tipo_tarjeta_id"))));
 		Localidad loc = new ControladorPedido().getOneLocalidad(Integer.parseInt(request.getParameter("localidad_id")));
 		String numero_tarjeta= request.getParameter("numero_tarjeta");
-		
-		
+
 		ArrayList<Libro> carrito=(ArrayList<Libro>)session.getAttribute("carrito");
-	
 			
 		for(int i=0;i<carrito.size();i++){
-	
-			
 			if (((carrito.get(i).getExistencia())>0))
 			{
 				carrito.get(i).setExistencia(carrito.get(i).getExistencia() - 1);
@@ -82,11 +78,12 @@ public class altaPedido extends HttpServlet {
 			
 				ControladorPedido cp = new ControladorPedido();
 				cp.altaPedido(pedido);
-				session.setAttribute("msj", "");
+				session.setAttribute("msj", " ");
 
-			}else{
-				session.setAttribute("msj", "No hay existencia");
 			}
+			else{
+					session.setAttribute("msj", "No hay existencia del libro");
+				}
 		}
 		response.sendRedirect("comprar.jsp");
 	}

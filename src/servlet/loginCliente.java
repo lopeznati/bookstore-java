@@ -46,7 +46,7 @@ public class loginCliente extends HttpServlet {
 		String clave =request.getParameter("clave");
 		
 		HttpSession session = request.getSession(true);
-		session.setMaxInactiveInterval(60);
+		session.setMaxInactiveInterval(3600);
 		
 		//variable para confirmar si encontro o no el usuario
 		Boolean encontro=false;

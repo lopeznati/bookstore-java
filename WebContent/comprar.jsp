@@ -8,7 +8,6 @@
 <%@page import="datos.CatalogoCliente"%>
 <%@page import="datos.CatalogoLibro"%>
 <%@page import="entidades.Localidad"%>
-
 <%@page import="entidades.Pedido"%>
 <%@page import="negocio.ControladorPedido"%>
 <%@page import="entidades.Libro"%>
@@ -43,8 +42,9 @@
     	<![endif]-->
 	</head>
 	<body>
-	
-  		<section id="container" >
+		<!-- Valido que el usuario no sea nulo, caso contrario lo mando al login -->
+		<%if(session.getAttribute("usuario") != null){ %>	
+  		<section id="container">
       		<jsp:include page="navbar.jsp"></jsp:include>
       		
       		<!-- **********************************************************************************************************************************************************
@@ -86,21 +86,17 @@
                               					for(int i=0;i<carrito.size();i++){
                         							tituloLibro[i] = carrito.get(i).getTitulo();
                               						subtotal = subtotal + carrito.get(i).getPrecio();
-                              						
                               						titulosLibros.add(tituloLibro[i]);
-                              				
                               						} 
-
                               				%>
                               				<%
-                              				Iterator i = titulosLibros.iterator();
-                              				while ( i.hasNext() ) { 
-                      						Object objeto = i.next(); 
-                      						String titulo = (String)objeto; 
+                              					Iterator i = titulosLibros.iterator();
+                              					while ( i.hasNext() ) { 
+                      								Object objeto = i.next(); 
+                      								String titulo = (String)objeto; 
                       						%>  
-                      						<textarea readonly rows="<%=i%>">"<%=titulo%>"</textarea>
-
-                              				<% }%>
+                      								<textarea readonly rows="<%=i%>">"<%=titulo%>"</textarea>
+                              					<% }%>
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -145,14 +141,10 @@
                                   			<input READONLY type="text" name="subtotal" value="<%=subtotal%>" class="form-control">
                               			</div>
                           			</div>
-                          			
                           			<div class="centrar-cont">
-                          				<input type="submit" id="bot" value="GUARDAR"  class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">	
+                          				<input type="submit" class="guardar" value="Guardar"  data-toggle="modal" data-target="#myModal">	
                           			</div>
-                          			
                     		 	</form>
-                    		 	
-                    		 	
                   			</div>
           				</div><!-- col-lg-12-->      	
           			</div><!-- /row -->       
@@ -167,59 +159,41 @@
       				</footer>
       				<!--footer end-->
   				</section>
-  		
-  	
-  				
-    			<!-- js placed at the end of the document so the pages load faster -->
-    			<script src="assets/js/jquery.js"></script>
-    			
-    			<script>
-    			
-    			
-  				 	$(document).ready(function(){
-
-  				 		//valido la existencia del libro
-  				 			if($("#msj").attr("value")!=""){
-  				 				
-  				 				alert("No hay existencias");
-  				 				
-  				 			}
-  				 		//valido la longitud de la tarjeta
-  				 			
-  				 			$("#bot").click(function(){
-  				 				
-  				 				if($("#numero_tarjeta").val().length !=16){
-  				 					//var a=$("#numero_tarjeta").val().length;
-  				 					alert("El numero de tarjeta debe tener 16 caracteres");
-  				 					
-  				 				}
-  				 				
-  				 			});
-  				 			
-  				 		
-  				 	});
-  				 
-  				 
-  				 </script>
-    			<script src="assets/js/bootstrap.min.js"></script>
-    			<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    			<script src="assets/js/jquery.scrollTo.min.js"></script>
-    			<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
-    			<!--common script for all pages-->
-    			<script src="assets/js/common-scripts.js"></script>
-		
-    			<!--script for this page-->
-    			<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-
-				<!--custom switch-->
-				<script src="assets/js/bootstrap-switch.js"></script>
-	
-				<!--custom tagsinput-->
-				<script src="assets/js/jquery.tagsinput.js"></script>
-		
-				<!--custom checkbox & radio-->
-				<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-				<script src="assets/js/form-component.js"></script>    
+  	 			<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>	
+    	<!-- js placed at the end of the document so the pages load faster -->
+    	<script src="assets/js/jquery.js"></script>
+    	<script>
+			$(document).ready(function(){
+				
+			$("input[class=guardar]").click(function(){
+				//valido la existencia del libro
+				if($("#msj").attr("value")!=" "){
+	  		 		alert("No hay mas existencia");
+	  		 	}  
+				//valido la longitud de la tarjeta
+				else if($("#numero_tarjeta").val().length !=16){
+	  	 			//var a=$("#numero_tarjeta").val().length;
+	  		 			alert("El numero de tarjeta debe tener 16 caracteres");
+	  		 		}
+				});
+		});
+		</script>
+    	<script src="assets/js/bootstrap.min.js"></script>
+    	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    	<script src="assets/js/jquery.scrollTo.min.js"></script>
+    	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    	<!--common script for all pages-->
+    	<script src="assets/js/common-scripts.js"></script>
+    	<!--script for this page-->
+    	<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+		<!--custom switch-->
+		<script src="assets/js/bootstrap-switch.js"></script>
+		<!--custom tagsinput-->
+		<script src="assets/js/jquery.tagsinput.js"></script>
+		<!--custom checkbox & radio-->
+		<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+		<script src="assets/js/form-component.js"></script>    
 	</body>
 </html>
