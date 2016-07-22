@@ -1,3 +1,4 @@
+<%@page import="java.util.Iterator"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="negocio.ControladorLibro"%>
 <%@page import="entidades.Tipo_Tarjeta"%>
@@ -74,20 +75,32 @@
                               			</div>
                           			</div>
                           		   <div class="form-group">
-                          		   <input type="hidden" name="msj" id="msj" value="<%=session.getAttribute("msj")%>">
+                          		   		<input type="hidden" name="msj" id="msj" value="<%=session.getAttribute("msj")%>">
                               			<label class="col-sm-2 col-sm-2 control-label">Libro</label>
                               			<div class="col-sm-10">
                               				<%
                               					ArrayList<Libro> carrito=(ArrayList<Libro>)session.getAttribute("carrito");
                           						String tituloLibro[] = new String[carrito.size()];
                           						double subtotal = 0;
+                          						ArrayList titulosLibros = new ArrayList();
                               					for(int i=0;i<carrito.size();i++){
                         							tituloLibro[i] = carrito.get(i).getTitulo();
                               						subtotal = subtotal + carrito.get(i).getPrecio();
-                              					}
-                              				%>  
+                              						
+                              						titulosLibros.add(tituloLibro[i]);
                               				
-                              				<input READONLY type="text" name="id_libro" value="<%=Arrays.asList(tituloLibro)%>" class="form-control">s
+                              						} 
+
+                              				%>
+                              				<%
+                              				Iterator i = titulosLibros.iterator();
+                              				while ( i.hasNext() ) { 
+                      						Object objeto = i.next(); 
+                      						String titulo = (String)objeto; 
+                      						%>  
+                      						<textarea readonly rows="<%=i%>">"<%=titulo%>"</textarea>
+
+                              				<% }%>
                               			</div>
                           			</div>
                           			<div class="form-group">

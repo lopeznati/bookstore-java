@@ -49,7 +49,7 @@
 		
 		
 		<% 
-		session.setAttribute("msj", "");
+		session.setAttribute("msj", "Debe estar logueado para poder realizar la compra.");
 		double total=0;
 		int totalArticulos=0;
 		if(session.getAttribute("carrito")!=null){
@@ -105,11 +105,12 @@
 		<img src="imagenes/continuar.gif" width="13" height="13" border="0"></a> 
 		</div>
 		<br>
-		
-		
-		
-		<div  align="center"><a href='comprar.jsp'><botton class='btn btn-primary'>Iniciar Compra</botton></a> </div>
-		<%}else{ %>
+		<div  align="center"><a href='comprar.jsp'>
+			<input type="hidden" name="usuario" id="usuario" value="<%=session.getAttribute("cliente")%>">
+			<input type="button" value="Iniciar compra" onclick="javascript:validarLogin()" class='btn btn-primary'>
+		</div>
+		<%}
+		else{ %>
 		
 		
 		<p align="center"> <span class="prod">No hay productos seleccionados</span>
@@ -117,15 +118,16 @@
 		<img src="imagenes/continuar.gif" width="13" height="13" border="0"></a> 
 		<%} %>
 		</p>
-			   
-
-             
-               
-                
-		  
         	<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        
-
+        <script type="text/javascript">
+  			function validarLogin(){
+  				var usuario = document.getElementById("usuario").value;
+				if(usuario===null)
+		 			{
+			 			alert("Para poder confirmar la compra debe estar logueado.");
+			 		}
+  			}
+  		</script> 	
 </body>
 </html>

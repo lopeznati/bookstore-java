@@ -74,7 +74,6 @@ public class altaPedido extends HttpServlet {
 			
 			if (((carrito.get(i).getExistencia())>0))
 			{
-				
 				carrito.get(i).setExistencia(carrito.get(i).getExistencia() - 1);
 				ControladorLibro cl=new ControladorLibro();
 				cl.actualizarLibro(carrito.get(i));
@@ -89,7 +88,6 @@ public class altaPedido extends HttpServlet {
 				session.setAttribute("msj", "No hay existencia");
 			}
 		}
-		
 		response.sendRedirect("comprar.jsp");
 	}
 }
