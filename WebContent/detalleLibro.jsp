@@ -88,7 +88,8 @@
                              	  </tr>
                              	  <tr>
                              	  <input type="hidden" name="id" id="id" value="<%=l.getId()%>">
-                             	  	<td><button type="submit" class="btn btn-theme03">Comprar +</button></td>
+                             	  <input type="hidden" name="existencia" id="existencia" value="<%=l.getExistencia() %>">
+                             	  	<td><button type="submit" id="comprar" class="btn btn-theme03">Comprar +</button></td>
                              	  </tr>
                              	  </table>
                               </form>
@@ -109,7 +110,66 @@
       <!--main content end-->
       
 <jsp:include page="footer.html"></jsp:include>
-   </section>   
+   </section>  
+   <script src="assets/js/jquery.js"></script>
+   <script>
+   	$(document).ready(function(){
+   		/*
+   		
+   		$("#comprar").click(function(){
+   			var existencia=0//parseInt($("#existencia").Attr("value"));
+   			if(existencia<2){
+   				alert("no hay existencia");
+   				
+   			}
+   			
+   			/*alert("hola");
+   		});*/
+   		
+   		
+   		$("form").submit(function(event){
+   		
+   			
+   			var existencia=parseInt($("#existencia").attr("value")); 
+   			
+   			if(existencia<1){
+   				alert("No hay existencia de este libro");
+   				
+   				//cancela el evento
+   				event.preventDefault();
+   				
+   			}
+   			
+   			
+   			
+   		});
+   		
+   		
+   	});
+   
+   </script> 
+   
+   
+   <script src="assets/js/bootstrap.min.js"></script>		 +		<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+ -    			<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>		 +		<script src="assets/js/form-component.js"></script>    
+ -    			<script src="assets/js/jquery.scrollTo.min.js"></script>		
+ -    			<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>		
+ -		
+ -    			<!--common script for all pages-->		
+ -    			<script src="assets/js/common-scripts.js"></script>		
+ -				
+ -    			<!--script for this page-->		
+ -    			<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>		
+ -		
+ -				<!--custom switch-->		
+ -				<script src="assets/js/bootstrap-switch.js"></script>		
+ -			
+ -				<!--custom tagsinput-->		
+ -				<script src="assets/js/jquery.tagsinput.js"></script>		
+ -				
+ -				<!--custom checkbox & radio-->		
+ -				<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>		
+ -				<script src="assets/js/form-component.js"></script> 
 
   </body>
 </html>

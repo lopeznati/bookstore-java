@@ -167,6 +167,8 @@
     	<script>
 			$(document).ready(function(){
 				
+				/*
+				
 			$("input[class=guardar]").click(function(){
 				//valido la existencia del libro
 				if($("#msj").attr("value")!=" "){
@@ -177,7 +179,25 @@
 	  	 			//var a=$("#numero_tarjeta").val().length;
 	  		 			alert("El numero de tarjeta debe tener 16 caracteres");
 	  		 		}
-				});
+				
+				
+				});*/
+			
+			$("form").submit(function(event){
+				//valido la existencia del libro
+				if($("#msj").attr("value")!=" "){
+	  		 		alert("No hay mas existencia");
+	  		 		event.preventDefault();
+	  		 	}  
+				//valido la longitud de la tarjeta
+				else if($("#numero_tarjeta").val().length !=16){
+	  	 			//var a=$("#numero_tarjeta").val().length;
+	  		 			alert("El numero de tarjeta debe tener 16 caracteres");
+	  		 			event.preventDefault()
+	  		 		}
+				
+				
+			});
 		});
 		</script>
     	<script src="assets/js/bootstrap.min.js"></script>
