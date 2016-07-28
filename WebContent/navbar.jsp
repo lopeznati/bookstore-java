@@ -65,18 +65,17 @@
 										for(int i=0;i<carrito.size();i++){
 										%>
                             <li>               
-                                <div class="task-info">           
-                                     <div class="desc"><%=carrito.get(i).getTitulo() %>
-                                     <a href="borracar.jsp?id=<%=i%>"><i class="fa fa-trash-o" aria-hidden="true"></i> 
-                                     </div>
-                                     <div class="percent">$<%=carrito.get(i).getPrecio() %></div>                                       
-                                   	 <div><input name="idlibro" type="hidden" id="idlibro" value="<%= carrito.get(i).getId() %>"> </div>
+                                <div class="task-info go-center">           
+                                     <a class="go-center" href="borracar.jsp?id=<%=i%>"><%=carrito.get(i).getTitulo() %> - $<%=carrito.get(i).getPrecio() %>
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                     <input name="idlibro" type="hidden" id="idlibro" value="<%= carrito.get(i).getId() %>">  
+                                     </a>                                      
                                 </div>                                                                                                              
                             </li> 
                             <%} %> 
                             <%} %>                       
                             <li class="external">
-                                <a href="carrito.jsp">Ver Carrito completo</a>
+                                <a class="go-center" href="carrito.jsp">Ver Carrito completo</a>
                             </li>
                         </ul>
                     </li>

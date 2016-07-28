@@ -233,7 +233,16 @@ ul.top-menu > li > .logout {
 	background: #68dff0;
 	margin-top: 15px;
 }
-
+ .go-center{
+ 	align-content: center;
+ 	color: #797979;
+ 	text-align: center;
+ 	
+ }
+ .comprar{
+ 	background-color: #ffd777 !important;
+ 	border-color: #c9aa5f !important;
+ }
 
 /*sidebar navigation*/
 

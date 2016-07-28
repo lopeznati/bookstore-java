@@ -25,6 +25,8 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+   
   </head>
   <body>
 	<section id="container" >
@@ -33,7 +35,7 @@
       	MAIN SIDEBAR MENU
       	*********************************************************************************************************************************************************** -->
       	<!--sidebar start-->
-      	<jsp:include page="sidebar.jsp"></jsp:include>
+      	
       
       	<!--sidebar end-->
       
@@ -55,7 +57,7 @@
 		                    	<table class="table table-striped">		                       
 		                        	<tbody>
 		                          		<tr>
-		                            		<td width="100"><img class="img-responsive" src="<%=l.getFoto()%>"/></td>
+		                            		<img width="200px" class="img-responsive" src="<%=l.getFoto()%>"/>
 		                          		</tr>
 		                      			<form action="carrito" method="post">
               					  			<table class="table table-striped">

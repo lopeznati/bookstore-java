@@ -47,7 +47,7 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <jsp:include page="sidebar.jsp"></jsp:include>
+      
       
       <!--sidebar end-->
       
@@ -59,16 +59,20 @@
           <section class="wrapper">  	
               <div class="row mt">
                   <div class="col-md-12">
-                      <div class="content-panel">
-                          		<table class="table table-striped table-advance table-hover" border="0" cellspacing="0" cellpadding="0" align="center" >
-									<tr bgcolor="#333333" class="tit"> 
-										<td>Libro</td>
-										<td>Categoria</td>
-										<td>Editorial</td>
-										<td>Precio</td>
-										<td width="10" align="center">Borrar</td>
-									</tr>
-									<% 
+                  <h4><i class="fa fa-angle-right"></i>Tu carrito</h4>
+	              <hr>
+                      <div class="content-panel">	                  	  	  
+                              <table id="tabla" class="table table-striped">
+              					<thead>
+                					<tr>
+                  						<th>Libro</th>
+                  						<th>Categoría</th>
+                 					 	<th>Editorial</th>
+                 					 	<th>Precio</th>               					
+                					</tr>
+              					</thead>
+                              <tbody>
+                              <% 
 										session.setAttribute("msj", " ");
 										double total=0;
 										int totalArticulos=0;
@@ -79,21 +83,19 @@
 											total=total + carrito.get(i).getPrecio();
 											totalArticulos+=1;
 									%>
-								<div> 
-									<tr> 
-										<td><%=carrito.get(i).getTitulo() %></td>
-										<td><%=carrito.get(i).getCategoria().getDescripcion() %></td>
-										<td><%=carrito.get(i).getEditorial().getNombre() %></td>
-										<td><%=carrito.get(i).getPrecio() %></td>
-										<td align="center"><a href="borracar.jsp?id=<%=i%>"><img src="imagenes/trash.gif" border="0"></a></td>
-										<td><input name="idlibro" type="hidden" id="idlibro" value="<%= carrito.get(i).getId() %>"> </td>
-									</tr>
-									<%} %>
-								</div>
-								<%} %>
-								</table>
-								<br><br>
-								<div align="center"><span >Total de Articulos:<%=totalArticulos %>
+                              <tr>
+                                <td><%=carrito.get(i).getTitulo() %></td>
+								<td><%=carrito.get(i).getCategoria().getDescripcion() %></td>
+								<td><%=carrito.get(i).getEditorial().getNombre() %></td>
+								<td><%=carrito.get(i).getPrecio() %></td>
+								<td align="center"><a href="borracar.jsp?id=<%=i%>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+								<td><input name="idlibro" type="hidden" id="idlibro" value="<%= carrito.get(i).getId() %>"> </td>
+                              </tr>                    
+                               <%} %>
+                               <%} %>
+                              </tbody>
+                          </table>
+                          <div align="center"><span >Total de Articulos:<%=totalArticulos %>
 									</span> 
 								</div><br>
 								<div  align="center" id='total'><span >Total:$ <%=total %>
@@ -105,12 +107,13 @@
 									<div  align="center">
 										<span>Continuar la seleccion de productos</span>
 										<a href="inicio.jsp">
-										<img src="imagenes/continuar.gif" width="13" height="13" border="0"></a> 
+										<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> 
 									</div>
 									<br>
 									<div  align="center">
-										<a href='comprar.jsp'>
-										<input type="button" value="Iniciar compra" class='btn btn-primary'>
+									
+									<a class="logout comprar nav top-menu" href="comprar.jsp">Iniciar Compra</a>
+										
 									</div>
 									<%}
 								else{ %>
@@ -120,15 +123,16 @@
 										<img src="imagenes/continuar.gif" width="13" height="13" border="0"></a> 
 									<%} %>
 									</p>
+                          
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
 			</section><!--/wrapper -->
       	</section><!-- /MAIN CONTENT -->
-	  	<jsp:include page="footer.html"></jsp:include>
+	  	
 	  	
 	  	</section> 
-	  	
+	  	<jsp:include page="footer.html"></jsp:include>
 	  	
 
         <!-- Latest compiled and minified JavaScript -->

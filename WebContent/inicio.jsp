@@ -24,6 +24,9 @@
     <style type="text/css">
     img{
       height: 300px;
+      width: 200px;
+      margin: 20px;    
+      
     }
     
     </style>
@@ -64,21 +67,16 @@
           <section class="wrapper site-min-height">
           	<h3><i class="fa fa-angle-right"></i>Novedades</h3>
           	<hr>
-          	<div class="row">
+          	
           	<%
           	int i=0;
           	ArrayList<Libro> libros = new ControladorLibro().getAllLibros();
  										for (Libro l: libros){%>
+ 									
+ 				
+ 							  
+ 							  
  					
- 					<%i++;
- 					if(i>6){%>
- 					</div><br><br>
- 							  
- 							  
- 							  
- 					<div class="row"><%}%>
- 						
- 					<div class="col-md-2">
 
 						<div class="project-wrapper">
 		                    <div class="project">		                        
@@ -96,13 +94,13 @@
 		                
 		               
 				
-		                <%if(i>4){%>
+		             
  										
- 						</div>
+ 						
  						<%} %>
- 				 </div><!-- col-lg-4 -->
+ 		<!-- col-lg-4 -->
 					
-				<%}%>
+			
 
 		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
