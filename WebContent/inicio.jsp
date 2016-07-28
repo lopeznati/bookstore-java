@@ -20,6 +20,17 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
+    
+    <style type="text/css">
+    img{
+      height: 300px;
+    }
+    
+    </style>
+    
+
+    
+    
 
     <script src="assets/js/jquery.js"></script>
 
@@ -41,7 +52,7 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <jsp:include page="sidebar.jsp"></jsp:include>
+      
       
       <!--sidebar end-->
       
@@ -53,24 +64,44 @@
           <section class="wrapper site-min-height">
           	<h3><i class="fa fa-angle-right"></i>Novedades</h3>
           	<hr>
-          	<%ArrayList<Libro> libros = new ControladorLibro().getAllLibros();
+          	<div class="row">
+          	<%
+          	int i=0;
+          	ArrayList<Libro> libros = new ControladorLibro().getAllLibros();
  										for (Libro l: libros){%>
-				<div class="row mt">
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+ 					
+ 					<%i++;
+ 					if(i>6){%>
+ 					</div><br><br>
+ 							  
+ 							  
+ 							  
+ 					<div class="row"><%}%>
+ 						
+ 					<div class="col-md-2">
+
 						<div class="project-wrapper">
 		                    <div class="project">		                        
 		                            <div id="en-fila" class="photo hovereffect">
 		                       
-		                            	<img class="img-responsive" src="<%=l.getFoto()%>" alt="">	                            
+		                            	<img  src="<%=l.getFoto()%>" alt="">	                            
 		                            <div class="overlay2"><h2><%=l.getTitulo()%><br>$<%=l.getPrecio()%></h2>
            								<a class="info" href="detalleLibro.jsp?idLibro=<%=l.getId() %>">Detalles</a><br>
-           								<a class="info" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+           								<!--<a class="info" href="carrito.jsp?"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a> -->
            							</div>    
 		                        </div>
 		                    </div>
 		                </div>
-					</div><!-- col-lg-4 -->
-				</div><!-- /row -->
+		                
+		                
+		               
+				
+		                <%if(i>4){%>
+ 										
+ 						</div>
+ 						<%} %>
+ 				 </div><!-- col-lg-4 -->
+					
 				<%}%>
 
 		</section><!--/wrapper -->

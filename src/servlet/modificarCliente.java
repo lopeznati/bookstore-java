@@ -48,11 +48,10 @@ public class modificarCliente extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String direccion = request.getParameter("direccion");
 		String rol = request.getParameter("rol");
-		String foto = request.getParameter("foto");
 		
 		Localidad l = new CatalogoLocalidad().getOneLocalidad(Integer.parseInt(request.getParameter("localidad_id")));
 		
-		Cliente c = new Cliente(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,foto,l);
+		Cliente c = new Cliente(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,l);
 		c.setId(id);
 
 		ControladorCliente cc = new ControladorCliente();

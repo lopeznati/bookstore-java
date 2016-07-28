@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Listado clientes</title>
 		
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -41,7 +41,6 @@
                   						<th>Mail</th>
                   						<th>Dirección</th>
                   						<th>Rol</th>
-				  						<th>Foto</th>
 				  						<th>Acciones</th>
                 					</tr>
               					</thead>
@@ -59,7 +58,6 @@
 				    					<td><%=c.getMail() %></td>
 				    					<td><%=c.getDireccion() %></td>
 				    					<td><%=c.getRol() %></td>
-				    					<td><%=c.getFoto() %></td>
 				    					<td><%=c.getLocalidad().getNombre()%></td>
                                   		<td>
                                       		<button class="btn btn-primary btn-xs" onClick="window.location.href='modificarCliente.jsp?idMod=<%=c.getId()%>'"><i class="fa fa-pencil"></i></button>

@@ -154,16 +154,7 @@
                   </div>
           		</div><!-- col-lg-12-->      	
           	</div><!-- /row -->       
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2014 - Alvarez.is
-              <a href="form_component.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
-      <!--footer end-->
+ <jsp:include page="footer.html"></jsp:include>
   </section>
   
   

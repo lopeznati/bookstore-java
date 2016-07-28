@@ -50,16 +50,12 @@ public class altaCliente extends HttpServlet {
 		Date fecha_nacimiento = Date.valueOf(request.getParameter("fecha_nacimiento"));
 		
 		String rol = "user";
-		String foto = null;
-
-		
-		Cliente cliente = new Cliente(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,foto,localidad);
+			
+		Cliente cliente = new Cliente(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,localidad);
 		
 		ControladorCliente cc = new ControladorCliente();
 		cc.altaCliente(cliente);
 		response.sendRedirect("inicio.jsp");
-	
-		
 	}
 
 }

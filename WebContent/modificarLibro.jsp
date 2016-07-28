@@ -11,10 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>Actualizar libro</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -59,14 +56,14 @@
                   <div class="form-panel">
                   	  <h4 class="mb"><i class="fa fa-angle-right"></i> Completar el formulario</h4>
                       <form class="form-horizontal style-form" action="modificarLibro" method="POST">                     	 
+					  	  <div class="form-group">
+                        	<label class="col-sm-2 col-sm-2 control-label">ID</label>
+                            <div class="col-sm-10">
+                            	<input READONLY type="text" name="id" value="<%=libro.getId()%>" class="form-control">
+                             </div>
+                          </div>  
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">ID</label>
-                              <div class="col-sm-10">
-                                  <input class="form-control" class="form-control" value="<%=libro.getId() %>" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Imagen</label>
+                              <label class="col-sm-2 col-sm-2 control-label">Foto</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" value="<%=libro.getFoto() %>" name="foto"> 
                               </div>
@@ -170,14 +167,7 @@
           		</div><!-- col-lg-12-->      	
           	</div><!-- /row -->       
       <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2014 - Alvarez.is
-              <a href="form_component.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
+       <jsp:include page="footer.html"></jsp:include>
       <!--footer end-->
   </section>
   
@@ -221,8 +211,6 @@
       $(function(){
           $('select.styled').customSelect();
       });
-
   </script>
-
   </body>
 </html>

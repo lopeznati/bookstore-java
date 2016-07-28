@@ -86,7 +86,7 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Apellido</label>
                               			<div class="col-sm-10">
-                                  			<textarea rows="8" cols="50" name="apellido" required class="form-control"></textarea>
+                              				<input type="text" name="apellido" required class="form-control">    
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -117,12 +117,6 @@
                               			<label class="col-sm-2 col-sm-2 control-label">Rol</label>
                               			<div class="col-sm-10">
                                   			<input type="text" name="rol" required class="form-control">
-                              			</div>
-                          			</div>
-                          			<div class="form-group">
-                              			<label class="col-sm-2 col-sm-2 control-label">Foto</label>
-                              			<div class="col-sm-10">
-                                  			<input type="text" name="foto" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -192,10 +186,8 @@
           				if(c1!== c2){      					
           					  alert("Las passwords deben de coincidir");
           					  return false;
-          					}
-          				
+          				}	
       				}
-      				
   				</script>
 	</body>
 </html>

@@ -149,6 +149,7 @@ public void ActualizarAutor(Autor nuevoaut) {
 		//System.out.println(nuevolib.getIsbn());
 		sentencia.setString(1, nuevoaut.getNombre());
 		sentencia.setString(2, nuevoaut.getApellido());
+		sentencia.setInt(3, nuevoaut.getId());
 		
 		sentencia.executeUpdate();
 		

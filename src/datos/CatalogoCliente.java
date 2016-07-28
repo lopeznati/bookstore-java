@@ -80,7 +80,6 @@ public class CatalogoCliente {
 			c.setMail(rs.getString("mail"));
 			c.setDireccion(rs.getString("direccion"));
 			c.setRol(rs.getString("rol"));
-			c.setFoto(rs.getString("foto"));
 			
 			Localidad l=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
 			c.setLocalidad(l);
@@ -97,7 +96,7 @@ public class CatalogoCliente {
 
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
-		String sql="insert into clientes(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,foto,id_localidad) values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into clientes(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,id_localidad) values(?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try 
 		{
@@ -111,8 +110,7 @@ public class CatalogoCliente {
 			sentencia.setString(7, c.getMail());
 			sentencia.setString(8, c.getDireccion());
 			sentencia.setString(9, c.getRol());
-			sentencia.setString(10, c.getFoto());
-			sentencia.setInt(11, c.getLocalidad().getId());
+			sentencia.setInt(10, c.getLocalidad().getId());
 
 			sentencia.execute();
 			rs=sentencia.getGeneratedKeys();
@@ -160,7 +158,7 @@ public class CatalogoCliente {
 	
 	public void actualizarCliente(Cliente nuevoCli) {
 		PreparedStatement sentencia=null;
-		String sql="update clientes set usuario=?, clave=?, nombre=?, apellido=?, fecha_nacimiento=?, telefono=?, mail=?, direccion=?, rol=?, foto=? id_localidad=? where id=?";
+		String sql="update clientes set usuario=?, clave=?, nombre=?, apellido=?, fecha_nacimiento=?, telefono=?, mail=?, direccion=?, rol=?, id_localidad=? where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
 			sentencia.setString(1, nuevoCli.getUsuario());
@@ -172,9 +170,8 @@ public class CatalogoCliente {
 			sentencia.setString(7, nuevoCli.getMail());
 			sentencia.setString(8, nuevoCli.getDireccion());
 			sentencia.setString(9, nuevoCli.getRol());
-			sentencia.setString(10, nuevoCli.getFoto());
-			sentencia.setInt(11, nuevoCli.getLocalidad().getId());
-			sentencia.setInt(12, nuevoCli.getId());
+			sentencia.setInt(10, nuevoCli.getLocalidad().getId());
+			sentencia.setInt(11, nuevoCli.getId());
 			sentencia.executeUpdate();
 			
 		} catch (SQLException e) {

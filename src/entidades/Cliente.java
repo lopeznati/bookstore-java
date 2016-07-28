@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Cliente {
 	private int id;
-	private String usuario, clave,nombre,apellido,direccion,telefono,mail,rol,foto;
+	private String usuario, clave,nombre,apellido,direccion,telefono,mail,rol;
 	private Localidad localidad;
 	private Date fecha_nacimiento;
 	
@@ -62,12 +62,6 @@ public class Cliente {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
-	public String getFoto() {
-		return foto;
-	}
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
 	public Localidad getLocalidad() {
 		return localidad;
 	}
@@ -85,7 +79,7 @@ public class Cliente {
 		
 	}
 	
-	public Cliente(String usuario,String clave,String nombre,String apellido,Date fecha_nacimiento,String telefono,String mail,String direccion,String rol,String foto,Localidad l)
+	public Cliente(String usuario,String clave,String nombre,String apellido,Date fecha_nacimiento,String telefono,String mail,String direccion,String rol,Localidad l)
 	{
 		
 		this.usuario=usuario;
@@ -97,7 +91,6 @@ public class Cliente {
 		this.mail=mail;
 		this.direccion=direccion;
 		this.rol=rol;
-		this.foto=foto;
 		this.localidad=l;
 
 	}

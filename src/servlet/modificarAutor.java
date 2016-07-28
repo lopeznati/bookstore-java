@@ -34,9 +34,11 @@ public class modificarAutor extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
+		
+		
 		String nombre = request.getParameter("nombre");
 		String apellido=request.getParameter("apellido");
-
+		System.out.println(apellido);
 		Autor a = new Autor(nombre,apellido);
 		a.setId(id);
 
