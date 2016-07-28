@@ -43,7 +43,8 @@
 	</head>
 	<body>
 		<!-- Valido que el usuario no sea nulo, caso contrario lo mando al login -->
-		<%if(session.getAttribute("usuario") != null){ %>	
+		<%if(session.getAttribute("usuario") != null){ 
+		%>	
   		<section id="container">
       		<jsp:include page="navbar.jsp"></jsp:include>
       		

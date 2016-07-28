@@ -122,12 +122,17 @@
                           		<div class="form-group">
                               		<label class="col-sm-2 col-sm-2 control-label">Localidad</label>
                               		<div class="col-sm-10">
+                              		
                           				<select name="localidad_id">
 						  					<option>...</option>
-						  					<% ArrayList<Localidad> localidades = new ControladorCliente().getAllLocalidades();
-							   				for(Localidad l:localidades)
-							   				{%>
-						  						<option value="<%=l.getId()%>"><%=l.getNombre()%></option>
+						  					<%String sel;
+						  					ArrayList<Localidad> localidades = new ControladorCliente().getAllLocalidades();
+							   				for(Localidad l:localidades){
+							   					if(l.getId()==cliente.getLocalidad().getId()){
+													sel="selected";
+												}else sel="";%>
+							  			    <option <%=sel %>  value="<%=l.getId()%>"><%=l.getNombre()%></option>
+							   				
 											<%} %>						  			
 										</select>
                               		</div>

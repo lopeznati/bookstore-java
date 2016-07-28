@@ -58,21 +58,13 @@
           <section class="wrapper site-min-height">
           	<h3><i class="fa fa-angle-right"></i>Novedades</h3>
           	<hr>
-          	<div class="row">
+          	
           	<%
           	int i=0;
           	ArrayList<Libro> libros = new ControladorLibro().getAllLibros();
  										for (Libro l: libros){%>
  					
- 					<%i++;
- 					if(i>6){%>
- 					</div><br><br>
- 							  
- 							  
- 							  
- 					<div class="row"><%}%>
- 						
- 					<div class="col-md-2">
+ 					
 
 						<div class="project-wrapper">
 		                    <div class="project">		                        
@@ -90,13 +82,9 @@
 		                
 		               
 				
-		                <%if(i>4){%>
- 										
- 						</div>
+		               
  						<%} %>
- 				 </div><!-- col-lg-4 -->
-					
-				<%}%>
+ 				
 
 		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
@@ -141,7 +129,7 @@
     <script src="assets/js/sparkline-chart.js"></script>    
 	<script src="assets/js/zabuto_calendar.js"></script>	
 	
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
         $(document).ready(function () {
         var unique_id = $.gritter.add({
             // (string | mandatory) the heading of the notification
@@ -204,7 +192,7 @@
           $('select.styled').customSelect();
       });
 
-  </script>
+  </script> -->
   
 
   </body>

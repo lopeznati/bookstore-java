@@ -112,7 +112,7 @@
 									<br>
 									<div  align="center">
 									
-									<a class="logout comprar nav top-menu" href="comprar.jsp">Iniciar Compra</a>
+									<a class="logout comprar nav top-menu" href="comprar.jsp"><button class="btn btn-primary">Iniciar Compra</button></a>
 										
 									</div>
 									<%}

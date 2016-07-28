@@ -55,7 +55,7 @@ public class altaCliente extends HttpServlet {
 		
 		ControladorCliente cc = new ControladorCliente();
 		cc.altaCliente(cliente);
-		response.sendRedirect("inicio.jsp");
+		response.sendRedirect("listadoClientes.jsp");
 	}
 
 }

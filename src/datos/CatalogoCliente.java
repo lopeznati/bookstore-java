@@ -96,7 +96,7 @@ public class CatalogoCliente {
 
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
-		String sql="insert into clientes(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,id_localidad) values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into clientes(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,id_localidad) values(?,?,?,?,?,?,?,?,?,?)";
 		
 		try 
 		{

@@ -122,7 +122,7 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Localidad</label>
                               			<div class="col-sm-10">
-                                  			<select name="id_localidad" class="form-control">
+                                  			<select name="localidad_id" class="form-control">
 						  						<option>...</option>
 						  							<%ArrayList<Localidad> localidades= new ControladorCliente().getAllLocalidades();
 													for(Localidad l:localidades){%>

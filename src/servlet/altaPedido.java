@@ -79,12 +79,13 @@ public class altaPedido extends HttpServlet {
 				ControladorPedido cp = new ControladorPedido();
 				cp.altaPedido(pedido);
 				session.setAttribute("msj", " ");
+				session.setAttribute("carrito", null);
 
 			}
 			else{
 					session.setAttribute("msj", "No hay existencia del libro");
 				}
 		}
-		response.sendRedirect("comprar.jsp");
+		response.sendRedirect("inicio.jsp");
 	}
 }
