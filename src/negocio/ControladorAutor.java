@@ -22,14 +22,14 @@ public class ControladorAutor {
 	}
 	
 	public void altaAutor(Autor a) {
-		ca.AltaAutor(a);
+		ca.altaAutor(a);
 	}
 	
 	public void bajaAutor(Autor a) {
-		ca.BajaAutor(a);
+		ca.bajaAutor(a);
 	}
 	
-	public void ActualizarAutor(Autor a) {
-		ca.ActualizarAutor(a);
+	public void actualizarAutor(Autor a) {
+		ca.actualizarAutor(a);
 	}
 }

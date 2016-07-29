@@ -120,7 +120,7 @@
 									<p align="center"> 
 										<span class="prod">No hay productos seleccionados</span>
 										<a href="inicio.jsp">
-										<img src="imagenes/continuar.gif" width="13" height="13" border="0"></a> 
+										<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> 
 									<%} %>
 									</p>
                           
@@ -130,9 +130,9 @@
 			</section><!--/wrapper -->
       	</section><!-- /MAIN CONTENT -->
 	  	
-	  	
-	  	</section> 
 	  	<jsp:include page="footer.html"></jsp:include>
+	  	</section> 
+	  	
 	  	
 
         <!-- Latest compiled and minified JavaScript -->

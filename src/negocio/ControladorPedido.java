@@ -19,7 +19,6 @@ public class ControladorPedido {
 	
 	private CatalogoPedido cp;
 	private CatalogoTipoTarjeta ctt;
-	private CatalogoLocalidad cl;
 	
 	public ControladorPedido() {
 		cp = new CatalogoPedido();
@@ -42,15 +41,4 @@ public class ControladorPedido {
 		ctt = new CatalogoTipoTarjeta();
 		return ctt.getAllTiposTarjetas();
 	}
-	
-	public Localidad getOneLocalidad(int localidad_id){
-		cl = new CatalogoLocalidad();
-		return cl.getOneLocalidad(localidad_id);
-	}
-	
-	public ArrayList<Localidad> getAllLocalidades(){
-		cl = new CatalogoLocalidad();
-		return cl.getAllLocalidades();
-	}
-	
 }

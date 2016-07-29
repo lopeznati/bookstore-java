@@ -72,7 +72,7 @@ public class CatalogoAutor {
 	}
 
 //ALTA AUTOR
-	public void AltaAutor(Autor a){
+	public void altaAutor(Autor a){
 		//preparo la sentencia sql
 		//El PreparedStatement nos permite definir una sentencia SQL base
 		PreparedStatement sentencia=null;
@@ -117,7 +117,7 @@ public class CatalogoAutor {
 	}
 
 //BAJA AUTOR
-public void BajaAutor(Autor a){
+public void bajaAutor(Autor a){
 	PreparedStatement sentencia=null;
 	String sql="delete from autores where id=?";
 	try {
@@ -141,7 +141,7 @@ public void BajaAutor(Autor a){
 }
 
 //UPDATE AUTOR
-public void ActualizarAutor(Autor nuevoaut) {
+public void actualizarAutor(Autor nuevoaut) {
 	PreparedStatement sentencia=null;
 	String sql="update autores set nombre=?, apellido=? where id=?";
 	try {

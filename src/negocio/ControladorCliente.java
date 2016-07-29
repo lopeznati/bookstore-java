@@ -46,11 +46,14 @@ public class ControladorCliente {
 		return cl.getAllLocalidades();
 	}
 	
+	public Localidad getOneLocalidad(int localidad_id){
+		cl = new CatalogoLocalidad();
+		return cl.getOneLocalidad(localidad_id);
+	}
+	
 	public ArrayList<Provincia> getAllProvincias()
 	{
-		
-		return cp.getAllProvincia();
-		
+		return cp.getAllProvincia();	
 	}
 		
 }

@@ -10,7 +10,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>Modificar autor</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -47,7 +47,7 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Modificar un Autor</h3>
+          	<h3><i class="fa fa-angle-right"></i> Modificar autor</h3>
 		<%Autor autor=new ControladorAutor().getOneAutor(Integer.parseInt(request.getParameter("idMod"))); %>
 <!-- BASIC FORM ELELEMNTS -->
           	<div class="row mt">

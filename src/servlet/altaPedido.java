@@ -62,7 +62,7 @@ public class altaPedido extends HttpServlet {
 		
 		Cliente c = new ControladorCliente().getOneCliente(Integer.parseInt(request.getParameter("cliente_id")));
 		Tipo_Tarjeta tt = new ControladorPedido().getOneTipoTarjeta((Integer.parseInt(request.getParameter("tipo_tarjeta_id"))));
-		Localidad loc = new ControladorPedido().getOneLocalidad(Integer.parseInt(request.getParameter("localidad_id")));
+		Localidad loc = new ControladorCliente().getOneLocalidad(Integer.parseInt(request.getParameter("localidad_id")));
 		String numero_tarjeta= request.getParameter("numero_tarjeta");
 
 		ArrayList<Libro> carrito=(ArrayList<Libro>)session.getAttribute("carrito");

@@ -43,7 +43,7 @@ public class modificarAutor extends HttpServlet {
 		a.setId(id);
 
 		ControladorAutor ca = new ControladorAutor();
-		ca.ActualizarAutor(a);
+		ca.actualizarAutor(a);
 		response.sendRedirect("listadoAutor.jsp");
 				
 		

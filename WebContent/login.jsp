@@ -63,7 +63,7 @@
 		            <hr>
 		            <div class="registration">
 		                Si no estas registrado, hacé click acá<br/>
-		                <a class="" href="altaCliente.jsp">
+		                <a class="" href="nuevoCliente.jsp">
 		                    Crear una cuenta
 		                </a>
 		            </div>
