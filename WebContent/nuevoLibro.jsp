@@ -84,7 +84,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Cantidad de Paginas</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="cpaginas" required class="form-control">
+                                  <input type="text" name="cpaginas" id="cpaginas" required class="form-control">
                               </div>
                           </div>
                           <div class="form-group">
@@ -143,7 +143,7 @@
                               </div>
                           </div>
                           <div class="centrar-cont">
-                          	<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Agregar</button>	
+                          	<button id="agregar" type="submit">Agregar</button>	
                           </div>
                       </form>
                   </div>
@@ -155,56 +155,27 @@
   			else{
 	  			response.sendRedirect("login.jsp");
 	  		}%>
+	  		
+	  		<script src="assets/js/jquery.js"></script>
+	  		
+	  		<script type="text/javascript">
+	  		$(document).ready(function(){
+	  			$("form").submit(function(event){
+	  				var cantidad=$("#cpaginas").val();
+	  				if(is_integer(cantidad)){
+	  					alert("es enteroo");
+	  					
+	  				}
+   				
+   				
+   					//cancela el evento
+   					event.preventDefault();
+   					}
+   				});
+   				
+   			});
+	  		
+	  		</script>
 
-<!--     js placed at the end of the document so the pages load faster
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
-
-    common script for all pages
-    <script src="assets/js/common-scripts.js"></script>
-
-    script for this page
-    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-
-	custom switch
-	<script src="assets/js/bootstrap-switch.js"></script>
-	
-	custom tagsinput
-	<script src="assets/js/jquery.tagsinput.js"></script>
-	
-	custom checkbox & radio
-	
-	
-	
-	<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-	
-	
-	<script src="assets/js/form-component.js"></script>    
-    
-    
-  <script>
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script> -->
-  
-  	<!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-
-    <!--script for this page-->
-    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-
-	<!--custom switch-->
-	<script src="assets/js/bootstrap-switch.js"></script>
-	
-	<!--custom tagsinput-->
-	<script src="assets/js/jquery.tagsinput.js"></script>
   </body>
 </html>

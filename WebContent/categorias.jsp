@@ -67,7 +67,7 @@
 		                            <div id="en-fila" class="photo hovereffect">
 		                            	<img  id="galeria" src="<%=l.getFoto()%>" alt="">	                            
 		                            <div class="overlay2"><h2><%=l.getTitulo()%><br>$<%=l.getPrecio()%></h2>
-           								<a class="info" href="categorias.jsp?idCat=<%=l.getCategoria()%>">Detalles</a><br>
+           								<a class="info" href="categorias.jsp?idCat=<%=l.getCategoria().getId()%>">Detalles</a><br>
            							</div>    
 		                        </div>
 		                    </div>
