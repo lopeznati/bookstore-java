@@ -29,6 +29,9 @@ public class carrito extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    String url;
+    HttpSession session;
+    ArrayList<Libro> carrito;
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -45,7 +48,7 @@ public class carrito extends HttpServlet {
 		
 		
 		Libro l = new ControladorLibro().getOneLibro(Integer.parseInt(request.getParameter("id")));
-		ArrayList<Libro> carrito;
+		
 		HttpSession session = request.getSession(true);
 		if(session.getAttribute("carrito")!=null){
 			carrito = (ArrayList<Libro>)session.getAttribute("carrito");

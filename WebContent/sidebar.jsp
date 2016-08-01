@@ -15,14 +15,14 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-              
+            
               	  <p class="centered"><a href="inicio.jsp"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">Book Store</h5>
               	  
               	  <% ArrayList<Categoria> categorias = new ControladorLibro().getAllCategorias(); 
 						for (Categoria c: categorias){%>
                   <li class="mt">                            
-                          <a class="change-size" href="#"><%=c.getDescripcion()%></a>             
+                          <a class="change-size" href="categorias.jsp?idCat=<%=c.getId() %>"><%=c.getDescripcion()%></a>             
                   </li> 
                   <%} %>  
               </ul>
