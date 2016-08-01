@@ -5,22 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Baja Autor</title>
 </head>
 <body>
-
- <%if(session.getAttribute("rolUsuario").equals("admin")){ %>
-
-<% ControladorAutor ca=new ControladorAutor();
-ca.bajaAutor(ca.getOneAutor(Integer.parseInt(request.getParameter("idElim"))));
-response.sendRedirect("listadoAutor.jsp");
-
-%>
-
-		  	 	<%}else{
-	  		response.sendRedirect("login.jsp");
-	  	}%>
-
-
+	<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
+		<% ControladorAutor ca=new ControladorAutor();
+		ca.bajaAutor(ca.getOneAutor(Integer.parseInt(request.getParameter("idElim"))));
+		response.sendRedirect("listadoAutor.jsp");
+		%>
+	<%}else{
+		response.sendRedirect("login.jsp");
+	}%>
 </body>
 </html>

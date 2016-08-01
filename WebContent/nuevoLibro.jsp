@@ -13,7 +13,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>Alta Libro</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -32,12 +32,10 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body>
-  
-  <%if(session.getAttribute("rolUsuario").equals("admin")){ %>
+  	<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 
-  <section id="container" >
+  	  <section id="container" >
       <jsp:include page="navbar.jsp"></jsp:include>
       
       <!-- **********************************************************************************************************************************************************
@@ -145,22 +143,18 @@
                               </div>
                           </div>
                           <div class="centrar-cont">
-                          	<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-						  	GUARDAR
-							</button>	
+                          	<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Agregar</button>	
                           </div>
-                          
                       </form>
                   </div>
           		</div><!-- col-lg-12-->      	
           	</div><!-- /row -->       
- <jsp:include page="footer.html"></jsp:include>
-  </section>
-  
-  
-  				  	 	<%}else{
-	  		response.sendRedirect("login.jsp");
-	  	}%>
+ 		<jsp:include page="footer.html"></jsp:include>
+  		</section>
+  		<%}
+  			else{
+	  			response.sendRedirect("login.jsp");
+	  		}%>
 
 <!--     js placed at the end of the document so the pages load faster
     <script src="assets/js/jquery.js"></script>
@@ -201,7 +195,7 @@
 
   </script> -->
   
-  	      <!--common script for all pages-->
+  	<!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
@@ -212,7 +206,5 @@
 	
 	<!--custom tagsinput-->
 	<script src="assets/js/jquery.tagsinput.js"></script>
-	
-
   </body>
 </html>

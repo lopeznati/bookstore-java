@@ -54,7 +54,6 @@
 		            <!-- <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Olvidé mi contraseña</a>
-		
 		                </span>
 		            </label> -->
 		            

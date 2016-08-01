@@ -48,7 +48,7 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Modificar un libro</h3>
+          	<h3><i class="fa fa-angle-right"></i> Modificar libro</h3>
           	<%Libro libro=new ControladorLibro().getOneLibro(Integer.parseInt(request.getParameter("idMod"))); %>
           	<!-- BASIC FORM ELELEMNTS -->
           	<div class="row mt">
@@ -157,9 +157,7 @@
                               </div>
                           </div>
                           <div class="centrar-cont">
-                          	<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-						  	GUARDAR
-							</button>	
+                          	<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Modificar</button>	
                           </div>
                           
                       </form>
@@ -175,7 +173,7 @@
 	  		response.sendRedirect("login.jsp");
 	  	}%>
 
-    <!-- js placed at the end of the document so the pages load faster -->
+<!--     js placed at the end of the document so the pages load faster
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
@@ -183,22 +181,20 @@
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
-    <!--common script for all pages-->
+    common script for all pages
     <script src="assets/js/common-scripts.js"></script>
 
-    <!--script for this page-->
+    script for this page
     <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
 
-	<!--custom switch-->
+	custom switch
 	<script src="assets/js/bootstrap-switch.js"></script>
 	
-	<!--custom tagsinput-->
+	custom tagsinput
 	<script src="assets/js/jquery.tagsinput.js"></script>
 	
-	<!--custom checkbox & radio-->
-	
-	
-	
+	custom checkbox & radio
+
 	<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
 	
 	
@@ -211,6 +207,18 @@
       $(function(){
           $('select.styled').customSelect();
       });
-  </script>
+  </script> -->
+  		
+	    <!--common script for all pages-->
+    	<script src="assets/js/common-scripts.js"></script>
+
+    	<!--script for this page-->
+    	<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+	
+		<!--custom switch-->
+		<script src="assets/js/bootstrap-switch.js"></script>
+	
+		<!--custom tagsinput-->
+		<script src="assets/js/jquery.tagsinput.js"></script>
   </body>
 </html>

@@ -229,7 +229,5 @@
 	
 		<!--custom tagsinput-->
 		<script src="assets/js/jquery.tagsinput.js"></script>
-	
-		
 	</body>
 </html>

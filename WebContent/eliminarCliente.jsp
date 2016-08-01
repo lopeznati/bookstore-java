@@ -15,10 +15,8 @@
 			cc.bajaCliente(cc.getOneCliente(Integer.parseInt(request.getParameter("idElim"))));
 			response.sendRedirect("listadoClientes.jsp");
 		%>
-		
-				  	 	<%}else{
+		<%}else{
 	  		response.sendRedirect("login.jsp");
 	  	}%>
-		
 	</body>
 </html>
