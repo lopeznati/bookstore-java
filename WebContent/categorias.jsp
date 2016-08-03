@@ -19,14 +19,7 @@
 	    <link href="assets/css/style.css" rel="stylesheet">
     	<link href="assets/css/style-responsive.css" rel="stylesheet">
     
-    	<style type="text/css">
-    	#galeria{
-      		height: 300px;
-      		width: 200px;
-      		margin: 20px;      
-    	}
-    	</style>
-    
+    	
 	    <script src="assets/js/jquery.js"></script>
     	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     	<!--[if lt IE 9]>
@@ -54,7 +47,7 @@
       	<!--main content start-->
       		<section id="main-content">
           		<section class="wrapper site-min-height">
-          			<h3><i class="fa fa-angle-right"></i>Novedades</h3>
+          			<h3><i class="fa fa-angle-right"></i><%=cat.getDescripcion() %></h3>
           			<hr>
           			<%
           				int i=0;
