@@ -55,8 +55,7 @@
 		                            <div id="en-fila" class="photo hovereffect">
 		                            	<img  id="galeria" src="<%=l.getFoto()%>" alt="">	                            
 		                            <div class="overlay2"><h2><%=l.getTitulo()%><br>$<%=l.getPrecio()%></h2>
-           								<a class="info" href="detalleLibro.jsp?idLibro=<%=l.getId() %>">Detalles</a><br>
-           								<a class="info"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+           								<a class="info" href="detalleLibro.jsp?idLibro=<%=l.getId() %>">Detalles</a><br>           								
            							</div>    
 		                        </div>
 		                    </div>
@@ -88,28 +87,7 @@
 
     <!--script for this page-->
     <script src="assets/js/sparkline-chart.js"></script>    
-	<script src="assets/js/zabuto_calendar.js"></script>	
-   		<script type="text/javascript">
-        $(document).ready(function () {
-        var unique_id = $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: 'Añadido!',
-            // (string | mandatory) the text inside the notification
-            text: '¿Qué quieres hacer?',             
-            text: '<a href="http://blacktie.co" style="color:#ffd777">Ir al carrito</a><br><a href="http://blacktie.co" style="color:#ffd777">Seguir comprando</a>',
-            // (string | optional) the image to display on the left
-            image: 'assets/img/ui-sam.jpg',
-            // (bool | optional) if you want it to fade out on its own or just sit there
-            sticky: true,
-            // (int | optional) the time you want it to be alive for before fading out
-            time: '',
-            // (string | optional) the class name you want to apply to that specific message
-            class_name: 'my-sticky-class'
-        });
-
-        return false;
-        });
-	</script>
+	
 	
   	</body>
 </html>

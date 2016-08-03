@@ -21,14 +21,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-    
-        
-    <style type="text/css">
-    .imgLibro{
-      height: 300px;
-    }
-    
-    </style>
+  
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -70,7 +63,7 @@
 		                    <div class="project">		                        
 		                            <div id="en-fila" class="photo hovereffect">
 		                       
-		                            	<img class="imgLibro" src="<%=l.getFoto()%>" alt="">	                            
+		                            	<img class="imgLibro" id="galeria" src="<%=l.getFoto()%>" alt="">	                            
 		                            <div class="overlay2"><h2><%=l.getTitulo()%><br>$<%=l.getPrecio()%></h2>
            								<a class="info" href="detalleLibro.jsp?idLibro=<%=l.getId() %>">Detalles</a><br>
            								<!--<a class="info" href="carrito.jsp?"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a> -->
