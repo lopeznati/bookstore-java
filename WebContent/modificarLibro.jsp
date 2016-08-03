@@ -48,7 +48,7 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Modificar libro</h3>
+          	<h3><i class="fa fa-angle-right"></i>Modificar libro</h3>
           	<%Libro libro=new ControladorLibro().getOneLibro(Integer.parseInt(request.getParameter("idMod"))); %>
           	<!-- BASIC FORM ELELEMNTS -->
           	<div class="row mt">
@@ -71,7 +71,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">ISBN</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="isbn" class="form-control" value="<%=libro.getIsbn() %>" required>
+                                  <input type="text" name="isbn" id="isbn" class="form-control" value="<%=libro.getIsbn() %>" required>
                               </div>
                           </div>
                           <div class="form-group">
@@ -89,32 +89,32 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Cantidad de Paginas</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="cpaginas" class="form-control" value="<%=libro.getCantidad_paginas()%>" required>
+                                  <input type="text" name="cpaginas" id="cpaginas" class="form-control" value="<%=libro.getCantidad_paginas()%>" required>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Numero Edicion</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="nedicion" value="<%=libro.getNumero_edicion() %>" required>
+                                  <input type="text" class="form-control" name="nedicion" id="nedicion" value="<%=libro.getNumero_edicion() %>" required>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Precio</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="precio" class="form-control" value="<%=libro.getPrecio() %>" required>
+                                  <input type="text" name="precio" id="precio" class="form-control" value="<%=libro.getPrecio() %>" required>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Existencia</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="nexistencia" class="form-control" value="<%=libro.getExistencia() %>" required>
+                                  <input type="text" name="nexistencia" id="nexistencia" class="form-control" value="<%=libro.getExistencia() %>" required>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Editorial</label>
                               <div class="col-sm-10">
-                                  <select name="editorial_id" class="form-control">
-						  			<option>...</option>
+                                  <select name="editorial_id" id="editorial_id" class="form-control">
+						  			<option value="" selected="selected">...</option>
 						  			<%String sel;
 									ArrayList<Editorial> editoriales=new ControladorLibro().getAllEditoriales();
 										for(Editorial e:editoriales){
@@ -129,8 +129,8 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Categorias</label>
                               <div class="col-sm-10">
-                                  <select name="categoria_id" class="form-control">
-									<option>...</option>
+                                  <select name="categoria_id" id="categoria_id" class="form-control">
+									<option value="" selected="selected">...</option>
 									<%ArrayList<Categoria> categorias=new ControladorLibro().getAllCategorias();
 										for(Categoria c:categorias){	
 											if(c.getId()==libro.getCategoria().getId()){
@@ -144,8 +144,8 @@
                            <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Autor</label>
                               <div class="col-sm-10">
-                                  <select name="autor_id" class="form-control">
-						  			<option>...</option>
+                                  <select name="autor_id" id="autor_id" class="form-control">
+						  			<option value="" selected="selected">...</option>
 						  			<%ArrayList<Autor> autores=new ControladorAutor().getAllAutores();
 										for(Autor a:autores){
 											if(a.getId()==libro.getAutor().getId()){
@@ -172,43 +172,70 @@
   	 	<%}else{
 	  		response.sendRedirect("login.jsp");
 	  	}%>
-
-<!--     js placed at the end of the document so the pages load faster
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
-
-    common script for all pages
-    <script src="assets/js/common-scripts.js"></script>
-
-    script for this page
-    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-
-	custom switch
-	<script src="assets/js/bootstrap-switch.js"></script>
-	
-	custom tagsinput
-	<script src="assets/js/jquery.tagsinput.js"></script>
-	
-	custom checkbox & radio
-
-	<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-	
-	
-	<script src="assets/js/form-component.js"></script>    
-    
-    
-  <script>
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-  </script> -->
-  		
+			<script src="assets/js/jquery.js"></script>
+	  		<script type="text/javascript">
+	  		$(document).ready(function(){
+	  			$("form").submit(function(event){
+	  				var isbn=$("#isbn").val();
+	  				isbn =parseInt(isbn);
+	  				if(isNaN(isbn)){
+	  					alert("El campo ISBN ingresado debe ser un numero");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				var cantidad=$("#cpaginas").val();
+	  				cantidad =parseInt(cantidad);
+	  				if(isNaN(cantidad)){
+	  					alert("El campo Cantidad de Paginas ingresado debe ser un numero");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				
+	  				var nro_edicion=$("#nedicion").val();
+	  				nro_edicion =parseInt(nro_edicion);
+	  				if(isNaN(nro_edicion)){
+	  					alert("El campo Número de Edicion ingresado debe ser un numero");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				
+	  				var precio=$("#precio").val();
+	  				precio =parseFloat(precio);
+	  				if(isNaN(precio)){
+	  					alert("El campo Precio ingresado debe ser un numero o un decimal");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				
+	  				var existencia=$("#nexistencia").val();
+	  				existencia =parseInt(existencia);
+	  				if(isNaN(existencia)){
+	  					alert("El campo Existencia ingresado debe ser un numero");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				var editorial=$("#editorial_id").val();
+	  				if(editorial === ''){
+	  					alert("l campo Editorial no puede quedar vacio, seleccione una opcion.");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}	  				
+	  				var categoria=$("#categoria_id").val();
+	  				if(categoria === ''){
+	  					alert("El campo Categoria no puede quedar vacio, seleccione una opcion.");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}	  
+	  				
+	  				var categoria=$("#autor_id").val();
+	  				if(categoria === ''){
+	  					alert("El campo Autor no puede quedar vacio, seleccione una opcion.");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}	 
+	  			});
+   			});
+	  		</script>
 	    <!--common script for all pages-->
     	<script src="assets/js/common-scripts.js"></script>
 

@@ -60,13 +60,13 @@
                       	 <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Imagen</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="foto" required class="form-control">
+                                  <input type="url" name="foto" required class="form-control">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">ISBN</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="isbn" required class="form-control">
+                                  <input type="text" name="isbn" id="isbn" required class="form-control">
                               </div>
                           </div>
                           <div class="form-group">
@@ -90,26 +90,26 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Numero Edicion</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="nedicion" required class="form-control">
+                                  <input type="text" name="nedicion" id="nedicion" required class="form-control">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Precio</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="precio" required class="form-control">
+                                  <input type="text" name="precio" id="precio" required class="form-control">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Existencia</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="nexistencia" required class="form-control">
+                                  <input type="text" name="nexistencia" id="nexistencia" required class="form-control">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Editorial</label>
                               <div class="col-sm-10">
-                                  <select name="editorial_id" class="form-control">
-						  			<option>...</option>
+                                  <select name="editorial_id" id="editorial_id" class="form-control">
+						  			<option value="" selected="selected">...</option>
 						  			<%
 						  			ArrayList<Editorial> editoriales = new ControladorLibro().getAllEditoriales();
 										for(Editorial e:editoriales){%>
@@ -121,8 +121,8 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Categorias</label>
                               <div class="col-sm-10">
-                                  <select name="categoria_id" class="form-control">
-									<option>...</option>
+                                  <select name="categoria_id" id="categoria_id" class="form-control">
+									<option value="" selected="selected">...</option>
 									<%ArrayList<Categoria> categorias=new ControladorLibro().getAllCategorias();
 										for(Categoria c:categorias){%>
 									<option value="<%=c.getId()%>"><%=c.getDescripcion()%></option>
@@ -133,8 +133,8 @@
                            <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Autor</label>
                               <div class="col-sm-10">
-                                  <select name="autor_id" class="form-control">
-						  			<option>...</option>
+                                  <select name="autor_id" id="autor_id" class="form-control">
+						  			<option value="" selected="selected">...</option>
 						  			<%ArrayList<Autor> autores=new ControladorAutor().getAllAutores();
 										for(Autor a:autores){%>
 						  			<option value="<%=a.getId()%>"><%=a.getNombre() + ' ' + a.getApellido()%></option>
@@ -161,21 +161,65 @@
 	  		<script type="text/javascript">
 	  		$(document).ready(function(){
 	  			$("form").submit(function(event){
-	  				var cantidad=$("#cpaginas").val();
-	  				if(is_integer(cantidad)){
-	  					alert("es enteroo");
-	  					
+	  				var isbn=$("#isbn").val();
+	  				isbn =parseInt(isbn);
+	  				if(isNaN(isbn)){
+	  					alert("El campo ISBN ingresado debe ser un numero");	  
+	  				//cancela el evento
+	   					event.preventDefault();
 	  				}
-   				
-   				
-   					//cancela el evento
-   					event.preventDefault();
-   					}
-   				});
-   				
+	  				var cantidad=$("#cpaginas").val();
+	  				cantidad =parseInt(cantidad);
+	  				if(isNaN(cantidad)){
+	  					alert("El campo Cantidad de Paginas ingresado debe ser un numero");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				
+	  				var nro_edicion=$("#nedicion").val();
+	  				nro_edicion =parseInt(nro_edicion);
+	  				if(isNaN(nro_edicion)){
+	  					alert("El campo Número de Edicion ingresado debe ser un numero");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				
+	  				var precio=$("#precio").val();
+	  				precio =parseFloat(precio);
+	  				if(isNaN(precio)){
+	  					alert("El campo Precio ingresado debe ser un numero o decimal");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				
+	  				var existencia=$("#nexistencia").val();
+	  				existencia =parseInt(existencia);
+	  				if(isNaN(existencia)){
+	  					alert("El campo Existencia ingresado debe ser un numero");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}
+	  				var editorial=$("#editorial_id").val();
+	  				if(editorial === ''){
+	  					alert("l campo Editorial no puede quedar vacio, seleccione una opcion.");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}	  				
+	  				var categoria=$("#categoria_id").val();
+	  				if(categoria === ''){
+	  					alert("El campo Categoria no puede quedar vacio, seleccione una opcion.");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}	  
+	  				
+	  				var categoria=$("#autor_id").val();
+	  				if(categoria === ''){
+	  					alert("El campo Autor no puede quedar vacio, seleccione una opcion.");	  
+	  				//cancela el evento
+	   					event.preventDefault();
+	  				}	 
+	  			});
    			});
-	  		
 	  		</script>
-
   </body>
 </html>

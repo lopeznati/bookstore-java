@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="negocio.ControladorCliente"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Arrays"%>
@@ -91,14 +92,11 @@
                               						titulosLibros.add(tituloLibro[i]);
                               						} 
                               				%>
-                              				<%
-                              					Iterator i = titulosLibros.iterator();
-                              					while ( i.hasNext() ) { 
-                      								Object objeto = i.next(); 
-                      								String titulo = (String)objeto; 
-                      						%>  
-                      								<textarea readonly rows="<%=i%>">"<%=titulo%>"</textarea>
-                              					<% }%>
+                              				<select multiple class="form-control" readonly>
+						  							<%	for(Libro c:  carrito){%>
+						  							<option><%=c.getTitulo()%></option>
+						  						<%} %>						  			
+											</select>	
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -201,22 +199,8 @@
 				
 			});
 		});
+			
 		</script>
-<!--     	<script src="assets/js/bootstrap.min.js"></script>
-    	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    	<script src="assets/js/jquery.scrollTo.min.js"></script>
-    	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    	common script for all pages
-    	<script src="assets/js/common-scripts.js"></script>
-    	script for this page
-    	<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-		custom switch
-		<script src="assets/js/bootstrap-switch.js"></script>
-		custom tagsinput
-		<script src="assets/js/jquery.tagsinput.js"></script>
-		custom checkbox & radio
-		<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-		<script src="assets/js/form-component.js"></script>   -->  
 		
 	    <!--common script for all pages-->
     	<script src="assets/js/common-scripts.js"></script>

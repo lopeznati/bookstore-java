@@ -38,7 +38,9 @@
   <body>
 	</head>
 	<body>
-	
+	<!-- Valido que el usuario no sea nulo, caso contrario lo mando al login -->
+	<%if(session.getAttribute("usuario") != null){ 
+	%>	
 	<section id="container white-backround" >
   
       <jsp:include page="navbar.jsp"></jsp:include>
@@ -132,9 +134,10 @@
 	  	
 	  	<jsp:include page="footer.html"></jsp:include>
 	  	</section> 
-	  	
-	  	
-
+	  	 <%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>	  	
+	  
         <!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</body>

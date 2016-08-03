@@ -79,6 +79,9 @@
               					  				<tr>
               										<td>Editorial: <%=l.getEditorial().getNombre()%></td>
                              	  				</tr>
+                             	  				<tr>		                          		
+		                          					<td Colspan="2">Sinopsis: <%=l.getSipnosis()%></td>
+		                          				</tr>
                              	  				<tr>
                              	  					<input type="hidden" name="id" id="id" value="<%=l.getId()%>">
                              	  					<input type="hidden" name="existencia" id="existencia" value="<%=l.getExistencia() %>">
@@ -89,11 +92,6 @@
                              	  			</table>
                               			</form>
 		                          	</tbody>
-		                         	<tfoot>
-		                          		<tr>
-		                          			<td Colspan="2">Sinopsis: <%=l.getSipnosis()%></td>
-		                          		</tr>
-		                          	</tfoot>
 		                      	</table>
 	                  	  	</div>
 	                  	</div><!-- /col-md-12 -->			
