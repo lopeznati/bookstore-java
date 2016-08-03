@@ -17,7 +17,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
             
               	  <p class="centered"><a href="inicio.jsp"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Book Store</h5>
+              	  <h5 class="centered">The Open Book</h5>
               	  
               	  <% ArrayList<Categoria> categorias = new ControladorLibro().getAllCategorias(); 
 						for (Categoria c: categorias){%>
