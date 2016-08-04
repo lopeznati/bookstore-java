@@ -69,7 +69,21 @@ rolUsuario<!DOCTYPE html>
                       	  		</a>
                       	  	</li>
                       </ul>
-                  </li>     
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                      	  <i class="fa fa-book" aria-hidden="true"></i>                         
+                          <span>PEDIDOS</span>
+                      </a>
+                      <ul class="sub">
+                      	  <li>
+                      	  		<a  href="listadoPedido.jsp">
+                      	  			<i class="fa fa-list" aria-hidden="true"></i>
+                      	  			<span>Lista</span>
+                      	  		</a>
+                      	  	</li>
+                      </ul>
+                  </li>       
               </ul>
               <!-- sidebar menu end-->
           </div>
