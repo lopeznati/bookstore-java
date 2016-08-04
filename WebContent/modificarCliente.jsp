@@ -138,7 +138,8 @@
                               		</div>
                           		</div>
                           <div class="centrar-cont">
-                          	<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">GUARDAR</button>	
+                          	<button class="btn btn-primary">Aceptar</button>
+                          	<input type="button" name="btnCancelar" value="Cancelar" class="btn btn-primary" onClick="location.href='listadoClientes.jsp'">		
                           </div>
                       </form>
                   </div>

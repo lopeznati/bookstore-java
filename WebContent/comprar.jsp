@@ -142,8 +142,9 @@
                               			</div>
                           			</div>
                           			<div class="centrar-cont">
-                          				<input type="submit" class="guardar" value="Guardar"  data-toggle="modal" data-target="#myModal">	
-                          			</div>
+                          				<input type="submit" value="Aceptar" class="btn btn-primary">
+                          				<input type="button" name="Cancelar" value="Cancelar" class="btn btn-primary" onClick="location.href='carrito.jsp'">
+                          			</div>	
                     		 	</form>
                   			</div>
           				</div><!-- col-lg-12-->      	
@@ -166,23 +167,6 @@
     	<script src="assets/js/jquery.js"></script>
     	<script>
 			$(document).ready(function(){
-				
-				/*
-				
-			$("input[class=guardar]").click(function(){
-				//valido la existencia del libro
-				if($("#msj").attr("value")!=" "){
-	  		 		alert("No hay mas existencia");
-	  		 	}  
-				//valido la longitud de la tarjeta
-				else if($("#numero_tarjeta").val().length !=16){
-	  	 			//var a=$("#numero_tarjeta").val().length;
-	  		 			alert("El numero de tarjeta debe tener 16 caracteres");
-	  		 		}
-				
-				
-				});*/
-			
 			$("form").submit(function(event){
 				//valido la existencia del libro
 				if($("#msj").attr("value")!=" "){
@@ -195,23 +179,29 @@
 	  		 			alert("El numero de tarjeta debe tener 16 caracteres");
 	  		 			event.preventDefault()
 	  		 		}
-				
-				
 			});
-		});
-			
-		</script>
-		
-	    <!--common script for all pages-->
-    	<script src="assets/js/common-scripts.js"></script>
+		});	
+		      <!-- Latest compiled and minified JavaScript -->
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		   		<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+		    	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+		    	<!-- js placed at the end of the document so the pages load faster -->
+		    	<script src="assets/js/jquery.js"></script>
+		    	<script src="assets/js/jquery-1.8.3.min.js"></script>
+		    	<script src="assets/js/bootstrap.min.js"></script>
+		    	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+		    	<script src="assets/js/jquery.scrollTo.min.js"></script>
+		    	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+		    	<script src="assets/js/jquery.sparkline.js"></script>
 
-    	<!--script for this page-->
-    	<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-	
-		<!--custom switch-->
-		<script src="assets/js/bootstrap-switch.js"></script>
-	
-		<!--custom tagsinput-->
-		<script src="assets/js/jquery.tagsinput.js"></script>
+
+		    	<!--common script for all pages-->
+		    	<script src="assets/js/common-scripts.js"></script>
+		    
+		    	<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+		    	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+
+		    	<!--script for this page-->
+		    	<script src="assets/js/sparkline-chart.js"></script> 
 	</body>
 </html>

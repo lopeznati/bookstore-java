@@ -45,7 +45,18 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="inicio.jsp" class="logo"><b>The Open Book</b></a>
+            <%
+            if((session.getAttribute("usuario") != null)){
+            	if ((session.getAttribute("rolUsuario").equals("admin"))){%>
+            	<a href="inicioAdmin.jsp" class="logo"><b>The Open Book</b></a>
+				<% 
+				}
+            	else{%>	
+				<a href="inicio.jsp" class="logo"><b>The Open Book</b></a>
+			 <%}%>
+			 <%}else{ %>
+			 	<a href="inicio.jsp" class="logo"><b>The Open Book</b></a>
+			 <%} %>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -131,5 +142,6 @@
             var to = $("#" + id).data("to");
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
-    </script>
-      </body>
+    	</script>
+   	</body>
+ </html>
