@@ -58,7 +58,7 @@
 		            </label> -->
 		            
 		            <input class="btn btn-theme btn-block" type="submit" value="Ingresar">
-		          	<input class="btn btn-theme btn-block" type="submit" value="Volver al inicio" onclick="javascript:history.back()">
+		          	<input class="btn btn-theme btn-block" type="button" value="Volver al inicio" onclick="location.href='inicio.jsp'">
 		            <hr>
 		            <div class="registration">
 		                Si no estas registrado, hacé click acá<br/>

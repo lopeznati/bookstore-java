@@ -107,7 +107,12 @@
 									
 									<div  align="center">
 										<span>Continuar la seleccion de productos</span>
-										<a href="inicio.jsp">
+										<%if (session.getAttribute("rolUsuario").equals("admin")){%>
+							    		  <a href="inicioAdmin.jsp">
+							    		<% 
+						    			}else {  %>	
+										 <a href="inicio.jsp">
+										<%} %>
 										<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> 
 									</div>
 									<br>
@@ -116,7 +121,12 @@
 									</div>
 									<p align="center"> 
 										<span class="prod">No hay productos seleccionados</span>
-										<a href="inicio.jsp">
+										<%if (session.getAttribute("rolUsuario").equals("admin")){%>
+							    		  <a href="inicioAdmin.jsp">
+							    		<% 
+						    			}else {  %>	
+										 <a href="inicio.jsp">
+										<%} %>
 										<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> 
 									<%} %>
 									</p>
