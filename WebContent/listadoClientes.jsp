@@ -20,7 +20,7 @@
 	<!-- Valido que el usuario sea administrador, caso contrario lo mando al login -->
 	<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 		<jsp:include page="navbar.jsp"></jsp:include>
-		<jsp:include page="sidebarAdmin.html"></jsp:include>
+		<jsp:include page="sidebarAdmin.jsp"></jsp:include>
 	  	<section id="main-content">
           <section class="wrapper">  	
               <div class="row mt">
@@ -60,7 +60,7 @@
 				    					<td><%=c.getRol() %></td>
 				    					<td><%=c.getLocalidad().getNombre()%></td>
                                   		<td>
-                                      		<button class="btn btn-primary btn-xs" onClick="window.location.href='modificarCliente.jsp?idMod=<%=c.getId()%>'"><i class="fa fa-pencil"></i></button>
+                                      		<%-- <button class="btn btn-primary btn-xs" onClick="window.location.href='modificarCliente.jsp?idMod=<%=c.getId()%>'"><i class="fa fa-pencil"></i></button> --%>
                                       		<button class="btn btn-danger btn-xs" onClick="window.location.href='eliminarCliente.jsp?idElim=<%=c.getId()%>'"><i class="fa fa-trash-o "></i></button>
                                   		</td>
                               		</tr>                    

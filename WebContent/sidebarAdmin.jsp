@@ -55,7 +55,21 @@ rolUsuario<!DOCTYPE html>
                           	</a>
 						  </li>
                       </ul>
-                  </li>       
+                  </li>    
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                      	  <i class="fa fa-male" aria-hidden="true"></i>                         
+                          <span>CLIENTES</span>
+                      </a>
+                      <ul class="sub">
+                      	  <li>
+                      	  		<a  href="listadoClientes.jsp">
+                      	  			<i class="fa fa-list" aria-hidden="true"></i>
+                      	  			<span>Lista</span>
+                      	  		</a>
+                      	  	</li>
+                      </ul>
+                  </li>     
               </ul>
               <!-- sidebar menu end-->
           </div>

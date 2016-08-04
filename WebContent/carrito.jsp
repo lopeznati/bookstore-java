@@ -40,15 +40,19 @@
 	<%if(session.getAttribute("usuario") != null){ 
 	%>	
 	<section id="container white-backround" >
-  
+  	
       <jsp:include page="navbar.jsp"></jsp:include>
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      
-	  <jsp:include page="sidebar.jsp"></jsp:include>
+	    <%if (session.getAttribute("rolUsuario").equals("admin")){%>
+		  <jsp:include page="sidebarAdmin.jsp"></jsp:include>
+		<% 
+		  }else {  %>	
+      	<jsp:include page="sidebar.jsp"></jsp:include>
+      	<%} %>
 
       <!--sidebar end-->
       

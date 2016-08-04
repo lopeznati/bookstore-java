@@ -31,11 +31,24 @@
   <body>
 	<section id="container" >
     	<jsp:include page="navbar.jsp"></jsp:include>
+      	
+      	
       	<!-- **********************************************************************************************************************************************************
       	MAIN SIDEBAR MENU
       	*********************************************************************************************************************************************************** -->
-      	<!--sidebar start-->
-      	<jsp:include page="sidebar.jsp"></jsp:include>
+      	<!--sidebar start--> 	
+      	  <%if((session.getAttribute("usuario") != null)){
+            	if ((session.getAttribute("rolUsuario").equals("admin"))){%>
+            	 <jsp:include page="sidebarAdmin.jsp"></jsp:include>
+				<% 
+				}
+            	else{%>	
+				<jsp:include page="sidebar.jsp"></jsp:include>
+			 <%}%>
+		  <%}else{ %>
+			 	<jsp:include page="sidebar.jsp"></jsp:include>
+		  <%} %>
+
       	<!--sidebar end-->
       
 	      <!-- **********************************************************************************************************************************************************
@@ -85,13 +98,7 @@
                              	  					<input type="hidden" name="id" id="id" value="<%=l.getId()%>">
                              	  					<input type="hidden" name="existencia" id="existencia" value="<%=l.getExistencia() %>">
                              	  					<td>
-                             	  						<button type="submit" id="btnComprar" class="btn btn-primary">Comprar +</button>
-                             	  						<%if (session.getAttribute("rolUsuario").equals("admin")){%>
-							    						<input type="button" name="btnCancelar" value="Cancelar" class="btn btn-primary" onClick="location.href='inicioAdmin.jsp'">	
-														<% 
-						    							}else {  %>	
-														<input type="button" name="btnCancelar" value="Cancelar" class="btn btn-primary" onClick="location.href='inicio.jsp'">
-														<%} %>	
+                             	  						<button type="submit" id="btnComprar" class="btn btn-primary">Comprar +</button>		
                              	  					</td>
                              	  				</tr>
                              	  			</table>

@@ -17,7 +17,7 @@
 		<!-- Valido que el usuario sea administrador, caso contrario lo mando al login -->
 		<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
 		<jsp:include page="navbar.jsp"></jsp:include>
-		<jsp:include page="sidebarAdmin.html"></jsp:include>
+		<jsp:include page="sidebarAdmin.jsp"></jsp:include>
 	  	<section id="main-content">
         	<section class="wrapper">
               	<div class="row mt">
