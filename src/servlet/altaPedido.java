@@ -58,8 +58,6 @@ public class altaPedido extends HttpServlet {
 		
 		String direccion = request.getParameter("direccion");
 		double subtotal = Double.parseDouble(request.getParameter("subtotal"));
-		
-		
 		Cliente c = new ControladorCliente().getOneCliente(Integer.parseInt(request.getParameter("cliente_id")));
 		Tipo_Tarjeta tt = new ControladorPedido().getOneTipoTarjeta((Integer.parseInt(request.getParameter("tipo_tarjeta_id"))));
 		Localidad loc = new ControladorCliente().getOneLocalidad(Integer.parseInt(request.getParameter("localidad_id")));

@@ -46,16 +46,15 @@ public class altaCliente extends HttpServlet {
 		String direccion = request.getParameter("direccion");
 		String telefono = request.getParameter("telefono");
 		String mail = request.getParameter("mail");		
+		String rol = request.getParameter("rol");
 		Localidad localidad = new CatalogoLocalidad().getOneLocalidad(Integer.parseInt(request.getParameter("localidad_id")));	
 		Date fecha_nacimiento = Date.valueOf(request.getParameter("fecha_nacimiento"));
 		
-		String rol = "user";
-			
 		Cliente cliente = new Cliente(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,localidad);
 		
 		ControladorCliente cc = new ControladorCliente();
 		cc.altaCliente(cliente);
-		response.sendRedirect("listadoClientes.jsp");
+		response.sendRedirect("inicio.jsp");
 	}
 
 }

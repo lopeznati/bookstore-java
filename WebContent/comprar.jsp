@@ -95,7 +95,7 @@
                               						subtotal = subtotal + carrito.get(i).getPrecio();
                               						titulosLibros.add(tituloLibro[i]);
                               						} 
-                              				%>
+                              				%>                 
                               				<select multiple class="form-control" readonly>
 						  							<%	for(Libro c:  carrito){%>
 						  							<option><%=c.getTitulo()%></option>
@@ -108,12 +108,12 @@
                               			<div class="col-sm-10">
                                   			<input type="text" name="direccion" required class="form-control">
                               			</div>
-                          			</div>
+                          			</div> 	
          							<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Localidad</label>
                               			<div class="col-sm-10">
-                                  			<select name="localidad_id" class="form-control">
-						  						<option>...</option>
+                                  			<select name="localidad_id" id="localidad_id" class="form-control">
+						  						<option value="" selected="selected">...</option>
 						  							<%ArrayList<Localidad> localidades= new ControladorCliente().getAllLocalidades();
 													for(Localidad l:localidades){%>
 						  						<option value="<%=l.getId()%>"><%=l.getNombre()%></option>
@@ -130,8 +130,8 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Tarjeta</label>
                               			<div class="col-sm-10">
-                                  			<select name="tipo_tarjeta_id" class="form-control">
-						  						<option>...</option>
+                                  			<select name="tipo_tarjeta_id" id="tipo_tarjeta_id" class="form-control">
+						  						<option value="" selected="selected">...</option>
 						  							<%ArrayList<Tipo_Tarjeta> tiposTarjetas= new ControladorPedido().getAllTipoTarjeta();
 													for(Tipo_Tarjeta tt:tiposTarjetas){%>
 						  						<option value="<%=tt.getId()%>"><%=tt.getNombre()%></option>
@@ -172,19 +172,34 @@
     	<script>
 			$(document).ready(function(){
 			$("form").submit(function(event){
-				//valido la existencia del libro
+				
+  				var localidad=$("#localidad_id").val();
+  				if(localidad === ''){
+  					alert("El campo Localidad no puede quedar vacio, seleccione una opcion.");	  
+  				//cancela el evento
+   					event.preventDefault();
+  				}
+				
+  				//valido la existencia del libro
 				if($("#msj").attr("value")!=" "){
 	  		 		alert("No hay mas existencia");
 	  		 		event.preventDefault();
 	  		 	}  
 				//valido la longitud de la tarjeta
 				else if($("#numero_tarjeta").val().length !=16){
-	  	 			//var a=$("#numero_tarjeta").val().length;
-	  		 			alert("El numero de tarjeta debe tener 16 caracteres");
-	  		 			event.preventDefault()
-	  		 		}
+  		 			alert("El numero de tarjeta debe tener 16 caracteres");
+  		 			event.preventDefault()
+  		 		}
+  								
+  				var tipo_tarjeta=$("#tipo_tarjeta_id").val();
+  				if(tipo_tarjeta === ''){
+  					alert("El campo Tipo Tarjeta no puede quedar vacio, seleccione una opcion.");	  
+  				//cancela el evento
+   					event.preventDefault();
+  				}
 			});
 		});	
+			</script>
 		      <!-- Latest compiled and minified JavaScript -->
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		   		<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>

@@ -59,6 +59,7 @@
                   			<div class="form-panel">
                   	  			<h4 class="mb"><i class="fa fa-angle-right"></i> Completar el formulario</h4>
                       			<form class="form-horizontal style-form" onSubmit="return validarPasswd()" action="altaCliente" method="POST">
+									<input type="hidden" name="rol" value="user">
                       	 			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Usuario</label>
                               			<div class="col-sm-10">
@@ -92,7 +93,7 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Fecha Nacimiento</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="fecha_nacimiento" required class="form-control">
+                                  			<input type="text" name="fecha_nacimiento" placeholder="YYYT-MM-DD" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -111,12 +112,6 @@
                               			<label class="col-sm-2 col-sm-2 control-label">Dirección</label>
                               			<div class="col-sm-10">
                                   			<input type="text" name="direccion" required class="form-control">
-                              			</div>
-                          			</div>
-                          			<div class="form-group">
-                              			<label class="col-sm-2 col-sm-2 control-label">Rol</label>
-                              			<div class="col-sm-10">
-                                  			<input type="text" name="rol" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -176,7 +171,6 @@
     	<script src="assets/js/jquery.scrollTo.min.js"></script>
     	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     	<script src="assets/js/jquery.sparkline.js"></script>
-
 
     	<!--common script for all pages-->
     	<script src="assets/js/common-scripts.js"></script>

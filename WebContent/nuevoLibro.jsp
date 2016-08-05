@@ -202,7 +202,7 @@
 	  				}
 	  				var editorial=$("#editorial_id").val();
 	  				if(editorial === ''){
-	  					alert("l campo Editorial no puede quedar vacio, seleccione una opcion.");	  
+	  					alert("El campo Editorial no puede quedar vacio, seleccione una opcion.");	  
 	  				//cancela el evento
 	   					event.preventDefault();
 	  				}	  				
@@ -213,12 +213,12 @@
 	   					event.preventDefault();
 	  				}	  
 	  				
-	  				var categoria=$("#autor_id").val();
-	  				if(categoria === ''){
+	  				var autor=$("#autor_id").val();
+	  				if(autor === ''){
 	  					alert("El campo Autor no puede quedar vacio, seleccione una opcion.");	  
 	  				//cancela el evento
 	   					event.preventDefault();
-	  				}	 
+	  				}
 	  			});
    			});
 	  		</script>

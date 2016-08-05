@@ -17,14 +17,35 @@
               <ul class="sidebar-menu" id="nav-accordion">
             
               	  <p class="centered"><a href="inicio.jsp"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">The Open Book</h5>
-              	  
-              	  <% ArrayList<Categoria> categorias = new ControladorLibro().getAllCategorias(); 
+              	  <h5 class="centered">The Open Book</h5> 
+                  <li class="sub-menu">
+                      <a class="active" href="javascript:;" >
+                      	  <i class="fa fa-book" aria-hidden="true"></i>                          
+                          <span>Mi Cuenta</span>
+                      </a>                      
+                      <ul class="sub">
+                      	  	<li>
+                      	  		<a href='modificarCliente.jsp?idMod=<%=session.getAttribute("usuario")%>'>
+                      	  			<i class="fa fa-list" aria-hidden="true"></i>
+                      	  			<span>Editar Datos</span>
+                      	  		</a>
+                      	  	</li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a class="active" href="javascript:;" >
+                      	  <i class="fa fa-book" aria-hidden="true"></i>                          
+                          <span>Categorias</span>
+                      </a>                      
+                      <% ArrayList<Categoria> categorias = new ControladorLibro().getAllCategorias(); 
 						for (Categoria c: categorias){%>
-                  <li class="mt">                            
-                          <a class="change-size" href="categorias.jsp?idCat=<%=c.getId() %>"><%=c.getDescripcion()%></a>             
-                  </li> 
-                  <%} %>  
+                      <ul class="sub">
+                      	  <li>
+                      	  		<a  href="categorias.jsp?idCat=<%=c.getId() %>"><%=c.getDescripcion()%></a>   
+                      	  	</li>
+                      </ul>
+                        <%} %> 
+                  </li>  
               </ul>
               <!-- sidebar menu end-->
           </div>
