@@ -17,24 +17,23 @@
 <!DOCTYPE html>
 <html lang="en">
   	<head>
-    	<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<meta name="description" content="">
-    	<meta name="author" content="Dashboard">
-    	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    	<title>Alta pedido</title>
+    	 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Alta pedido</title>
     
-    	<!-- Bootstrap core CSS -->
-    	<link href="assets/css/bootstrap.css" rel="stylesheet">
-    
-    	<!--external css-->
-    	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    	<link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datepicker/css/datepicker.css" />
-    	<link rel="stylesheet" type="text/css" href="assets/js/bootstrap-daterangepicker/daterangepicker.css" />
+    	 <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datepicker/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-daterangepicker/daterangepicker.css" />
         
-    	<!-- Custom styles for this template -->
-    	<link href="assets/css/style.css" rel="stylesheet">
-    	<link href="assets/css/style-responsive.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
 
     	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     	<!--[if lt IE 9]>
@@ -47,7 +46,7 @@
 		<!-- Valido que el usuario no sea nulo, caso contrario lo mando al login -->
 		<%if(session.getAttribute("usuario") != null){ 
 		%>	
-  		<section id="container">
+  	
       		<jsp:include page="navbar.jsp"></jsp:include>
       		
       		<!-- **********************************************************************************************************************************************************
@@ -154,16 +153,10 @@
           				</div><!-- col-lg-12-->      	
           			</div><!-- /row -->       
       				<!--footer start-->
-      				<footer class="site-footer">
-          				<div class="text-center">
-              				2016 - Castellarín - Lopez Leiva - Pintener
-              				<a href="form_component.html#" class="go-top">
-                  				<i class="fa fa-angle-up"></i>
-              				</a>
-          				</div>
-      				</footer>
-      				<!--footer end-->
+      				
   				</section>
+  				</section><!-- /MAIN CONTENT -->
+  				<jsp:include page="footer.html"></jsp:include>
   	 			<%}else{
 	  		response.sendRedirect("login.jsp");
 	  	}%>	
@@ -189,7 +182,24 @@
 				else if($("#numero_tarjeta").val().length !=16){
   		 			alert("El numero de tarjeta debe tener 16 caracteres");
   		 			event.preventDefault()
+   					$("#numero_tarjeta").focus();
   		 		}
+  				
+  				//valido que el campo de numero de tarjeta sean solo numeros
+  				
+				var num_tarjeta=$("#numero_tarjeta").val();
+  				if(isNaN(num_tarjeta)){
+  					alert("El campo Numero de Tarjeta ingresado debe ser un numero");
+  					
+  				//cancela el evento
+   					event.preventDefault();
+   					$("#numero_tarjeta").val("");
+   					$("#numero_tarjeta").focus();
+  				}
+  				
+  			
+  				
+  				
   								
   				var tipo_tarjeta=$("#tipo_tarjeta_id").val();
   				if(tipo_tarjeta === ''){
@@ -200,27 +210,39 @@
 			});
 		});	
 			</script>
-		      <!-- Latest compiled and minified JavaScript -->
-				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		   		<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-		    	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-		    	<!-- js placed at the end of the document so the pages load faster -->
-		    	<script src="assets/js/jquery.js"></script>
-		    	<script src="assets/js/jquery-1.8.3.min.js"></script>
-		    	<script src="assets/js/bootstrap.min.js"></script>
-		    	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-		    	<script src="assets/js/jquery.scrollTo.min.js"></script>
-		    	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-		    	<script src="assets/js/jquery.sparkline.js"></script>
+		    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
+   <!--  common script for all pages -->
+    <script src="assets/js/common-scripts.js"></script>
 
-		    	<!--common script for all pages-->
-		    	<script src="assets/js/common-scripts.js"></script>
-		    
-		    	<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-		    	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    <!-- script for this page -->
+    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
 
-		    	<!--script for this page-->
-		    	<script src="assets/js/sparkline-chart.js"></script> 
+	<!-- custom switch -->
+	<script src="assets/js/bootstrap-switch.js"></script>
+	
+	<!-- custom tagsinput -->
+	<script src="assets/js/jquery.tagsinput.js"></script>
+	
+	<!-- custom checkbox & radio -->
+	<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+	<script src="assets/js/form-component.js"></script>   
+	
+	<!--common script for all pages-->
+    <script src="assets/js/common-scripts.js"></script>
+
+    <!--script for this page-->
+    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+	<!--custom switch-->
+	<script src="assets/js/bootstrap-switch.js"></script>
+	
+	<!--custom tagsinput-->
+	<script src="assets/js/jquery.tagsinput.js"></script>
 	</body>
 </html>

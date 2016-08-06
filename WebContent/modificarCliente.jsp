@@ -35,16 +35,23 @@
     	<![endif]-->
   	</head>
   	<body>
-		<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
-  			response.sendRedirect("login.jsp");
-  	 	<%}else{%>
-  	 		<section id="container" >
-  	      	<jsp:include page="navbar.jsp"></jsp:include>
-  	      
-  	      	<!-- **********************************************************************************************************************************************************
-  	      	MAIN SIDEBAR MENU
-  	      	*********************************************************************************************************************************************************** -->
-  	      	<jsp:include page="sidebar.jsp"></jsp:include>
+  	<section id="container" >
+    	<jsp:include page="navbar.jsp"></jsp:include>
+  	
+  	<%if(session.getAttribute("usuario") != null){ %> 		
+  	 		<%if((session.getAttribute("usuario") != null)){
+            	if ((session.getAttribute("rolUsuario").equals("admin"))){%>
+            	 <jsp:include page="sidebarAdmin.jsp"></jsp:include>
+				<% 
+				}
+            	else{%>	
+				<jsp:include page="sidebar.jsp"></jsp:include>
+			 <%}%>
+		  <%}else{ %>
+			 	<jsp:include page="sidebar.jsp"></jsp:include>
+		  <%} %>
+  	     
+  	   
   	      
   	      	<!-- **********************************************************************************************************************************************************
   	      	MAIN CONTENT

@@ -14,9 +14,24 @@ rolUsuario<!DOCTYPE html>
               
               	  <p class="centered"><a href="inicioAdmin.jsp"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">The Open Book</h5>
+              	  
+              	  <li class="sub-menu">
+                      <a class="active" href="javascript:;" >
+                      	  <i class="fa fa-book" aria-hidden="true"></i>                          
+                          <span>Mi Cuenta</span>
+                      </a>                      
+                      <ul class="sub">
+                      	  	<li>
+                      	  		<a href='modificarCliente.jsp?idMod=<%=session.getAttribute("usuario")%>'>
+                      	  			<i class="fa fa-list" aria-hidden="true"></i>
+                      	  			<span>Editar Datos</span>
+                      	  		</a>
+                      	  	</li>
+                      </ul>
+                  </li>
 
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
+                      <a href="javascript:;" >
                       	  <i class="fa fa-book" aria-hidden="true"></i>                          
                           <span>LIBROS</span>
                       </a>                      

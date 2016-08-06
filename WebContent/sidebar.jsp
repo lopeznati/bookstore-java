@@ -18,6 +18,8 @@
             
               	  <p class="centered"><a href="inicio.jsp"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">The Open Book</h5> 
+              	 <%if(session.getAttribute("usuario") != null){ 
+	%>
                   <li class="sub-menu">
                       <a class="active" href="javascript:;" >
                       	  <i class="fa fa-book" aria-hidden="true"></i>                          
@@ -32,6 +34,7 @@
                       	  	</li>
                       </ul>
                   </li>
+                  <%}%>
                   <li class="sub-menu">
                       <a class="active" href="javascript:;" >
                       	  <i class="fa fa-book" aria-hidden="true"></i>                          

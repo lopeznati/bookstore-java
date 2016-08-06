@@ -2,11 +2,13 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import datos.CatalogoLocalidad;
 import negocio.ControladorCliente;
@@ -56,7 +58,17 @@ public class modificarCliente extends HttpServlet {
 
 		ControladorCliente cc = new ControladorCliente();
 		cc.actualizarCliente(c);
-		response.sendRedirect("inicio.jsp");
+		HttpSession session = request.getSession(true);
+		
+		if ((session.getAttribute("rolUsuario").equals("admin"))){
+			response.sendRedirect("inicioAdmin.jsp");
+   	
+		
+		}
+   	else{
+   		response.sendRedirect("inicio.jsp");
+		}
+		
 		
 	}
 
