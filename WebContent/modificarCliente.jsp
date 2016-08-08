@@ -15,7 +15,7 @@
     	<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<meta name="description" content="">
-    	<title>Actualizar libro</title>
+    	<title>Actualizar usuario</title>
 	
 	    <!-- Bootstrap core CSS -->
 	    <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -59,7 +59,7 @@
   	      	<!--main content start-->
   	      	<section id="main-content">
   	        	<section class="wrapper">
-  	          		<h3><i class="fa fa-angle-right"></i> Modificar Cliente</h3>
+  	          		<h3><i class="fa fa-angle-right"></i> Modificar Usuario</h3>
   	       			<%Cliente cliente = new ControladorCliente().getOneCliente(Integer.parseInt(request.getParameter("idMod")));%>
   	          		<!-- BASIC FORM ELELEMNTS -->
   	          		<div class="row mt">
@@ -136,7 +136,13 @@
   	                          		</div>
   	                          <div class="centrar-cont">
   	                          	<button class="btn btn-primary">Aceptar</button>
-  	                          	<input type="button" name="btnCancelar" value="Cancelar" class="btn btn-primary" onClick="location.href='inicio.jsp'">		
+  	                          	<%if (session.getAttribute("rolUsuario").equals("admin")){%>
+								<input type="button" name="btnCancelar" value="Cancelar" class="btn btn-primary" onClick="location.href='inicioAdmin.jsp'">		
+							    <%} 
+						    	else{%>	
+								<input type="button" name="btnCancelar" value="Cancelar" class="btn btn-primary" onClick="location.href='inicio.jsp'">		
+								<%} %>
+  	                          	
   	                          </div>
   	                      </form>
   	                  </div>

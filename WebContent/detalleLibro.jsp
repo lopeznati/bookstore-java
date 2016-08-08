@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Detalle Libro</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -37,17 +37,15 @@
       	MAIN SIDEBAR MENU
       	*********************************************************************************************************************************************************** -->
       	<!--sidebar start--> 	
-      	  <%if((session.getAttribute("usuario") != null)){
+		<%
             	if ((session.getAttribute("rolUsuario").equals("admin"))){%>
             	 <jsp:include page="sidebarAdmin.jsp"></jsp:include>
 				<% 
 				}
-            	else{%>	
+            	else if ((session.getAttribute("rolUsuario").equals("user")) || ((session.getAttribute("usuario") == null))){%>	
 				<jsp:include page="sidebar.jsp"></jsp:include>
 			 <%}%>
-		  <%}else{ %>
-			 	<jsp:include page="sidebar.jsp"></jsp:include>
-		  <%} %>
+
 
       	<!--sidebar end-->
       
@@ -122,6 +120,7 @@
    					var existencia=parseInt($("#existencia").attr("value")); 
    					if(existencia<1){
    					alert("No hay existencia de este libro");
+   					window.location="inicio.jsp";
    				
    					//cancela el evento
    					event.preventDefault();

@@ -145,7 +145,6 @@
       				</footer>
       				<!--footer end-->
   				</section>
-
   		<script>
       	//custom select box
 			$(function(){
