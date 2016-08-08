@@ -114,9 +114,9 @@ CREATE TABLE `libros` (
   KEY `id_editorial` (`id_editorial`),
   KEY `id_categoria` (`id_categoria`),
   KEY `id_autor` (`id_autor`),
-  CONSTRAINT `libros_fk2` FOREIGN KEY (`id_autor`) REFERENCES `autores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `libros_fk` FOREIGN KEY (`id_editorial`) REFERENCES `editoriales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `libros_fk1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `libros_fk` FOREIGN KEY (`id_editorial`) REFERENCES `editoriales` (`id`),
+  CONSTRAINT `libros_fk1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`),
+  CONSTRAINT `libros_fk2` FOREIGN KEY (`id_autor`) REFERENCES `autores` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
@@ -168,10 +168,10 @@ CREATE TABLE `pedidos` (
   KEY `id_tipo_tarjeta` (`id_tipo_tarjeta`),
   KEY `id_localidad` (`id_localidad`),
   KEY `id_cliente` (`id_cliente`),
-  CONSTRAINT `pedidos_fk3` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `pedidos_fk` FOREIGN KEY (`id_tipo_tarjeta`) REFERENCES `tipos_tarjetas` (`id`),
-  CONSTRAINT `pedidos_fk1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `pedidos_fk2` FOREIGN KEY (`id_localidad`) REFERENCES `localidades` (`id`)
+  CONSTRAINT `pedidos_fk1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`),
+  CONSTRAINT `pedidos_fk2` FOREIGN KEY (`id_localidad`) REFERENCES `localidades` (`id`),
+  CONSTRAINT `pedidos_fk3` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
@@ -179,8 +179,9 @@ CREATE TABLE `pedidos` (
 #
 
 INSERT INTO `autores` (`id`, `nombre`, `apellido`) VALUES 
-  (1,'Pablo','Coelho'),
-  (2,'Cassandra','Claire');
+  (1,'Pablo ','Coelho'),
+  (2,'Cassandra','Claire'),
+  (3,'Kate','Morton');
 
 COMMIT;
 
@@ -213,8 +214,8 @@ COMMIT;
 
 INSERT INTO `clientes` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `telefono`, `mail`, `rol`, `id_localidad`, `fecha_nacimiento`, `direccion`) VALUES 
   (2,'nlopez','1234','Natali','Natali','34144444','dsfsdfdsfs','user',1,'1993-11-01','sdsada'),
-  (3,'mpintener','1234','Martina','Pintener','1','mpintener@gmail.com','user',2,'1993-10-19','Sarmiento 1621'),
-  (4,'mcaste','1234','Mailen','Castellarín','3476597263','mai_clarke_20@hotmai','admin',2,'1993-07-20','sarmiento 223');
+  (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com','user',2,'1993-10-19','Sarmiento 1621'),
+  (4,'mcaste','1234','Mailen','Castellarin','3476597263','mai_clarke_20@hotmai','admin',1,'1993-07-20','sarmiento 223');
 
 COMMIT;
 
@@ -234,11 +235,11 @@ COMMIT;
 #
 
 INSERT INTO `libros` (`id`, `isbn`, `titulo`, `sipnosis`, `numero_edicion`, `cantidad_paginas`, `precio`, `existencia`, `foto`, `id_editorial`, `id_categoria`, `id_autor`) VALUES 
-  (1,111111111,'Adulterio','Linda está casada con un hombre rico, tienen dos hijos y la familia vive en una hermosa casa en Ginebra, Suiza. Trabaja en el periódico más importante del país, es guapa, viste bien y tiene todo lo que se pueda desear. A ojos de todos, su vida es perfecta. Sin embargo, no es feliz; una gran insatisfacción la corroe y se siente culpable por no ser capaz de disfrutar de lo que tiene. Por eso no habla con nadie de lo que sucede. Ama a su marido pero la relación con él se ha vuelto rutinaria, apática.\r\n\r\nUn día, el periódico la envía a entrevistar a Jacob König, un antiguo novio del instituto que ahora es un político de cierta relevancia. Este encuentro es suficiente para que ella se sienta capaz de hacer algo con lo que soñaba desde muchacha, y empieza a dar rienda suelta a sus fantasías. Vuelve a sentir pasión por la vida. Ahora hará todo lo que sea para conquistar ese amor imposible y descenderá hasta el fondo del pozo de las emociones humanas para, por fin, encontrar su redención.',4,5000,300,100,'http://www.librolibro.es/images/portadas/Adulterio-Paulo_Coelho-9788408131625.jpg',1,1,1),
-  (5,555555555,'The Mayor''s Tongue ','In this debut novel, hailed by Stephen King as ?terrifying, touching, and wildly funny,? the stories of two strangers, Eugene Brentani and Mr. Schmitz, interweave. What unfolds is a bold reinvention of storytelling in which Eugene, a devotee of the reclusive and monstrous author, Constance Eakins, and Mr. Schmitz, who has been receiving ominous letters from an old friend, embark from New York for Italy, where the line between imagination and reality begins to blur and stories take on a life of their own.\r\nIn this debut novel, hailed by Stephen King as ?terrifying, touching, and wildly funny,? the stories of two strangers, Eugene Brentani and Mr. Schmitz, interweave. What unfolds is a bold reinvention of storytelling in which Eugene, a devotee of the reclusive and monstrous author, Constance Eakins, and Mr. Schmitz, who has been receiving ominous letters from an old friend, embark from New York for Italy, where the line between imagination and reality begins to blur and stories take on a life of their own.',1,145,180,100,'http://www.creativindiecovers.com/wp-content/uploads/2012/02/beautiful-book-covers-36.png',3,1,1),
-  (6,666666666,'Green Eggs and Ham','Huevos verdes con jamón es un libro para principiantes escrito en un lenguaje muy simple para lectores principiantes. El vocabulario del libro consiste solamente en 50 palabras diferentes y fue el resultado de una apuesta entre Seuss y Bennett Cerf (editor Dr. Seuss)',5,35,175,100,'http://www.adazing.com/wp-content/uploads/2012/09/green-eggs-and-ham.jpg',1,1,1),
-  (7,777777777,'The Flame Alphabet','In The Flame Alphabet, the most maniacally gifted writer of our generation delivers a novel about how far we will go in order to protect our loved ones.\r\n \r\nThe sound of children''s speech has become lethal. In the park, adults wither beneath the powerful screams of their offspring. For young parents Sam and Claire, it seems their only means of survival is to flee from their daughter, Esther. But they find it isn''t so easy to leave someone you love, even as they waste away from her malevolent speech. On the eve of their departure, Claire mysteriously disappears, and Sam, determined to find a cure for this new toxic language, presses on alone into a foreign world to try to save his family.',1,60,130,100,'http://flavorwire.files.wordpress.com/2013/01/flame-alphabet.jpg',2,3,2),
-  (9,999999997,'In Dreams Begins','Now with an exciting new preface by rock musician Lou Reed (Delmore Schwartz?s student at Syracuse), In Dreams Begin Responsibilities collects eight of Schwartz?s finest delineations of New York?s intellectuals in the 1930s and 1940s. As no other writer can, Schwartz captures the speech, the generational conflicts, the mocking self-analysis of educated, ambitious, Depression-stymied young people at odds with their immigrant parents. This is the unique American dilemma Irving Howe described as ?that interesting point where intellectual children of immigrant Jews are finding their way into the larger world while casting uneasy, rueful glances over their backs.? Afterwords by James Atlas and Irving Howe place the stories in their historical and cultural setting.',2,96,146,100,'http://flavorwire.files.wordpress.com/2013/01/dreams.jpg?w=1920',2,4,2);
+  (1,12133434,'Adulterio','Linda está casada con un hombre rico, tienen dos hijos y la familia vive en una hermosa casa en Ginebra, Suiza. Trabaja en el periódico más importante del país, es guapa, viste bien y tiene todo lo que se pueda desear. A ojos de todos, su vida es perfecta. Sin embargo, no es feliz; una gran insatisfacción la corroe y se siente culpable por no ser capaz de disfrutar de lo que tiene. Por eso no habla con nadie de lo que sucede. Ama a su marido pero la relación con él se ha vuelto rutinaria, apática.\r\n\r\nUn día, el periódico la envía a entrevistar a Jacob König, un antiguo novio del instituto que ahora es un político de cierta relevancia. Este encuentro es suficiente para que ella se sienta capaz de hacer algo con lo que soñaba desde muchacha, y empieza a dar rienda suelta a sus fantasías. Vuelve a sentir pasión por la vida. Ahora hará todo lo que sea para conquistar ese amor imposible y descenderá hasta el fondo del pozo de las emociones humanas para, por fin, encontrar su redención.',1000,5000,300,0,'http://www.librolibro.es/images/portadas/Adulterio-Paulo_Coelho-9788408131625.jpg',1,1,1),
+  (2,222222,'El ultimo adiós','Escritora de superventas Kate Morton sobresale una vez más con esta novela de misterio, con la Inglaterra de la década de 1930 como sugerente telón de fondo. La trama es impecable y los personajes, modelados con habilidad y reunidos al final del libro como resultado de la investigación de Sparrow, quedan tan sorprendidos como los lectores por el inesperado desenlace.',2,300,250,0,'http://3.bp.blogspot.com/-F3k3Zy9TEFg/VmBQ56USRPI/AAAAAAAAPVo/el-a2lql97g/s320/El%2B%25C3%25BAltimo%2Badi%25C3%25B3s.jpg',3,3,3),
+  (3,333333333,'Cómo Hacer Helado','52 recetas para lograr sabores clásicos y contemporáneos',2,100,250,7,'http://dwumenp4rf1cd.cloudfront.net/wp-content/uploads/2015/04/howtomakeicecream_cover.jpg',3,5,3),
+  (4,44444444,'Eating Well - Soups',NULL,1,95,175,0,'http://assets.eatingwell.com/sites/default/files/images/000-J16_EWSoups_COVER_final_noUPC.png',3,5,3),
+  (5,555555555,'The Mayor''s Tongue ','.....',1,145,180,100,'http://www.creativindiecovers.com/wp-content/uploads/2012/02/beautiful-book-covers-36.png',3,1,1);
 
 COMMIT;
 
@@ -287,13 +288,25 @@ COMMIT;
 #
 
 INSERT INTO `pedidos` (`id`, `fecha_pedido`, `direccion`, `subtotal`, `numero_tarjeta`, `id_libro`, `id_cliente`, `id_localidad`, `id_tipo_tarjeta`) VALUES 
-  (4,'2016-07-22 15:58:04','sdsad',180,'12345678',5,3,2,1),
-  (9,'2016-07-22 16:42:52','sarmiento 223',300,'12345678',1,3,2,2),
-  (10,'2016-07-22 16:44:00','sarmiento 223',300,'12345678',1,3,2,1),
-  (12,'2016-07-22 16:44:51','sarmiento 223',300,'12345678',1,3,2,2),
-  (17,'2016-07-28 17:20:11','gorriti',300,'1111111111111111',1,4,1,1),
-  (18,'2016-07-28 17:21:27','gorrti',300,'1111111111111111',1,4,1,1),
-  (19,'2016-07-28 17:25:11','cordoba',300,'1111111111111111',1,3,1,1);
+  (1,'2016-07-18 21:37:20','gorriti',250,'1234567',2,2,1,2),
+  (2,'2016-07-18 21:45:50','hsagdhsa',250,'232',2,4,1,1),
+  (3,'2016-07-18 21:49:59','sadas',250,'2121',2,4,1,2),
+  (4,'2016-07-18 22:08:27','sds',250,'21321',2,4,1,2),
+  (5,'2016-07-18 22:12:38','jjjjkl',250,'6787',2,4,1,1),
+  (6,'2016-07-23 00:27:35','gorriti ',250,'1234567891234567',3,2,1,1),
+  (7,'2016-07-23 00:27:36','gorriti ',180,'1234567891234567',5,2,1,1),
+  (8,'2016-07-23 00:30:45','jnjknj',250,'11111111',3,2,1,1),
+  (9,'2016-07-23 00:34:17','aaa',250,'1234567891234567',3,2,1,1),
+  (10,'2016-08-06 16:15:24','dfdfd',180,'',5,4,1,1),
+  (11,'2016-08-06 16:17:05','asds',180,'aaaaaaaaaaaaaaaa',5,4,1,1),
+  (12,'2016-08-06 16:18:26','asfs',175,'1aaaaaaaaaaaaaaa',4,4,1,1),
+  (13,'2016-08-06 16:21:13','adasd',175,'',4,4,1,2),
+  (14,'2016-08-06 16:21:57','dads',175,'',4,4,1,2),
+  (15,'2016-08-06 16:25:07','dadsa',250,'',3,4,1,1),
+  (16,'2016-08-06 16:28:47','aads',250,'1111111111111111',3,4,1,1),
+  (17,'2016-08-06 16:36:22','asdsd',250,'1234567891234567',3,4,1,1),
+  (18,'2016-08-06 16:36:22','asdsd',250,'1234567891234567',3,4,1,1),
+  (19,'2016-08-06 16:52:50','adas',250,'1234567891234567',3,4,1,1);
 
 COMMIT;
 

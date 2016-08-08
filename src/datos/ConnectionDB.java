@@ -18,6 +18,11 @@ public class ConnectionDB {
 		return instancia;
 	}
 	// DATOS USER
+	
+	//private static String DBURL="jdbc:mysql://localhost:3306/nati1825?autoReconnect=true";
+	//private static String DBUSER="nati1825";
+	//private static String DBPASSWORD="12345678";
+	
 	private static String DBURL="jdbc:mysql://localhost:3306/bookstore";
 	private static String DBUSER="root";
 	private static String DBPASSWORD="";
@@ -35,7 +40,7 @@ public class ConnectionDB {
 				
 				//conectamos con la base de datos
 				/*crear un objeto de la clase Connection, para esto la clase DriverManager 
-				tiene un método llamado getConnection que retorna un objeto de la clase Connection*/
+				tiene un mï¿½todo llamado getConnection que retorna un objeto de la clase Connection*/
 			
 				conn=DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
 			}
