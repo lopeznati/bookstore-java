@@ -62,6 +62,55 @@ public class CatalogoPedido {
 		return pedidos;
 	}
 	
+	public ArrayList<Pedido> getAllPedidosCliente()
+	{
+		ArrayList<Pedido> pedidos = new ArrayList<>();
+		Statement sentencia = null;
+		ResultSet rs = null;
+		String sql = "select pedidos.* from pedidos inner join clientes on pedidos.id_cliente=clientes.id";
+		try
+		{			
+			sentencia = ConnectionDB.getInstancia().getconn().createStatement();
+			rs = sentencia.executeQuery(sql);
+			
+			while (rs.next()){
+				Pedido p = new Pedido();
+				p.setId(rs.getInt("id"));
+				Cliente c = new CatalogoCliente().getOneCliente(rs.getInt("id_cliente"));
+				p.setCliente(c);
+				Libro l = new CatalogoLibro().getOneLibro(rs.getInt("id_libro"));
+				p.setLibro(l);		
+				p.setDireccion(rs.getString("direccion"));
+				Localidad loc=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
+				p.setLocalidad(loc);
+				p.setSubtotal(rs.getDouble("subtotal"));
+				Tipo_Tarjeta  tt = new CatalogoTipoTarjeta().getOneTipoTarjeta((rs.getInt("id_tipo_tarjeta")));
+				p.setTipo_tarjeta(tt);
+				
+				pedidos.add(p);
+			}
+		}
+		catch(SQLException e1)
+		{
+			e1.printStackTrace();
+		}
+		finally{
+			try{
+				if (sentencia != null)
+					sentencia.close();
+				if (rs != null)
+					rs.close();
+				ConnectionDB.getInstancia().CloseConn();
+			}
+			catch(SQLException e2){
+				e2.printStackTrace();
+			}
+		}
+		return pedidos;
+	}
+	
+	
+	
 	public void altaPedido(Pedido p){
 
 		PreparedStatement sentencia=null;

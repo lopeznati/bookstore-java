@@ -28,6 +28,9 @@ public class ControladorPedido {
 		return cp.getAllPedidos();
 	}
 	
+	public ArrayList<Pedido> getAllPedidosCliente(){
+		return cp.getAllPedidosCliente();
+	}
 	public void altaPedido(Pedido p) {
 		cp.altaPedido(p);
 	}
