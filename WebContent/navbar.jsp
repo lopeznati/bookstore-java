@@ -33,15 +33,12 @@
               </div>
             <!--logo start-->
 			<%
-            	if ((session.getAttribute("rolUsuario").equals("admin"))){%>
-            	<a href="inicioAdmin.jsp" class="logo"><b>The Open Book</b></a>
-				<% 
-				}
-            	else if ((session.getAttribute("rolUsuario").equals("user")) || ((session.getAttribute("usuario") == null))){%>	
-				<a href="inicio.jsp" class="logo"><b>The Open Book</b></a>
-			 <%}%>
-				 
-				 
+			 	if (((session.getAttribute("usuario") == null)) ||(session.getAttribute("rolUsuario").equals("user"))){%>	
+					<a href="inicio.jsp" class="logo"><b>The Open Book</b></a>
+				<%}
+			 	else if ((session.getAttribute("rolUsuario").equals("admin"))){%>
+            		<a href="inicioAdmin.jsp" class="logo"><b>The Open Book</b></a>
+			 <%}%> 
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->

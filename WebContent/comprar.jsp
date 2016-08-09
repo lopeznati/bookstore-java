@@ -123,7 +123,7 @@
                               		<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Numero de tarjeta</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="numero_tarjeta" id="numero_tarjeta" requiered class="form-control">
+                                  			<input type="text" name="numero_tarjeta" id="numero_tarjeta" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -189,7 +189,7 @@
   				
 				var num_tarjeta=$("#numero_tarjeta").val();
   				if(isNaN(num_tarjeta)){
-  					alert("El campo Numero de Tarjeta ingresado debe ser un numero");
+  					alert("El campo Numero de Tarjeta debe ser numerico");
   					
   				//cancela el evento
    					event.preventDefault();

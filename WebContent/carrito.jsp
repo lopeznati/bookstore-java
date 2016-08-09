@@ -78,16 +78,16 @@
               					</thead>
                               <tbody>
                               <% 
-										session.setAttribute("msj", " ");
-										double total=0;
-										int totalArticulos=0;
-										if(session.getAttribute("carrito")!=null){
-										ArrayList<Libro> carrito=(ArrayList<Libro>) session.getAttribute("carrito");
+								session.setAttribute("msj", " ");
+								double total=0;
+								int totalArticulos=0;
+								if(session.getAttribute("carrito")!=null){
+								ArrayList<Libro> carrito=(ArrayList<Libro>) session.getAttribute("carrito");
 							
-										for(int i=0;i<carrito.size();i++){
-											total=total + carrito.get(i).getPrecio();
-											totalArticulos+=1;
-									%>
+								for(int i=0;i<carrito.size();i++){
+								total=total + carrito.get(i).getPrecio();
+								totalArticulos+=1;
+							  %>
                               <tr>
                                 <td><%=carrito.get(i).getTitulo() %></td>
 								<td><%=carrito.get(i).getCategoria().getDescripcion() %></td>
@@ -108,33 +108,34 @@
 								</div><br>
 								<% 
 									if(total!=0){ %>
-									
 									<div  align="center">
 										<span>Continuar la seleccion de productos</span>
 										<%if (session.getAttribute("rolUsuario").equals("admin")){%>
-							    		  <a href="inicioAdmin.jsp">
+							    		  	<a href="inicioAdmin.jsp">
 							    		<% 
-						    			}else {  %>	
-										 <a href="inicio.jsp">
+						    			}else if (session.getAttribute("rolUsuario").equals("user") || (session.getAttribute("usuario") == null)){  %>	
+										 	<a href="inicio.jsp">
 										<%} %>
 										<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> 
 									</div>
-									<br>
 									<div  align="center">
 										<input type="button" name="btnComprar" value="Comprar" class="btn btn-primary" onClick="location.href='comprar.jsp'">	
 									</div>
-									<p align="center"> 
+									<br>
+									<%}else{ %>
+									<div align="center"> 
 										<span class="prod">No hay productos seleccionados</span>
-										<%if (session.getAttribute("rolUsuario").equals("admin")){%>
-							    		  <a href="inicioAdmin.jsp">
-							    		<% 
-						    			}else {  %>	
-										 <a href="inicio.jsp">
+										<%if (session.getAttribute("rolUsuario").equals("admin")){%>	
+							    		  	<a href="inicioAdmin.jsp">
+							    		<%}else if (session.getAttribute("rolUsuario").equals("user") || (session.getAttribute("usuario") == null)){ %>	
+										 	<a href="inicio.jsp">
 										<%} %>
 										<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> 
+									</div>
+									<div  align="center">
+										<input disabled type="button" name="btnComprar" value="Comprar" class="btn btn-primary" onClick="location.href='comprar.jsp'">	
+									</div>
 									<%} %>
-									</p>
-                          
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->

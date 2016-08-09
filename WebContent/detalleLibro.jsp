@@ -37,15 +37,13 @@
       	MAIN SIDEBAR MENU
       	*********************************************************************************************************************************************************** -->
       	<!--sidebar start--> 	
-		<%
-            	if ((session.getAttribute("rolUsuario").equals("admin"))){%>
-            	 <jsp:include page="sidebarAdmin.jsp"></jsp:include>
-				<% 
-				}
-            	else if ((session.getAttribute("rolUsuario").equals("user")) || ((session.getAttribute("usuario") == null))){%>	
-				<jsp:include page="sidebar.jsp"></jsp:include>
-			 <%}%>
-
+			<%
+			 	if (((session.getAttribute("usuario") == null)) ||(session.getAttribute("rolUsuario").equals("user"))){%>	
+					<jsp:include page="sidebar.jsp"></jsp:include>
+				<%}
+			 	else if ((session.getAttribute("rolUsuario").equals("admin"))){%>
+            		<jsp:include page="sidebarAdmin.jsp"></jsp:include>
+			 <%}%> 
 
       	<!--sidebar end-->
       

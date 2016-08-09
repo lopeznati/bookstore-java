@@ -76,6 +76,7 @@ public class altaPedido extends HttpServlet {
 			
 				ControladorPedido cp = new ControladorPedido();
 				cp.altaPedido(pedido);
+				session.setAttribute("compra", "La compra se ha realizado con éxito");
 				session.setAttribute("msj", " ");
 				session.setAttribute("carrito", null);
 
