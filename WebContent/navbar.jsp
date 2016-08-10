@@ -79,6 +79,7 @@
             	<ul class="nav pull-right top-menu">
             	<%if(session.getAttribute("usuario")==null){ %>
                     <li><a class="logout" href="login.jsp">Iniciar Sesión</a></li>
+                   <!--  <li><a class="logout" href="nuevoCliente.jsp">Crear Cuenta</a></li> -->
                     <%} else{%>
                     <li><h5 class="centered acomodar">Hola, <%out.print(session.getAttribute("nombreUsuario")); %>!</h5></li>
                     <li><a class="logout" href="logout.jsp">Cerrar Sesión</a></li>  

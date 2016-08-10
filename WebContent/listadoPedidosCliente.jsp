@@ -24,7 +24,6 @@
         	<section class="wrapper">
         	<%
 				Cliente c = new ControladorCliente().getOneCliente(Integer.parseInt(request.getParameter("idCliente")));
-        		
 			%>
             	<div class="row mt">
                 	<div class="col-md-12">

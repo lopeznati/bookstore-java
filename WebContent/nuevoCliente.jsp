@@ -58,7 +58,7 @@
           				<div class="col-lg-12">
                   			<div class="form-panel">
                   	  			<h4 class="mb"><i class="fa fa-angle-right"></i> Completar el formulario</h4>
-                      			<form class="form-horizontal style-form" onSubmit="return validarPasswd()" action="altaCliente" method="POST">
+                      			<form name="formAltaCliente" class="form-horizontal style-form" action="altaCliente" method="POST">
 									<input type="hidden" name="rol" value="user">
                       	 			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Usuario</label>
@@ -69,13 +69,13 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Contraseña</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="clave" required class="form-control">
+                                  			<input type="password" name="clave" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Repetir contraseña</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="clave2" required class="form-control">
+                                  			<input type="password" name="clave2" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -93,7 +93,7 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Fecha Nacimiento</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="fecha_nacimiento" placeholder="YYYT-MM-DD" required class="form-control">
+                                  			<input type="Date" name="fecha_nacimiento" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -105,7 +105,7 @@
                          			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Mail</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="mail" required class="form-control">
+                                  			<input type="email" name="mail" required class="form-control">
                               			</div>
                           			</div>
                           			<div class="form-group">
@@ -117,8 +117,8 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Localidad</label>
                               			<div class="col-sm-10">
-                                  			<select name="localidad_id" class="form-control">
-						  						<option>...</option>
+                                  			<select name="localidad_id" id="localidad_id" class="form-control">
+						  						<option value="" selected="selected">...</option>
 						  							<%ArrayList<Localidad> localidades= new ControladorCliente().getAllLocalidades();
 													for(Localidad l:localidades){%>
 						  						<option value="<%=l.getId()%>"><%=l.getNombre()%></option>
@@ -127,7 +127,7 @@
                               			</div>
                           			</div>
                           			<div class="centrar-cont">
-                          				<button class="btn btn-primary">Aceptar</button>
+										<input type="submit" name="btnAceptar" value="Aceptar" class="btn btn-primary" onClick="validarPassword()">		
                           				<input type="button" name="btnCancelar" value="Cancelar" class="btn btn-primary" onClick="location.href='inicio.jsp'">		
                           			</div>
                     		 	</form>
@@ -145,20 +145,27 @@
       				</footer>
       				<!--footer end-->
   				</section>
+  		<script src="assets/js/jquery.js"></script>
   		<script>
-      	//custom select box
-			$(function(){
-          	$('select.styled').customSelect();
-      		});
-      		//validate password
-      		function validarPasswd(){
-      			var c1 = document.getElementById("clave").value;
-          		var c2 = document.getElementById("clave2").value;
-          		if(c1!== c2){      					
-          			alert("Las passwords deben de coincidir");
-          			return false;
-          			}	
-      			}
+  		$(document).ready(function(){
+  			$("form").submit(function(event){
+  				var localidad = $("#localidad_id").val();
+  				if(localidad === ''){
+  					alert("El campo Localidad no puede quedar vacio, seleccione una opcion.");	  
+  				//cancela el evento
+   					event.preventDefault();
+  				}
+  			});
+  		});
+      	//validate password
+      	function validarPassword(){
+      		var c1 = document.formAltaCliente.clave.value;
+          	var c2 = document.formAltaCliente.clave2.value;
+          	
+          	if(c1 != c2){      					
+          		alert("Las contraseñas deben de coincidir");
+          	}	
+      	}
   		</script>
   		<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
