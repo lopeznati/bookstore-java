@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title></title>
 </head>
 <body>
@@ -20,8 +21,8 @@
               	  <h5 class="centered">The Open Book</h5> 
               	 <%if(session.getAttribute("usuario") != null){%>
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
-                      	  <i class="fa fa-book" aria-hidden="true"></i>                          
+                      <a href="javascript:;" >
+                      	  <i class="fa fa-user" aria-hidden="true"></i>                          
                           <span>Mi Cuenta</span>
                       </a>                      
                       <ul class="sub">
@@ -39,7 +40,7 @@
                   </li>
                   <%}%>
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
+                      <a href="javascript:;" >
                       	  <i class="fa fa-book" aria-hidden="true"></i>                          
                           <span>Categorias</span>
                       </a>                      
@@ -56,16 +57,7 @@
               <!-- sidebar menu end-->
           </div>
       </aside>
-      <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-
-    <!--script for this page-->
-    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-
-	<!--custom switch-->
-	<script src="assets/js/bootstrap-switch.js"></script>
-	
-	<!--custom tagsinput-->
-	<script src="assets/js/jquery.tagsinput.js"></script>
+     
+   
 </body>
 </html>
