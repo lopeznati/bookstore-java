@@ -85,6 +85,15 @@ public class altaPedido extends HttpServlet {
 					session.setAttribute("msj", "No hay existencia del libro");
 				}
 		}
-		response.sendRedirect("inicio.jsp");
+		
+		 if (session.getAttribute("rolUsuario").equals("admin")){
+			   response.sendRedirect("inicioAdmin.jsp");
+			    
+			
+			}else {  
+				response.sendRedirect("inicio.jsp");
+			}
+
+
 	}
 }
