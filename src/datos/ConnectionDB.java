@@ -19,9 +19,9 @@ public class ConnectionDB {
 	}
 	// DATOS USER
 	
-	//private static String DBURL="jdbc:mysql://localhost:3306/nati1825?autoReconnect=true";
-	//private static String DBUSER="nati1825";
-	//private static String DBPASSWORD="12345678";
+	//private static String DBURL="jdbc:mysql://node101493-bookstore.jelasticlw.com.br/bookstore";
+	//private static String DBUSER="root";
+	//private static String DBPASSWORD="TLYvon47605";
 	
 	private static String DBURL="jdbc:mysql://localhost:3306/bookstore";
 	private static String DBUSER="root";

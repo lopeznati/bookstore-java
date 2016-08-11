@@ -159,7 +159,7 @@ public class CatalogoLibro {
 	
 	public void bajaLibro(Libro l){
 		PreparedStatement sentencia=null;
-		String sql="delete from Libros where id=?";
+		String sql="delete from libros where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
 			sentencia.setInt(1, l.getId());
@@ -183,7 +183,7 @@ public class CatalogoLibro {
 	
 	public void actualizarLibro(Libro nuevolib) {
 		PreparedStatement sentencia=null;
-		String sql="update Libros set isbn=?, titulo=?, sipnosis=?, numero_edicion=?, cantidad_paginas=?, precio=?, existencia=?, id_editorial=?, id_categoria=?, id_autor=? where id=?";
+		String sql="update libros set isbn=?, titulo=?, sipnosis=?, numero_edicion=?, cantidad_paginas=?, precio=?, existencia=?, id_editorial=?, id_categoria=?, id_autor=? where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
 			//System.out.println(nuevolib.getIsbn());
