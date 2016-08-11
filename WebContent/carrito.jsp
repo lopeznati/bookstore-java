@@ -87,7 +87,7 @@
 									<%}else{ %>
 									<div align="center"> 
 										<span class="prod">No hay productos seleccionados</span>	
-							    		<a href="inicioAdmin.jsp">			
+							    		<a href="inicio.jsp">			
 										<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> 
 									</div>
 									<div  align="center">
