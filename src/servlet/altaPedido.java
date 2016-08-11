@@ -38,8 +38,7 @@ public class altaPedido extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public altaPedido() {
-        super();
-    
+        super(); 
     }
 
 	/**
@@ -53,9 +52,7 @@ public class altaPedido extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HttpSession session = request.getSession(true);
-		
 		String direccion = request.getParameter("direccion");
 		double subtotal = Double.parseDouble(request.getParameter("subtotal"));
 		Cliente c = new ControladorCliente().getOneCliente(Integer.parseInt(request.getParameter("cliente_id")));
@@ -79,13 +76,11 @@ public class altaPedido extends HttpServlet {
 				session.setAttribute("compra", "La compra se ha realizado con éxito");
 				session.setAttribute("msj", " ");
 				session.setAttribute("carrito", null);
-
 			}
 			else{
 					session.setAttribute("msj", "No hay existencia del libro");
 				}
-		}
-		
-		response.sendRedirect("inicioAdmin.jsp");
+		}	
+		response.sendRedirect("inicio.jsp");
 	}
 }

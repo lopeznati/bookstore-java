@@ -65,9 +65,9 @@
                              	  					<tr>		                          		
 		                          						<td Colspan="2">Sinopsis: <%=l.getSipnosis()%></td>
 		                          					</tr>
-                             	  						<tr>
-                             	  							<input type="hidden" name="id" id="id" value="<%=l.getId()%>">
-                             	  							<input type="hidden" name="existencia" id="existencia" value="<%=l.getExistencia() %>">
+                             	  					<tr>
+                             	  						<input type="hidden" name="id" id="id" value="<%=l.getId()%>">
+                             	  						<input type="hidden" name="existencia" id="existencia" value="<%=l.getExistencia() %>">
                              	  						<td>	
                              	  							<button type="submit" id="btnComprar" class="btn btn-primary">Comprar +</button>		
                              	  						</td>
