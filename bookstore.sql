@@ -48,7 +48,7 @@ DROP TABLE IF EXISTS `localidades`;
 
 CREATE TABLE `localidades` (
   `id` int(11) NOT NULL auto_increment,
-  `nombre` varchar(20) default NULL,
+  `nombre` varchar(50) default NULL,
   `codigo_postal` int(11) default NULL,
   `id_provincia` int(11) default NULL,
   PRIMARY KEY  (`id`),
@@ -204,7 +204,9 @@ COMMIT;
 
 INSERT INTO `localidades` (`id`, `nombre`, `codigo_postal`, `id_provincia`) VALUES 
   (1,'Rosario',2000,1),
-  (2,'Clarke',2218,0);
+  (2,'Clarke',2218,1),
+  (3,'San Lorenzo',2200,1),
+  (4,'San Nicolas',2009,2);
 
 COMMIT;
 
@@ -214,8 +216,8 @@ COMMIT;
 
 INSERT INTO `clientes` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `telefono`, `mail`, `rol`, `id_localidad`, `fecha_nacimiento`, `direccion`) VALUES 
   (2,'nlopez','1234','Natali','Natali','34144444','dsfsdfdsfs','user',1,'1993-11-01','sdsada'),
-  (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com','user',2,'1993-10-19','Sarmiento 1621'),
-  (4,'mcaste','1234','Mailen','Castellarin','3476597263','mai_clarke_20@hotmai','admin',1,'1993-07-20','sarmiento 223');
+  (3,'mpintener','1234','Martina','Pintener','11111111','mpintener@gmail.com','user',4,'1993-10-19','Sarmiento 1621'),
+  (4,'mcaste','1234','Mailen','Castellarin','3476597263','mai_clarke_20@hotmai','admin',2,'1993-07-20','sarmiento 223');
 
 COMMIT;
 
@@ -239,7 +241,7 @@ INSERT INTO `libros` (`id`, `isbn`, `titulo`, `sipnosis`, `numero_edicion`, `can
   (2,222222,'El ultimo adiós','Escritora de superventas Kate Morton sobresale una vez más con esta novela de misterio, con la Inglaterra de la década de 1930 como sugerente telón de fondo. La trama es impecable y los personajes, modelados con habilidad y reunidos al final del libro como resultado de la investigación de Sparrow, quedan tan sorprendidos como los lectores por el inesperado desenlace.',2,300,250,0,'http://3.bp.blogspot.com/-F3k3Zy9TEFg/VmBQ56USRPI/AAAAAAAAPVo/el-a2lql97g/s320/El%2B%25C3%25BAltimo%2Badi%25C3%25B3s.jpg',3,3,3),
   (3,333333333,'Cómo Hacer Helado','52 recetas para lograr sabores clásicos y contemporáneos',2,100,250,7,'http://dwumenp4rf1cd.cloudfront.net/wp-content/uploads/2015/04/howtomakeicecream_cover.jpg',3,5,3),
   (4,44444444,'Eating Well - Soups',NULL,1,95,175,0,'http://assets.eatingwell.com/sites/default/files/images/000-J16_EWSoups_COVER_final_noUPC.png',3,5,3),
-  (5,555555555,'The Mayor''s Tongue ','.....',1,145,180,100,'http://www.creativindiecovers.com/wp-content/uploads/2012/02/beautiful-book-covers-36.png',3,1,1);
+  (5,555555555,'The Mayor''s Tongue ','.....',1,145,180,98,'http://www.creativindiecovers.com/wp-content/uploads/2012/02/beautiful-book-covers-36.png',3,1,1);
 
 COMMIT;
 
@@ -275,11 +277,11 @@ COMMIT;
 #
 
 INSERT INTO `tipos_tarjetas` (`id`, `nombre`, `id_provincia`) VALUES 
-  (1,'Naranja',NULL),
-  (2,'Mastercard',NULL),
-  (3,'Visa',NULL),
-  (4,'American Express',NULL),
-  (5,'Nativa',NULL);
+  (1,'Naranja',1),
+  (2,'Mastercard',1),
+  (3,'Visa',1),
+  (4,'American Express',1),
+  (5,'Nativa',2);
 
 COMMIT;
 
@@ -288,25 +290,7 @@ COMMIT;
 #
 
 INSERT INTO `pedidos` (`id`, `fecha_pedido`, `direccion`, `subtotal`, `numero_tarjeta`, `id_libro`, `id_cliente`, `id_localidad`, `id_tipo_tarjeta`) VALUES 
-  (1,'2016-07-18 21:37:20','gorriti',250,'1234567',2,2,1,2),
-  (2,'2016-07-18 21:45:50','hsagdhsa',250,'232',2,4,1,1),
-  (3,'2016-07-18 21:49:59','sadas',250,'2121',2,4,1,2),
-  (4,'2016-07-18 22:08:27','sds',250,'21321',2,4,1,2),
-  (5,'2016-07-18 22:12:38','jjjjkl',250,'6787',2,4,1,1),
-  (6,'2016-07-23 00:27:35','gorriti ',250,'1234567891234567',3,2,1,1),
-  (7,'2016-07-23 00:27:36','gorriti ',180,'1234567891234567',5,2,1,1),
-  (8,'2016-07-23 00:30:45','jnjknj',250,'11111111',3,2,1,1),
-  (9,'2016-07-23 00:34:17','aaa',250,'1234567891234567',3,2,1,1),
-  (10,'2016-08-06 16:15:24','dfdfd',180,'',5,4,1,1),
-  (11,'2016-08-06 16:17:05','asds',180,'aaaaaaaaaaaaaaaa',5,4,1,1),
-  (12,'2016-08-06 16:18:26','asfs',175,'1aaaaaaaaaaaaaaa',4,4,1,1),
-  (13,'2016-08-06 16:21:13','adasd',175,'',4,4,1,2),
-  (14,'2016-08-06 16:21:57','dads',175,'',4,4,1,2),
-  (15,'2016-08-06 16:25:07','dadsa',250,'',3,4,1,1),
-  (16,'2016-08-06 16:28:47','aads',250,'1111111111111111',3,4,1,1),
-  (17,'2016-08-06 16:36:22','asdsd',250,'1234567891234567',3,4,1,1),
-  (18,'2016-08-06 16:36:22','asdsd',250,'1234567891234567',3,4,1,1),
-  (19,'2016-08-06 16:52:50','adas',250,'1234567891234567',3,4,1,1);
+  (21,'2016-08-10','Sarmiento 223',300,'1234567812345678',1,3,4,2);
 
 COMMIT;
 

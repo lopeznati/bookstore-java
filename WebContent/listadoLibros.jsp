@@ -78,8 +78,6 @@
               		</div><!-- /row -->
 				</section><!--/wrapper -->
       		</section><!-- /MAIN CONTENT -->
-		<jsp:include page="footer.html"></jsp:include>
-	
  		<%}else{
 	  		response.sendRedirect("login.jsp");
 	  	}%>

@@ -165,9 +165,6 @@
                   </div>
           		</div><!-- col-lg-12-->      	
           	</div><!-- /row -->       
-      <!--footer start-->
-       <jsp:include page="footer.html"></jsp:include>
-      <!--footer end-->
   </section>
   
   	 	<%}else{

@@ -38,18 +38,6 @@
 	
   		<section id="container" >
       		<jsp:include page="navbar.jsp"></jsp:include>
-      		
-      		<!-- **********************************************************************************************************************************************************
-      				MAIN SIDEBAR MENU
-      		*********************************************************************************************************************************************************** -->
-      		
-      		
-      
-      		<!-- **********************************************************************************************************************************************************
-      				MAIN CONTENT
-      		*********************************************************************************************************************************************************** -->
-      		<!--main content start-->
-      		
       		<section id="main-content">
           		<section class="wrapper">
           			<h3><i class="fa fa-angle-right"></i> Nuevo Cliente</h3>	
@@ -158,7 +146,7 @@
           	}	
       	}
   		</script>
-  		<<!-- js placed at the end of the document so the pages load faster -->
+  	<!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/jquery-1.8.3.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
