@@ -5,9 +5,9 @@ import entidades.*;
 import datos.*;
 
 public class ControladorLibro {
-private CatalogoLibro cl;
-private CatalogoCategoria cc;
-private CatalogoEditorial ce;
+	private CatalogoLibro cl;
+	private CatalogoCategoria cc;
+	private CatalogoEditorial ce;
 
 	public ControladorLibro(){
 		cl = new CatalogoLibro();
@@ -41,19 +41,19 @@ private CatalogoEditorial ce;
 	
 	public Categoria getOneCategoria(int categoria_id)
 	{
-		CatalogoCategoria cc = new CatalogoCategoria();
+		cc = new CatalogoCategoria();
 		return cc.getOneCategoria(categoria_id);
 	}
 	
 	public ArrayList<Editorial> getAllEditoriales()
 	{
-		CatalogoEditorial ce = new CatalogoEditorial();
+		ce = new CatalogoEditorial();
 		return ce.getAllEditoriales();
 	}
 	
 	public Editorial getOneEditorial(int editorial_id)
 	{
-		CatalogoEditorial ce = new CatalogoEditorial();
+		ce = new CatalogoEditorial();
 		return ce.getOneEditorial(editorial_id);
 	}
 }

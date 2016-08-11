@@ -79,7 +79,8 @@ public class Cliente {
 		
 	}
 	
-	public Cliente(String usuario,String clave,String nombre,String apellido,Date fecha_nacimiento,String telefono,String mail,String direccion,String rol,Localidad l)
+	public Cliente(String usuario,String clave,String nombre,String apellido,Date fecha_nacimiento,String telefono,String mail,String direccion,
+				   String rol,Localidad l)
 	{
 		
 		this.usuario=usuario;
@@ -95,3 +96,4 @@ public class Cliente {
 
 	}
 }
+

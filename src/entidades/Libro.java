@@ -84,10 +84,8 @@ public class Libro {
 	public Libro(){
 		
 	}
-	public Libro(int isbn, String titulo, 
-			String sipnosis, int cantPag, int numEdicion, double precio,
-			int existencia, Editorial e, Categoria c, Autor a, String foto) {
-		
+	public Libro(int isbn, String titulo,String sipnosis, int cantPag, int numEdicion, double precio,
+				 int existencia, Editorial e, Categoria c, Autor a, String foto){	
 		this.isbn=isbn;
 		this.titulo=titulo;
 		this.sipnosis=sipnosis;

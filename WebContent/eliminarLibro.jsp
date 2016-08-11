@@ -1,9 +1,8 @@
 <%@page import="entidades.Libro"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Redirect"%>
-
 <%@page import="negocio.ControladorLibro"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -14,16 +13,7 @@
 		<%if(session.getAttribute("rolUsuario").equals("admin")){ %>
   		<section id="container" >
       	<jsp:include page="navbar.jsp"></jsp:include>
-      
-      	<!-- **********************************************************************************************************************************************************
-      	MAIN SIDEBAR MENU
-      	*********************************************************************************************************************************************************** -->
       	<jsp:include page="sidebarAdmin.jsp"></jsp:include>
-      
-      	<!-- **********************************************************************************************************************************************************
-      	MAIN CONTENT
-      	*********************************************************************************************************************************************************** -->
-      	<!--main content start-->
       	<section id="main-content">
         	<section class="wrapper">
           		<h3><i class="fa fa-angle-right"></i>Eliminar Libro</h3>
@@ -31,7 +21,6 @@
 	   	   		Libro l = cl.getOneLibro(Integer.parseInt(request.getParameter("idElim")));
 	   	   		System.out.println(l.getId());
 	   			%>
-				<!-- BASIC FORM ELELEMNTS -->
           		<div class="row mt">
 	          		<div class="col-lg-12">
     	    	    	<div class="form-panel">
@@ -85,32 +74,23 @@
             					</div>
 						</form>
               		</div>
-          		</div><!-- col-lg-12-->      	
-          	</div><!-- /row -->       
-     		 
+          		</div>   	
+          	</div>
   		</section>
 		 	<%}else{
 	  			response.sendRedirect("login.jsp");
 	  		}%>
-	  			
-     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/jquery-1.8.3.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="assets/js/jquery.sparkline.js"></script>
-
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-    
-    <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="assets/js/sparkline-chart.js"></script>    
-	<script src="assets/js/zabuto_calendar.js"></script>
+    	<script src="assets/js/jquery.js"></script>
+    	<script src="assets/js/jquery-1.8.3.min.js"></script>
+    	<script src="assets/js/bootstrap.min.js"></script>
+    	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    	<script src="assets/js/jquery.scrollTo.min.js"></script>
+    	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    	<script src="assets/js/jquery.sparkline.js"></script>
+	    <script src="assets/js/common-scripts.js"></script>
+       	<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+    	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    	<script src="assets/js/sparkline-chart.js"></script>    
+		<script src="assets/js/zabuto_calendar.js"></script>
 	</body>
 </html>

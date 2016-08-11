@@ -15,59 +15,28 @@
 <%@page import="entidades.Libro"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
   	<head>
     	 <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <title>Alta pedido</title>
-    
-    	 <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datepicker/css/datepicker.css" />
-    <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-daterangepicker/daterangepicker.css" />
-        
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-    	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    	<!--[if lt IE 9]>
-      	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    	<![endif]-->
+    	<title>Alta pedido</title>
+    	<link href="assets/css/bootstrap.css" rel="stylesheet">
+    	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    	<link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datepicker/css/datepicker.css" />
+    	<link rel="stylesheet" type="text/css" href="assets/js/bootstrap-daterangepicker/daterangepicker.css" />
+    	<link href="assets/css/style.css" rel="stylesheet">
+    	<link href="assets/css/style-responsive.css" rel="stylesheet">
 	</head>
 	<body>
-		<!-- Valido que el usuario no sea nulo, caso contrario lo mando al login -->
-		<%if(session.getAttribute("usuario") != null){ 
-		%>	
-  	
+		<%if(session.getAttribute("usuario") != null){ %>	
       		<jsp:include page="navbar.jsp"></jsp:include>
-      		
-      		<!-- **********************************************************************************************************************************************************
-      				MAIN SIDEBAR MENU
-      		*********************************************************************************************************************************************************** -->
       		<%if (session.getAttribute("rolUsuario").equals("admin")){%>
-		  	<jsp:include page="sidebarAdmin.jsp"></jsp:include>
-			<% 
-		  	}else {  %>	
-      		<jsp:include page="sidebar.jsp"></jsp:include>
+		  		<jsp:include page="sidebarAdmin.jsp"></jsp:include>
+			<%}else {  %>	
+      			<jsp:include page="sidebar.jsp"></jsp:include>
       		<%} %>
-      
-      		<!-- **********************************************************************************************************************************************************
-      				MAIN CONTENT
-      		*********************************************************************************************************************************************************** -->
-      		<!--main content start-->
-      		
       		<section id="main-content">
           		<section class="wrapper">
           			<h3><i class="fa fa-angle-right"></i> Nuevo Pedido</h3>	
-          			<!-- BASIC FORM ELELEMNTS -->
           			<div class="row mt">
           				<div class="col-lg-12">
                   			<div class="form-panel">
@@ -93,8 +62,7 @@
                         							tituloLibro[i] = carrito.get(i).getTitulo();
                               						subtotal = subtotal + carrito.get(i).getPrecio();
                               						titulosLibros.add(tituloLibro[i]);
-                              						} 
-                              				%>                 
+                              						} %>                 
                               				<select multiple class="form-control" readonly>
 						  							<%	for(Libro c:  carrito){%>
 						  							<option><%=c.getTitulo()%></option>
@@ -150,17 +118,13 @@
                           			</div>	
                     		 	</form>
                   			</div>
-          				</div><!-- col-lg-12-->      	
-          			</div><!-- /row -->       
-      				<!--footer start-->
-      				
+          				</div>    	
+          			</div>   
   				</section>
-  				</section><!-- /MAIN CONTENT -->
-  				
-  	 			<%}else{
-	  		response.sendRedirect("login.jsp");
-	  	}%>	
-    	<!-- js placed at the end of the document so the pages load faster -->
+  			</section>
+  			<%}else{
+	  			response.sendRedirect("login.jsp");
+	  		}%>	
     	<script src="assets/js/jquery.js"></script>
     	<script>
 			$(document).ready(function(){
@@ -197,10 +161,6 @@
    					$("#numero_tarjeta").focus();
   				}
   				
-  			
-  				
-  				
-  								
   				var tipo_tarjeta=$("#tipo_tarjeta_id").val();
   				if(tipo_tarjeta === ''){
   					alert("El campo Tipo Tarjeta no puede quedar vacio, seleccione una opcion.");	  
@@ -209,25 +169,18 @@
   				}
 			});
 		});	
-			</script>
-		    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/jquery-1.8.3.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="assets/js/jquery.sparkline.js"></script>
-
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-    
-    <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="assets/js/sparkline-chart.js"></script>    
-	<script src="assets/js/zabuto_calendar.js"></script>
+		</script>
+    	<script src="assets/js/jquery.js"></script>
+    	<script src="assets/js/jquery-1.8.3.min.js"></script>
+    	<script src="assets/js/bootstrap.min.js"></script>
+    	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    	<script src="assets/js/jquery.scrollTo.min.js"></script>
+    	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    	<script src="assets/js/jquery.sparkline.js"></script>
+	    <script src="assets/js/common-scripts.js"></script>
+	    <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+    	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    	<script src="assets/js/sparkline-chart.js"></script>    
+		<script src="assets/js/zabuto_calendar.js"></script>
 	</body>
 </html>

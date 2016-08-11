@@ -1,5 +1,4 @@
 package datos;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -61,7 +60,6 @@ public class CatalogoPedido {
 		}
 		return pedidos;
 	}
-	
 	public ArrayList<Pedido> getAllPedidosCliente()
 	{
 		ArrayList<Pedido> pedidos = new ArrayList<>();
@@ -72,7 +70,6 @@ public class CatalogoPedido {
 		{			
 			sentencia = ConnectionDB.getInstancia().getconn().createStatement();
 			rs = sentencia.executeQuery(sql);
-			
 			while (rs.next()){
 				Pedido p = new Pedido();
 				p.setId(rs.getInt("id"));
@@ -109,18 +106,14 @@ public class CatalogoPedido {
 		return pedidos;
 	}
 	
-	
-	
 	public void altaPedido(Pedido p){
-
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
-		String sql="insert into pedidos(fecha_pedido,direccion,subtotal,numero_tarjeta,id_libro,id_cliente,id_localidad,id_tipo_tarjeta) values(?,?,?,?,?,?,?,?)";
-		
+		String sql="insert into pedidos(fecha_pedido,direccion,subtotal,numero_tarjeta,id_libro,id_cliente,id_localidad,id_tipo_tarjeta) "
+					+ "values(?,?,?,?,?,?,?,?)";
 		try 
 		{
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
-			
 			sentencia.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
 			sentencia.setString(2, p.getDireccion());
 			sentencia.setDouble(3, p.getSubtotal());
@@ -129,22 +122,18 @@ public class CatalogoPedido {
 			sentencia.setInt(6, p.getCliente().getId());
 			sentencia.setInt(7, p.getLocalidad().getId());
 			sentencia.setInt(8, p.getTipo_tarjeta().getId());
-
 			sentencia.execute();
 			rs=sentencia.getGeneratedKeys();
-		
-			if(rs!=null && rs.next()){
-				p.setId(rs.getInt(1));
-			}
+			if(rs!=null && rs.next()){ p.setId(rs.getInt(1));}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		finally{
 			try {
 				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
-				ConnectionDB.getInstancia().CloseConn();
-				
-			} catch (SQLException sqle) {
+				ConnectionDB.getInstancia().CloseConn();	
+			} 
+			catch (SQLException sqle) {
 				sqle.printStackTrace();
 			}
 		}

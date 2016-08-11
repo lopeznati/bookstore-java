@@ -12,7 +12,6 @@ public class CatalogoCliente {
 	public ArrayList<Cliente> getAllClientes()
 	{
 		ArrayList<Cliente> clientes = new ArrayList<>();
-		
 		Statement sentencia = null;
 		ResultSet rs = null;
 		String sql = "select * from clientes";
@@ -33,10 +32,8 @@ public class CatalogoCliente {
 				c.setTelefono(rs.getString("telefono"));
 				c.setDireccion(rs.getString("direccion"));
 				c.setRol(rs.getString("rol"));
-				
 				Localidad l=new CatalogoLocalidad().getOneLocalidad(rs.getInt("id_localidad"));
 				c.setLocalidad(l);
-				
 				clientes.add(c);
 			}
 		}
@@ -93,11 +90,10 @@ public class CatalogoCliente {
 	}
 	
 	public void altaCliente(Cliente c){
-
 		PreparedStatement sentencia=null;
 		ResultSet rs=null;
-		String sql="insert into clientes(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,id_localidad) values(?,?,?,?,?,?,?,?,?,?)";
-		
+		String sql="insert into clientes(usuario,clave,nombre,apellido,fecha_nacimiento,telefono,mail,direccion,rol,id_localidad) "
+					+ "values(?,?,?,?,?,?,?,?,?,?)";
 		try 
 		{
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
@@ -111,10 +107,8 @@ public class CatalogoCliente {
 			sentencia.setString(8, c.getDireccion());
 			sentencia.setString(9, c.getRol());
 			sentencia.setInt(10, c.getLocalidad().getId());
-
 			sentencia.execute();
 			rs=sentencia.getGeneratedKeys();
-		
 			if(rs!=null && rs.next()){
 				c.setId(rs.getInt(1));
 			}
@@ -124,12 +118,10 @@ public class CatalogoCliente {
 		finally{
 			try {
 				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
-				ConnectionDB.getInstancia().CloseConn();
-				
+				ConnectionDB.getInstancia().CloseConn();	
 			} catch (SQLException sqle) {
 				sqle.printStackTrace();
 			}
-			
 		}
 	}
 	
@@ -158,7 +150,8 @@ public class CatalogoCliente {
 	
 	public void actualizarCliente(Cliente nuevoCli) {
 		PreparedStatement sentencia=null;
-		String sql="update clientes set usuario=?, clave=?, nombre=?, apellido=?, fecha_nacimiento=?, telefono=?, mail=?, direccion=?, rol=?, id_localidad=? where id=?";
+		String sql="update clientes set usuario=?, clave=?, nombre=?, apellido=?, fecha_nacimiento=?, telefono=?, mail=?, direccion=?, rol=?, "
+				+ "id_localidad=? where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
 			sentencia.setString(1, nuevoCli.getUsuario());
@@ -173,7 +166,6 @@ public class CatalogoCliente {
 			sentencia.setInt(10, nuevoCli.getLocalidad().getId());
 			sentencia.setInt(11, nuevoCli.getId());
 			sentencia.executeUpdate();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			}

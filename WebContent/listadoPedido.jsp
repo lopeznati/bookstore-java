@@ -1,18 +1,15 @@
 <%@page import="negocio.ControladorPedido"%>
 <%@page import="entidades.Pedido"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Listado Pedidos</title>
-		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  		<link href="css/styles.css" rel="stylesheet">
-		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
 	</head>
 	<body>
@@ -56,32 +53,26 @@
                                		<% } %>
                               		</tbody>
                           		</table>
-                      		</div><!-- /content-panel -->
-                  		</div><!-- /col-md-12 -->
-              		</div><!-- /row -->
-				</section><!--/wrapper -->
-      		</section><!-- /MAIN CONTENT -->
-  	  	 	<%}else{
-		  		response.sendRedirect("login.jsp");
-	  		}%>
-			<!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/jquery-1.8.3.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="assets/js/jquery.sparkline.js"></script>
-
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-    
-    <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="assets/js/sparkline-chart.js"></script>    
-	<script src="assets/js/zabuto_calendar.js"></script>	
+                          	</table>
+                      	</div>
+                  	</div>
+              	</div>
+			</section>
+      	</section>
+  	   	<%}else{
+	  		response.sendRedirect("login.jsp");
+	  	}%>
+    	<script src="assets/js/jquery.js"></script>
+    	<script src="assets/js/jquery-1.8.3.min.js"></script>
+    	<script src="assets/js/bootstrap.min.js"></script>
+    	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    	<script src="assets/js/jquery.scrollTo.min.js"></script>
+    	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    	<script src="assets/js/jquery.sparkline.js"></script>
+    	<script src="assets/js/common-scripts.js"></script>
+    	<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+    	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    	<script src="assets/js/sparkline-chart.js"></script>    
+		<script src="assets/js/zabuto_calendar.js"></script>	
 	</body>
 </html>

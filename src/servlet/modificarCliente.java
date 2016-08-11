@@ -58,18 +58,6 @@ public class modificarCliente extends HttpServlet {
 
 		ControladorCliente cc = new ControladorCliente();
 		cc.actualizarCliente(c);
-		HttpSession session = request.getSession(true);
-		
-		if ((session.getAttribute("rolUsuario").equals("admin"))){
-			response.sendRedirect("inicioAdmin.jsp");
-   	
-		
-		}
-   	else{
    		response.sendRedirect("inicio.jsp");
-		}
-		
-		
 	}
-
 }

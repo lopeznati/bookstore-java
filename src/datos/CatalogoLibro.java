@@ -1,5 +1,4 @@
 package datos;
-
 import entidades.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,23 +6,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 public class CatalogoLibro {
 	public ArrayList<Libro> getAllLibros(){
 		ArrayList<Libro> libros=new ArrayList<>();
-		/*El PreparedStatement nos permite definir una sentencia SQL base, 
-		 * que nos sirve para modificar/insertar/buscar uno o varios registros 
-		 * con s�lo cambiar los valores de los par�metros que especifiquemos.
-		*/
-		//preparo la sentencia sql
 		Statement sentencia=null;
 		ResultSet rs=null;
 		String sql="select * from libros";
 		try {
-			//Una vez establecida la conexi�n, podemos crear el PreparedStatement llamando al m�todo prepareStatement() de la Connection.
-			//es importante guardar este PreparedStatement en alg�n sitio al que podamos acceder cuando lo necesitemos
 			sentencia=ConnectionDB.getInstancia().getconn().createStatement();
-			//con el Resulset  creamos una consulta que nos va a regresar datos
 			rs=sentencia.executeQuery(sql);
 			while(rs.next()){
 				Libro l=new Libro();
@@ -37,7 +27,6 @@ public class CatalogoLibro {
 				l.setFoto(rs.getString("foto"));
 				l.setSipnosis(rs.getString("sipnosis"));
 				
-				//relaciones
 				Categoria c=new CatalogoCategoria().getOneCategoria(rs.getInt("id_categoria"));
 				l.setCategoria(c);
 				Editorial e=new CatalogoEditorial().getOneEditorial(rs.getInt("id_editorial"));
@@ -105,21 +94,11 @@ public class CatalogoLibro {
 	
 	
 	public void altaLibro(Libro l){
-		//preparo la sentencia sql
-		//El PreparedStatement nos permite definir una sentencia SQL base
 		PreparedStatement sentencia=null;
-		//con el Resulset  creamos una consulta que nos va a regresar datos
 		ResultSet rs=null;
-		//consulta sql
 		String sql="insert into libros(isbn,titulo,sipnosis,numero_edicion,cantidad_paginas,precio,existencia,foto,id_editorial,id_categoria,id_autor) values(?,?,?,?,?,?,?,?,?,?,?)";
 		try {
-			
-			//abro la conexion a la base de datos
-			//Una vez establecida la conexi�n, podemos crear el PreparedStatement llamando al m�todo prepareStatement() de la Connection.
-			//es importante guardar este PreparedStatement en alg�n sitio al que podamos acceder cuando lo necesitemos
-			
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
-			//primero debemos darle valor a los par�metros que dejamos como interrogantes
 			sentencia.setInt(1, l.getIsbn());
 			sentencia.setString(2, l.getTitulo());
 			sentencia.setString(3, l.getSipnosis());
@@ -132,10 +111,7 @@ public class CatalogoLibro {
 			sentencia.setInt(10, l.getCategoria().getId());
 			sentencia.setInt(11, l.getAutor().getId());
 			
-			//ejecutamos la sentencia
 			sentencia.execute();
-			// Se obtiene la clave generada ya que es autoincremntar
-			//ResultSet s�lo tendr� una fila (el bucle while s�lo se ejecutar� una vez)
 			rs=sentencia.getGeneratedKeys();
 		
 			if(rs!=null && rs.next()){
@@ -144,7 +120,6 @@ public class CatalogoLibro {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		//bloque que si o si se ejecuta comprueba la conexion para cerrarla
 		finally{
 			try {
 				if(sentencia!=null && !sentencia.isClosed()){sentencia.close();}
@@ -183,10 +158,10 @@ public class CatalogoLibro {
 	
 	public void actualizarLibro(Libro nuevolib) {
 		PreparedStatement sentencia=null;
-		String sql="update libros set isbn=?, titulo=?, sipnosis=?, numero_edicion=?, cantidad_paginas=?, precio=?, existencia=?, id_editorial=?, id_categoria=?, id_autor=? where id=?";
+		String sql="update libros set isbn=?, titulo=?, sipnosis=?, numero_edicion=?, cantidad_paginas=?, precio=?, existencia=?, id_editorial=?, "
+					+ "id_categoria=?, id_autor=? where id=?";
 		try {
 			sentencia=ConnectionDB.getInstancia().getconn().prepareStatement(sql);
-			//System.out.println(nuevolib.getIsbn());
 			sentencia.setInt(1, nuevolib.getIsbn());
 			sentencia.setString(2, nuevolib.getTitulo());
 			sentencia.setString(3, nuevolib.getSipnosis());

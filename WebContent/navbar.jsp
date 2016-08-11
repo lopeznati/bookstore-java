@@ -1,49 +1,30 @@
 <%@page import="negocio.ControladorLibro"%>
 <%@page import="entidades.Libro"%>
 <%@page import="java.util.ArrayList"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
-    <script src="assets/js/chart-master/Chart.js"></script>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    	<link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+    	<link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
+    	<link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
+    	<link href="assets/css/style.css" rel="stylesheet">
+    	<link href="assets/css/style-responsive.css" rel="stylesheet">
+    	<script src="assets/js/chart-master/Chart.js"></script>
   </head>
-
   <body>
-
-  <section id="container" >
- 
-      <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
-      <!--header start-->
-      <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-            <!--logo start-->
-			<%
-			 	if (((session.getAttribute("usuario") == null)) ||(session.getAttribute("rolUsuario").equals("user"))){%>	
-					<a href="inicio.jsp" class="logo"><b>The Open Book</b></a>
-				<%}
-			 	else if ((session.getAttribute("rolUsuario").equals("admin"))){%>
-            		<a href="inicioAdmin.jsp" class="logo"><b>The Open Book</b></a>
-			 <%}%> 
-            <!--logo end-->
+  	<section id="container" >
+    	<header class="header black-bg">
+        	<div class="sidebar-toggle-box">
+            	<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+			<a href="inicio.jsp" class="logo"><b>The Open Book</b></a>
             <div class="nav notify-row" id="top_menu">
-                <!--  notification start -->
                 <ul class="nav top-menu">
-                    <!-- settings start -->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>                          
@@ -65,21 +46,19 @@
                                      </a>                                      
                                 </div>                                                                                                              
                             </li> 
-                            <%} %> 
+                            	<%} %> 
                             <%} %>                       
                             <li class="external">
                                 <a class="go-center" href="carrito.jsp">Ver Carrito completo</a>
                             </li>
                         </ul>
                     </li>
-                    <!-- settings end -->
                     </ul>
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
             	<%if(session.getAttribute("usuario")==null){ %>
-                    <li><a class="logout" href="login.jsp">Iniciar Sesión</a></li>
-                   <!--  <li><a class="logout" href="nuevoCliente.jsp">Crear Cuenta</a></li> -->
+                    <li><a class="logout" href="login.jsp">Iniciar Sesión</a></li>     
                     <%} else{%>
                     <li><h5 class="centered acomodar">Hola, <%out.print(session.getAttribute("nombreUsuario")); %>!</h5></li>
                     <li><a class="logout" href="logout.jsp">Cerrar Sesión</a></li>  
@@ -87,8 +66,6 @@
             	</ul>
             </div>
         </header>
-      <!--header end-->
       </section>
-   
    	</body>
  </html>

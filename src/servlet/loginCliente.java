@@ -62,25 +62,13 @@ public class loginCliente extends HttpServlet {
 			    session.setAttribute("nombreUsuario", cliente.getUsuario());
 			    session.setAttribute("rolUsuario", cliente.getRol());
 			    encontro=true;
-			    
-			    if (session.getAttribute("rolUsuario").equals("admin")){
-    			   response.sendRedirect("inicioAdmin.jsp");
-    			    
-    			
-    			}else {  
-    				response.sendRedirect("inicio.jsp");
-    			}
+			    response.sendRedirect("inicio.jsp");
 			} 	   
 			          			    		
 		}
-		// si el usuario no fue encontrado lo mando al login
 		if(!encontro){
 			session.setAttribute("msj", "Usuario o contraseña incorrecto/s");
 			response.sendRedirect("login.jsp");
-			
-			
 		}
-		
 	}
-
 }

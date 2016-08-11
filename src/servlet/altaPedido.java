@@ -86,14 +86,6 @@ public class altaPedido extends HttpServlet {
 				}
 		}
 		
-		 if (session.getAttribute("rolUsuario").equals("admin")){
-			   response.sendRedirect("inicioAdmin.jsp");
-			    
-			
-			}else {  
-				response.sendRedirect("inicio.jsp");
-			}
-
-
+		response.sendRedirect("inicioAdmin.jsp");
 	}
 }
