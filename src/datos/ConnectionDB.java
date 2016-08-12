@@ -21,7 +21,7 @@ public class ConnectionDB {
 	
 	//private static String DBURL="jdbc:mysql://node101493-bookstore.jelasticlw.com.br/bookstore";
 	//private static String DBUSER="root";
-	//private static String DBPASSWORD="TLYvon47605";
+    //private static String DBPASSWORD="TLYvon47605";
 	
 	private static String DBURL="jdbc:mysql://localhost:3306/bookstore";
 	private static String DBUSER="root";

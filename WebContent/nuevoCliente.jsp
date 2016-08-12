@@ -69,7 +69,7 @@
                           			<div class="form-group">
                               			<label class="col-sm-2 col-sm-2 control-label">Telefono</label>
                               			<div class="col-sm-10">
-                                  			<input type="text" name="tel" required class="form-control">
+                                  			<input type="text" name="telefono" required class="form-control">
                               			</div>
                           			</div>
                          			<div class="form-group">
